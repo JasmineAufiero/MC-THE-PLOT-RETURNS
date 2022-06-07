@@ -32,6 +32,8 @@
 		473D8038284F9A6500D2FD6A /* SummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473D8034284F9A6500D2FD6A /* SummaryView.swift */; };
 		473D8039284F9A6500D2FD6A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473D8035284F9A6500D2FD6A /* ContentView.swift */; };
 		473D803A284F9A6500D2FD6A /* CabinetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473D8036284F9A6500D2FD6A /* CabinetView.swift */; };
+		473D803C284FAF7600D2FD6A /* DataFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473D803B284FAF7600D2FD6A /* DataFormat.swift */; };
+		473D803E284FB22700D2FD6A /* DatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473D803D284FB22700D2FD6A /* DatePickerView.swift */; };
 		477C82E8284F91A600108CF2 /* Med_WasteApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477C82E7284F91A600108CF2 /* Med_WasteApp.swift */; };
 		477C82EC284F91A600108CF2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 477C82EB284F91A600108CF2 /* Assets.xcassets */; };
 		477C82EF284F91A600108CF2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 477C82EE284F91A600108CF2 /* Preview Assets.xcassets */; };
@@ -63,6 +65,8 @@
 		473D8034284F9A6500D2FD6A /* SummaryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummaryView.swift; sourceTree = "<group>"; };
 		473D8035284F9A6500D2FD6A /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		473D8036284F9A6500D2FD6A /* CabinetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CabinetView.swift; sourceTree = "<group>"; };
+		473D803B284FAF7600D2FD6A /* DataFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFormat.swift; sourceTree = "<group>"; };
+		473D803D284FB22700D2FD6A /* DatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerView.swift; sourceTree = "<group>"; };
 		477C82E4284F91A600108CF2 /* Med_Waste.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Med_Waste.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		477C82E7284F91A600108CF2 /* Med_WasteApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Med_WasteApp.swift; sourceTree = "<group>"; };
 		477C82EB284F91A600108CF2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -106,6 +110,7 @@
 			children = (
 				470DE6D3284F958400FFB711 /* CustomColors.swift */,
 				470DE6D4284F958400FFB711 /* RecognizeText.swift */,
+				473D803B284FAF7600D2FD6A /* DataFormat.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -161,6 +166,7 @@
 			children = (
 				473D8030284F9A5000D2FD6A /* CheckBoxView.swift */,
 				473D802F284F9A5000D2FD6A /* StepperView.swift */,
+				473D803D284FB22700D2FD6A /* DatePickerView.swift */,
 			);
 			path = ButtonViews;
 			sourceTree = "<group>";
@@ -275,6 +281,7 @@
 			files = (
 				473D8010284F99FD00D2FD6A /* BoxViewModel.swift in Sources */,
 				473D8039284F9A6500D2FD6A /* ContentView.swift in Sources */,
+				473D803C284FAF7600D2FD6A /* DataFormat.swift in Sources */,
 				473D802C284F9A4100D2FD6A /* SingleMedView.swift in Sources */,
 				473D8037284F9A6500D2FD6A /* StatisticsView.swift in Sources */,
 				473D8019284F9A0800D2FD6A /* RecognizedContent.swift in Sources */,
@@ -290,6 +297,7 @@
 				473D8020284F9A2A00D2FD6A /* CircleCheckBox.swift in Sources */,
 				473D8031284F9A5000D2FD6A /* StepperView.swift in Sources */,
 				473D8018284F9A0800D2FD6A /* MedState.swift in Sources */,
+				473D803E284FB22700D2FD6A /* DatePickerView.swift in Sources */,
 				470DE6D6284F958400FFB711 /* RecognizeText.swift in Sources */,
 				473D802D284F9A4100D2FD6A /* NewItemView.swift in Sources */,
 				473D8017284F9A0800D2FD6A /* MedData.swift in Sources */,

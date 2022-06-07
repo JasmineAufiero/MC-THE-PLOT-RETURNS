@@ -183,11 +183,6 @@ struct NewItemView: View {
                         // add all the boxes of that medicine
                         for i in 1...numerobox {
                             boxViewModel.addNewBox(medicine: nome, expirationDate: expirationDate[i-1], state: .usable)
-                            
-                            for item in medicineViewModel.medicines {
-                                print(item.name)
-                                print("***")
-                            }
                         }
                         
                     }

@@ -8,9 +8,6 @@
 
 import SwiftUI
 
-
-
-
 struct AlertView: View {
     @State private var isHalf = false
     @State private var isFull = false

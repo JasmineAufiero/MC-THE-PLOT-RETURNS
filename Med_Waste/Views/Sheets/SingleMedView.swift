@@ -19,10 +19,12 @@ struct SingleMedView: View {
     var boxViewModel: BoxViewModel
     
     
+    
     @State private var alertdonate = false
     @State private var alertexpire = false
     @State var isPinned : Bool = false
     
+
     var body: some View {
         
         ScrollView {
@@ -64,15 +66,19 @@ struct SingleMedView: View {
                 
                 List {
                     ForEach(0..<boxViewModel.boxes.count, id: \.self) { index in
+
+//                        HStack{
+//                            Text("Box \(index+1)")
+//                                .fontWeight(.semibold)
+//                            Spacer()
+//
+//
+//                            Text("\(boxViewModel.boxes[index].expirationDate.formatToString(using: .MMddyy))")
+//                                .foregroundColor(.secondary)
+//                                .multilineTextAlignment(.leading)
+//                        }
+                        DatePickerView(selection: boxViewModel.boxes[index].expirationDate, index: index)
                         
-                        HStack{
-                            Text("Box \(index+1)")
-                                .fontWeight(.semibold)
-                            Spacer()
-                            Text("\(boxViewModel.boxes[index].expirationDate)")
-                                .foregroundColor(.secondary)
-                                .multilineTextAlignment(.leading)
-                        }
                         .swipeActions {
                             
                             Button{alertexpire.toggle()} label: {
