@@ -15,3 +15,5 @@ struct MedBox :Identifiable, Codable {
     var state :MedState
 }
 
+
+

@@ -23,7 +23,7 @@ struct SingleMedView: View {
     @State private var alertdonate = false
     @State private var alertexpire = false
     @State var isPinned : Bool = false
-    
+    @State var newBoxAdded :Int = 0
 
     var body: some View {
         
@@ -54,6 +54,7 @@ struct SingleMedView: View {
                         Spacer()
                         Button(action: {
                             boxViewModel.addNewBox(medicine: nome, expirationDate: Date.now, state: .usable)
+                            newBoxAdded = boxViewModel.boxes.count
                         })
                         { Image(systemName: "plus.circle.fill").scaleEffect(1.5).foregroundColor(CustomColor.darkblue)}
                     }
@@ -65,7 +66,7 @@ struct SingleMedView: View {
                 
                 
                 List {
-                    ForEach(0..<boxViewModel.boxes.count, id: \.self) { index in
+                    ForEach(0..<(newBoxAdded == 0 ? boxViewModel.boxes.count : newBoxAdded), id: \.self) { index in
 
 //                        HStack{
 //                            Text("Box \(index+1)")
@@ -78,29 +79,28 @@ struct SingleMedView: View {
 //                                .multilineTextAlignment(.leading)
 //                        }
                         DatePickerView(selection: boxViewModel.boxes[index].expirationDate, index: index)
-                        
                         .swipeActions {
-                            
+
                             Button{alertexpire.toggle()} label: {
                                 Image(systemName: "trash.fill")
                             }
                             .tint(.red)
-                            
-                            
+
+
                             Button{alertdonate.toggle()} label: {
-                                
+
                                 //                            DonateIcon()
                                 Image(systemName: "hand.raised.fill")
-                                
-                                
+
+
                             }
                             .tint(.green)
-                            
+
                         }
-                    }.listRowBackground(Color.init(red: 247/255, green: 213/255, blue: 223/255)).padding()
-                }
+                    }
+                }.listRowBackground(Color.init(red: 247/255, green: 213/255, blue: 223/255))
                 .listStyle(.inset)
-                .frame(height: 200)
+                .frame(height: UIScreen.screenHeight)
                 .padding(20)
              
             }
