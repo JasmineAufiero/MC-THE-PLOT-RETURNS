@@ -79,6 +79,7 @@ struct SingleMedView: View {
 //                                .multilineTextAlignment(.leading)
 //                        }
                         DatePickerView(selection: boxViewModel.boxes[index].expirationDate, index: index)
+                            .listRowBackground(Color.init(red: 247/255, green: 213/255, blue: 223/255))
                         .swipeActions {
 
                             Button{alertexpire.toggle()} label: {
@@ -98,7 +99,7 @@ struct SingleMedView: View {
 
                         }
                     }
-                }.listRowBackground(Color.init(red: 247/255, green: 213/255, blue: 223/255))
+                }
                 .listStyle(.inset)
                 .frame(height: UIScreen.screenHeight)
                 .padding(20)
