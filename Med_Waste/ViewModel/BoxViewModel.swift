@@ -38,4 +38,6 @@ class BoxViewModel :ObservableObject {
 //        medicineViewModel.addBox(MedBox(medicine: medicine, expirationDate: expirationDate, state: state)
 
     }
+    
+    
 }

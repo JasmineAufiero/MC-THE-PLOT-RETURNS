@@ -22,25 +22,30 @@ struct MedCardView: View {
             
             RoundedRectangle(cornerRadius: 20, style: .continuous)
                 .foregroundColor(CustomColor.medcardgray)
+//                .frame(width: <#T##CGFloat?#>, height: <#T##CGFloat?#>, alignment: <#T##Alignment#>)
                 .fixedSize(horizontal: false, vertical: false)
                 .shadow(color: .gray, radius: 2, x: 0, y: 2)
             
             VStack(alignment: .center, spacing: 10){
                 
                 // modified: dynamic change of the card
-                Image("pills").resizable().scaledToFit() // add a method in the ViewModel that define the image based on the type
-                RoundedRectangle(cornerRadius: 20).fixedSize(horizontal: false, vertical: true)
+                Image("pills").resizable().scaledToFit().padding() // add a method in the ViewModel that define the image based on the type
+                RoundedRectangle(cornerRadius: 20).fixedSize(horizontal: false, vertical: false).frame( height: 5 , alignment: .center).foregroundColor(Color.systemOrange)
                 HStack{
                     Text(medname).font(.title3).fontWeight(.bold).textCase(.uppercase)
+                        .scaledToFit()
+                            .minimumScaleFactor(0.01)
+                            .lineLimit(1)
                     Spacer()
-                    Text (dosage)
+                    Text (dosage).font(.subheadline)
                 }
                 HStack{
-                    Text(medCategory)
+                    Text(medCategory.capitalizingFirstLetter())
                     Spacer()
                 }
                 
-            }.padding().foregroundColor(CustomColor.graytext)
+            }.padding(10).foregroundColor(CustomColor.graytext)
+                .frame(width: 180, height: 300, alignment: .center)
             
         }
     }
@@ -48,6 +53,6 @@ struct MedCardView: View {
 
 struct MedCardView_Previews: PreviewProvider {
     static var previews: some View {
-        MedCardView(medname: "Ayrinal", dosage: "20mg", medCategory: "Antistaminico")
+        MedCardView(medname: "Tachipirina", dosage: "20mg", medCategory: "Antistaminico")
     }
 }

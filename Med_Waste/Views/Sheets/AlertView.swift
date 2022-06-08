@@ -15,14 +15,15 @@ struct AlertView: View {
     @State var donateQ = "Quanto del tuo scatolo sei riuscito a donare?"
     @State var expireQ = "Quanto del tuo scatolo sei riuscito ad utilizzare?"
     var statethrow : Bool
-    
-    
+   
+    @Binding var alertdonate: Bool
+    @Binding var alertexpire: Bool
     
     var body: some View {
         VStack {
             
             
-            Image(systemName: "x.circle.fill").scaleEffect(2) .frame(width: UIScreen.screenWidth, height: 50, alignment: .trailing).padding(.trailing, 50)
+//            Image(systemName: "x.circle.fill").scaleEffect(2) .frame(width: UIScreen.screenWidth, height: 50, alignment: .trailing).padding(.trailing, 50)
             
             
             Image(statethrow ? "throwimg" : "donateimg").resizable().frame(width: 350, height: 300, alignment: .center)
@@ -58,12 +59,14 @@ struct AlertView: View {
                 }
             }.padding()
             Spacer()
-            Button(action: {}, label: {
+            Button(action: {
+                statethrow ? alertexpire.toggle() : alertdonate.toggle()
+            }, label: {
                 RoundedRectangle(cornerRadius: 10)
                     .frame(width: 300, height: 50, alignment: .center)
                 
                     .overlay(Text("Fatto").foregroundColor(.white))
-            })
+            }).disabled(!(isFull || isHalf || isEmpty))
             
             
         }.padding()
@@ -71,8 +74,8 @@ struct AlertView: View {
 }
 
 
-struct AlertView_Previews: PreviewProvider {
-    static var previews: some View {
-        AlertView( statethrow: false)
-    }
-}
+//struct AlertView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        AlertView( statethrow: false)
+//    }
+//}
