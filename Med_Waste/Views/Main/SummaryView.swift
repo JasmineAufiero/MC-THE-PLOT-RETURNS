@@ -11,6 +11,13 @@ import SwiftUI
 
 struct SummaryView: View {
     let data = (1...10).map { "Item \($0)" }
+    @StateObject var medicineViewModel = MedicineViewModel()
+    
+    
+    var pinnedMeds :[MedData] {
+        return medicineViewModel.medicines.filter{$0.isPinned}
+       
+    }
     
     var body: some View {
         NavigationView{
@@ -21,10 +28,10 @@ struct SummaryView: View {
                 
                 ScrollView(.horizontal){
                     HStack(spacing: 5 ){
-                        ForEach(data, id: \.self) { item in
+                        ForEach(pinnedMeds , id: \.self) { item in
                             NavigationLink(destination:{}
 //                                                                        SingleMedView()
-                                                                       , label: {MiniMedCardView() .padding(5)})
+                                           , label: {MiniMedCardView(nome: item.name) .padding(5)})
                             
                             
                         }
@@ -36,10 +43,10 @@ struct SummaryView: View {
                 
                 ScrollView(.horizontal){
                     HStack(spacing: 5 ){
-                                                ForEach(data, id: \.self) { item in
+                                                ForEach(pinnedMeds , id: \.self) { item in
                                                     NavigationLink(destination:{}
 //                                                                    SingleMedView()
-                                                                   , label: {MiniMedCardView()
+                                                                   , label: {MiniMedCardView(nome: item.name)
                                                         .padding(5)})
                         
                     }
