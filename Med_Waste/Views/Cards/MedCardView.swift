@@ -40,7 +40,7 @@ struct MedCardView: View {
                     Spacer()
                 }
                 
-            }.padding()
+            }.padding().foregroundColor(CustomColor.graytext)
             
         }
     }
