@@ -62,7 +62,7 @@ struct StatCardView: View {
                         .font(Font.system(size: 28, weight: .bold))
                         .foregroundColor(CustomColor.darkblue)
                     
-                    Text("Totale spesa medicinali. La media italiana per cittadino è 438 €.")
+                    Text("Totale spesa medicinali. La media italiana per cittadino \n è 438 €.")
                         .foregroundColor(CustomColor.graytext)
                         .multilineTextAlignment(.leading)
                         .padding()

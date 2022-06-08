@@ -40,6 +40,8 @@
 		477C82E8284F91A600108CF2 /* Med_WasteApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477C82E7284F91A600108CF2 /* Med_WasteApp.swift */; };
 		477C82EC284F91A600108CF2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 477C82EB284F91A600108CF2 /* Assets.xcassets */; };
 		477C82EF284F91A600108CF2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 477C82EE284F91A600108CF2 /* Preview Assets.xcassets */; };
+		5AE113B828509DA000CD7A5D /* MotherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE113B728509DA000CD7A5D /* MotherView.swift */; };
+		5AE113BA28509DC300CD7A5D /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE113B928509DC300CD7A5D /* OnboardingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,6 +79,8 @@
 		477C82E7284F91A600108CF2 /* Med_WasteApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Med_WasteApp.swift; sourceTree = "<group>"; };
 		477C82EB284F91A600108CF2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		477C82EE284F91A600108CF2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		5AE113B728509DA000CD7A5D /* MotherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotherView.swift; sourceTree = "<group>"; };
+		5AE113B928509DC300CD7A5D /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +157,8 @@
 				473D8035284F9A6500D2FD6A /* ContentView.swift */,
 				473D8033284F9A6500D2FD6A /* StatisticsView.swift */,
 				473D8034284F9A6500D2FD6A /* SummaryView.swift */,
+				5AE113B728509DA000CD7A5D /* MotherView.swift */,
+				5AE113B928509DC300CD7A5D /* OnboardingView.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -309,6 +315,8 @@
 				473D8031284F9A5000D2FD6A /* StepperView.swift in Sources */,
 				473D8018284F9A0800D2FD6A /* MedState.swift in Sources */,
 				473D803E284FB22700D2FD6A /* DatePickerView.swift in Sources */,
+				5AE113BA28509DC300CD7A5D /* OnboardingView.swift in Sources */,
+				5AE113B828509DA000CD7A5D /* MotherView.swift in Sources */,
 				470DE6D6284F958400FFB711 /* RecognizeText.swift in Sources */,
 				473D802D284F9A4100D2FD6A /* NewItemView.swift in Sources */,
 				473D8017284F9A0800D2FD6A /* MedData.swift in Sources */,
