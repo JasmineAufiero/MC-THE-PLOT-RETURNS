@@ -15,6 +15,7 @@ struct CabinetView: View {
     @State private var showMap = false
     @State private var showData = false
     @State private var isRecognizing = false
+    @State var pinnedMedicineNumber :Int
     
     var medicineViewModel :MedicineViewModel
     var boxViewModel :BoxViewModel
@@ -42,7 +43,7 @@ struct CabinetView: View {
                     
                     ForEach(medicineViewModel.medicines) { item in
                         
-                        NavigationLink(destination: SingleMedView(nome: item.name, dosaggio: item.dosage, tipologia: item.type, unità: item.units, categoria: item.category, medicineViewModel: medicineViewModel, boxViewModel: boxViewModel)) {
+                        NavigationLink(destination: SingleMedView(nome: item.name, dosaggio: item.dosage, tipologia: item.type, prezzo: item.price, unità: item.units, categoria: item.category, medicineViewModel: medicineViewModel, boxViewModel: boxViewModel)) {
                             
                             MedCardView(medname: item.name, dosage: item.dosage, medCategory: item.category)
                                 .padding(5)

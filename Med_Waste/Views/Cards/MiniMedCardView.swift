@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct MiniMedCardView: View {
+    var name :String
+    
     var body: some View {
         ZStack{
         RoundedRectangle(cornerRadius: 20, style: .continuous)
@@ -19,7 +21,7 @@ struct MiniMedCardView: View {
                 Image("pills").resizable().scaledToFit()
                
               
-                Text("Ayrinal").font(.subheadline).fontWeight(.bold).textCase(.uppercase)
+                Text(name).font(.subheadline).fontWeight(.bold).textCase(.uppercase)
                      }.padding().foregroundColor(CustomColor.graytext))
        
         
@@ -28,8 +30,8 @@ struct MiniMedCardView: View {
     }
 }
 
-struct MiniMedCardView_Previews: PreviewProvider {
-    static var previews: some View {
-        MiniMedCardView()
-    }
-}
+//struct MiniMedCardView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        MiniMedCardView()
+//    }
+//}

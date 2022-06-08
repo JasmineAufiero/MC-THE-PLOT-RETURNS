@@ -12,19 +12,19 @@ struct SingleMedView: View {
     var nome: String
     var dosaggio: String
     var tipologia: String
+    var prezzo :String
     var unità: Int
     var categoria :String
-    
     var medicineViewModel: MedicineViewModel
     var boxViewModel: BoxViewModel
     
-    
-    
+
     @State private var alertdonate = false
     @State private var alertexpire = false
     @State var isPinned : Bool = false
-    @State var newBoxAdded :Int = 0
-
+    @State var newBoxAdded :Int = 0 // it is a state variable that refreshes the view when a new box is added
+    
+    
     var body: some View {
         
         ScrollView {
@@ -41,8 +41,19 @@ struct SingleMedView: View {
                     HStack{
                         Text(nome).font(.title2).fontWeight(.bold).textCase(.uppercase)
                         Spacer()
-                        Image(systemName: isPinned ? "heart.fill" : "heart").scaleEffect(1.5).foregroundColor(.pink).onTapGesture {
-                            isPinned.toggle()
+                        Image(systemName: isPinned ? "heart.fill" : "heart").scaleEffect(1.5).foregroundColor(.pink)
+                            .onTapGesture {
+//                                isPinned = medicineViewModel.isPinnedMedicine(name: nome)
+                                isPinned.toggle()
+                                
+//                                if isPinned {
+//                                    medicineViewModel.addPinnedMedicines(name: nome, dosage: dosaggio, type: tipologia, price: prezzo, units: unità, category: categoria)
+//                                }
+//                                else {
+//                                    medicineViewModel.removePinnedMedicines(name: nome)
+//                                }
+//                                pinnedMedicineNumber = medicineViewModel.pinnedMedicines.count-1
+
                         }
                     }
                     Text(dosaggio).font(.title3)
@@ -109,9 +120,11 @@ struct SingleMedView: View {
             
         }
         .onAppear(perform: {
+//            isPinned = medicineViewModel.isPinnedMedicine(name: nome)
             UITableView.appearance().backgroundColor = UIColor.clear
         UITableViewCell.appearance().backgroundColor = UIColor.clear
                       })
+
         
         //        .sheet(isPresented: $alertdonate, content: {AlertView(statethrow: false)})
         //            .sheet(isPresented: $alertexpire, content: {AlertView(statethrow: true)})

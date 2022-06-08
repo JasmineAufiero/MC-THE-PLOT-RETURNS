@@ -26,10 +26,11 @@ struct ContentView: View {
 
     var body: some View {
             TabView(){
-                SummaryView()
+                SummaryView(medicineViewModel: medicineViewModel, boxViewModel: boxViewModel)
                     .tabItem {Label("Riepilogo", systemImage: "square.grid.2x2.fill")}
+  
 
-                CabinetView(medicineViewModel: medicineViewModel, boxViewModel: boxViewModel)
+                CabinetView(pinnedMedicineNumber: 10, medicineViewModel: medicineViewModel, boxViewModel: boxViewModel)
                     .tabItem {Label("Armadietto", systemImage: "heart.text.square.fill")}
 
                 StatisticsView()

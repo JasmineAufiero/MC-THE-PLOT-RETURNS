@@ -31,6 +31,24 @@ class BoxViewModel :ObservableObject {
         
     }
     
+//    func filerAboutToExpireMedicines(name: String) -> [MedData] {
+//        var aboutToExpire :[MedData] = []
+//
+//        for medicine in medicines {
+//            if medicine.date
+//        }
+//    }
+    
+    func filterExpiredBoxes(name: String) {
+        var expiredBoxes :[MedBox] = []
+        
+        for box in boxes {
+            if box.expirationDate > Date.now {
+                expiredBoxes.append(box)
+            }
+        }
+    }
+    
     
     func addNewBox(medicine: String, expirationDate: Date, state :MedState) {
 

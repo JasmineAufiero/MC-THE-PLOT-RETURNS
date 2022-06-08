@@ -10,14 +10,44 @@ import Foundation
 class MedicineViewModel :ObservableObject {
     
     @Published var medicines :[MedData] = [
-        MedData(name: "Tachipirina", dosage: "100 mg", type: "compresse", price: "9,00 €",  units: 30, category: "antivirale"),
-        MedData(name: "Ayrinal", dosage: "100 mg", type: "compresse", price: "10,90 €",  units: 30, category: "antistaminico")
+        MedData(name: "Tachipirina", dosage: "100 mg", type: "compresse", price: "9,00 €",  units: 30, category: "antivirale", isPinned: false),
+        MedData(name: "Ayrinal", dosage: "100 mg", type: "compresse", price: "10,90 €",  units: 30, category: "antistaminico", isPinned: false)
     
     ]
     
-    func addNewMedicine(name :String, dosage: String, type :String, price :String, units :Int, category :String) {
-        medicines.append(MedData(name: name, dosage: dosage, type: type, price: price, units: units, category: category))
+//    @Published var pinnedMedicines :[MedData] = [
+////        MedData(name: "Ayrinal", dosage: "100 mg", type: "compresse", price: "10,90 €",  units: 30, category: "antistaminico")
+//    ]
+    
+    
+    func addNewMedicine(name :String, dosage: String, type :String, price :String, units :Int, category :String, isPinned: Bool) {
+        medicines.append(MedData(name: name, dosage: dosage, type: type, price: price, units: units, category: category, isPinned: isPinned))
     }
+//    
+//    func addPinnedMedicines(name :String, dosage: String, type :String, price :String, units :Int, category :String) {
+//        pinnedMedicines.append(MedData(name: name, dosage: dosage, type: type, price: price, units: units, category: category))
+//    }
+//    
+//    func isPinnedMedicine(name: String) -> Bool {
+//        for medicine in pinnedMedicines {
+//            if medicine.name == name {
+//                return true
+//            }
+//        }
+//        return false
+//    }
+//    
+//    func removePinnedMedicines(name: String) {
+//        if !pinnedMedicines.isEmpty {
+//            for index in 0...pinnedMedicines.count-1 {
+//                if pinnedMedicines[index].name == name {
+//                    pinnedMedicines.remove(at: index)
+//                }
+//            }
+//        }
+//    }
+    
+    
     
     
     func chooseImage(type: String) -> String {

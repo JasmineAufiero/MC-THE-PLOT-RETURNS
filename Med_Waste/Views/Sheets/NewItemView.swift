@@ -176,7 +176,7 @@ struct NewItemView: View {
                         Spacer()
                     Button("Conferma") {
                         
-                        medicineViewModel.addNewMedicine(name: nome, dosage: dosaggio, type: tipologia, price: prezzo, units: Int(unità) ?? 0, category: "antistaminico")
+                        medicineViewModel.addNewMedicine(name: nome, dosage: dosaggio, type: tipologia, price: prezzo, units: Int(unità) ?? 0, category: "antistaminico", isPinned: false)
                         
                         
                         

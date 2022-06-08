@@ -12,7 +12,7 @@ extension DateFormatter {
    static let MMddyy: DateFormatter = {
       let formatter = DateFormatter()
       formatter.timeZone = TimeZone(abbreviation: "UTC") //TimeZone.current
-      formatter.dateFormat = "MM/dd/yy"
+      formatter.dateFormat = "dd/MM/yy"
       return formatter
    }()
 }
