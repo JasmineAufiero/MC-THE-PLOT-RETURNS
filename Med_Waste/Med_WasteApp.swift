@@ -11,7 +11,7 @@ import SwiftUI
 struct Med_WasteApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MotherView()
         }
     }
 }

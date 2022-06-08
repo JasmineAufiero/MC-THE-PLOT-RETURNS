@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MiniMedCardView: View {
-    var name :String
+    var name: String
     
     var body: some View {
         ZStack{
@@ -22,6 +22,9 @@ struct MiniMedCardView: View {
                
               
                 Text(name).font(.subheadline).fontWeight(.bold).textCase(.uppercase)
+                    .scaledToFit()
+                        .minimumScaleFactor(0.01)
+                        .lineLimit(1)
                      }.padding().foregroundColor(CustomColor.graytext))
        
         

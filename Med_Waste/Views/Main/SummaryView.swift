@@ -15,26 +15,45 @@ struct SummaryView: View {
     
     
     let data = (1...10).map { "Item \($0)" }
+    @StateObject var medicineViewModel = MedicineViewModel()
+    
+    
+    var pinnedMeds :[MedData] {
+        return medicineViewModel.medicines.filter{$0.isPinned}
+       
+    }
     
     var body: some View {
         NavigationView{
-            ScrollView{
-                VStack{
-                    Text("In evidenza").font(.title3).fontWeight(.bold).frame(maxWidth: .infinity, alignment: .leading).padding(.leading, 20)
-                    ScrollView(.horizontal){
-                        HStack(spacing: 5 ){
-//                            ForEach(0..<pinnedMedicineNumber) { index in
-//
-//                                NavigationLink(destination: SingleMedView(nome: medicineViewModel.pinnedMedicines[index].name, dosaggio: medicineViewModel.pinnedMedicines[index].dosage, tipologia: medicineViewModel.pinnedMedicines[index].type, prezzo: medicineViewModel.pinnedMedicines[index].price, unità: medicineViewModel.pinnedMedicines[index].units, categoria: medicineViewModel.pinnedMedicines[index].category, pinnedMedicineNumber: $pinnedMedicineNumber, medicineViewModel: medicineViewModel, boxViewModel: boxViewModel), label: {MiniMedCardView(name: medicineViewModel.pinnedMedicines[index].name) .padding(5)})
-//
-//                            }
+            
+            VStack{
+                Text("In evidenza").fontWeight(.bold).font(.title3)
+                    .frame(maxWidth: .infinity, alignment: .leading).padding(.leading, 20)
+                
+                ScrollView(.horizontal){
+                    HStack(spacing: 5 ){
+                        ForEach(pinnedMeds , id: \.self) { item in
+                            NavigationLink(destination:{}
+//                                                                        SingleMedView()
+                                           , label: {MiniMedCardView(nome: item.name) .padding(5)})
+                            
+                            
                         }
                     }
-                    .fixedSize(horizontal: false, vertical: false)
+                }.fixedSize(horizontal: false, vertical: false)
+                
+                Text("In scadenza").fontWeight(.bold).font(.title3)
+                    .frame(maxWidth: .infinity, alignment: .leading).padding(.leading, 20)
+                
+                ScrollView(.horizontal){
+                    HStack(spacing: 5 ){
+                                                ForEach(pinnedMeds , id: \.self) { item in
+                                                    NavigationLink(destination:{}
+//                                                                    SingleMedView()
+                                                                   , label: {MiniMedCardView(nome: item.name)
+                                                        .padding(5)})
                         
-                    Text("In scadenza").font(.title3).fontWeight(.bold).frame(maxWidth: .infinity, alignment: .leading).padding(.leading, 20)
-
-                    DonateIcon()
+                  
 
 //                    ScrollView(.horizontal){
 //                        HStack(spacing: 5 ){
@@ -44,21 +63,18 @@ struct SummaryView: View {
 //
 //                            }
 //                        }
-//                    }.fixedSize(horizontal: false, vertical: false)
-                    Text("Curiosità").font(.title3).fontWeight(.bold).frame(maxWidth: .infinity, alignment: .leading).padding(.leading, 20)
-                    ScrollView(.horizontal){
-                        HStack( ){
-                            ForEach(data, id: \.self) { item in
-                                FactsCardView().frame(width: 350)
-
-                            }
-                        }
-                    }
-                    
-                }.navigationTitle("Riepilogo")
+                       }.fixedSize(horizontal: false, vertical: false)
+                                                    
+                                                    Text("Curiosità").fontWeight(.bold).font(.title3)
+                                                        .frame(maxWidth: .infinity, alignment: .leading).padding(.leading, 20)
+                                                    
+                                                    FactsCardView().frame(width: UIScreen.screenWidth - 30, height: 150, alignment: .center).padding()
+                                                    Spacer()
+                                                    
+                                                }.navigationTitle("Riepilogo")
             }
         }
-    }
+}
 }
 
 //struct SummaryView_Previews: PreviewProvider {

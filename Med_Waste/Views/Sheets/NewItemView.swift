@@ -9,6 +9,7 @@
 import SwiftUI
 
 struct NewItemView: View {
+    @FocusState private var amountIsFocused: Bool
     
     @State var nome: String = ""
     @State var dosaggio: String = ""
@@ -19,6 +20,9 @@ struct NewItemView: View {
     @State var isTheSameDate = false
     @State var categoria = ""
     @State var expirationDate :[Date] = [Date.now] // an array of expiration date for different boxes
+    
+    @Binding var showData: Bool
+    
     
     var medicineViewModel :MedicineViewModel
     var boxViewModel :BoxViewModel
@@ -45,6 +49,7 @@ struct NewItemView: View {
                             Spacer()
                             TextField("Nome", text: $nome)
                                 .multilineTextAlignment(.trailing)
+                                .focused($amountIsFocused)
                             
                         }
                         HStack {
@@ -53,6 +58,7 @@ struct NewItemView: View {
                             Spacer()
                             TextField("Dosaggio", text: $dosaggio)
                                 .multilineTextAlignment(.trailing)
+                                .focused($amountIsFocused)
                         }
                         HStack {
                             Text("Tipogia")
@@ -60,6 +66,7 @@ struct NewItemView: View {
                             Spacer()
                             TextField("Tipologia", text: $tipologia)
                                 .multilineTextAlignment(.trailing)
+                                .focused($amountIsFocused)
                             //
                         }
                         HStack {
@@ -68,6 +75,8 @@ struct NewItemView: View {
                             Spacer()
                             TextField("Prezzo", text: $prezzo)
                                 .multilineTextAlignment(.trailing)
+                                .keyboardType(.decimalPad)
+                                .focused($amountIsFocused)
                         }
                         HStack {
                             Text("Unità")
@@ -75,11 +84,14 @@ struct NewItemView: View {
                             Spacer()
                             TextField("Unità", text: $unità)
                                 .multilineTextAlignment(.trailing)
+                                .keyboardType(.decimalPad)
+                                .focused($amountIsFocused)
+                            
                         }
                         
                     } // :Information section
                     .padding()
-                    .listRowBackground(Color.init(red: 202/255, green: 230/255, blue: 247/255))
+                    .listRowBackground(CustomColor.blueform)
                     
                     // adding the number of boxes
                     
@@ -106,7 +118,7 @@ struct NewItemView: View {
 //                                    .multilineTextAlignment(.trailing)
                             }
                             
-                        }.listRowBackground(Color.init(red: 202/255, green: 230/255, blue: 247/255)).padding()
+                        }.listRowBackground(CustomColor.blueform).padding()
                         // : section for stepper
                         
                     }
@@ -146,7 +158,7 @@ struct NewItemView: View {
                             
                         }
                     }
-                    .listRowBackground(Color.init(red: 247/255, green: 213/255, blue: 223/255)).padding()
+                    .listRowBackground(CustomColor.redform).padding()
                     // : section for stepper
                     
                     
@@ -167,32 +179,55 @@ struct NewItemView: View {
 //                        }
 //                    }
                     
-                    Spacer()
+//                    Spacer()
                     
                     
                     // "Done Button" it allows to add an element inside the cabinet view
-                    HStack {
+               
+                        
+                        Button(action: {
+                            medicineViewModel.addNewMedicine(name: nome, dosage: dosaggio, type: tipologia, price: prezzo, units: Int(unità) ?? 0, category: "antistaminico",isPinned: false)
+                            
+                            
+                            
+                            // add all the boxes of that medicine
+                            for i in 1...numerobox {
+                                boxViewModel.addNewBox(medicine: nome, expirationDate: expirationDate[i-1], state: .usable)
+                            }
+                            
+                            showData = false
+                        }, label: {
+                            RoundedRectangle(cornerRadius: 10)
+                                .frame(width: 300, height: 50, alignment: .center)
+                            
+                                .overlay(Text("Conferma").foregroundColor(.white))
+                        }).disabled(nome.isEmpty || dosaggio.isEmpty || tipologia.isEmpty || tipologia.isEmpty || prezzo.isEmpty || unità.isEmpty ).padding()
+                        
+                        
+                        
+                        
+                        
+//                    Button("Conferma") {
+//                        
+//                        medicineViewModel.addNewMedicine(name: nome, dosage: dosaggio, type: tipologia, price: prezzo, units: Int(unità) ?? 0, category: "antistaminico")
+//                        
+//                        
+//                        
+//                        // add all the boxes of that medicine
+//                        for i in 1...numerobox {
+//                            boxViewModel.addNewBox(medicine: nome, expirationDate: expirationDate[i-1], state: .usable)
+//                        }
+//                        
+//                        showData = false
+//                        
+//                    }.disabled(self.nome.isEmpty)
+//                    .foregroundColor(.white)
+//                    .padding()
+//                    .background(Color.accentColor)
+//                    .cornerRadius(8)
                     
-                        Spacer()
-                    Button("Conferma") {
-                        
-                        medicineViewModel.addNewMedicine(name: nome, dosage: dosaggio, type: tipologia, price: prezzo, units: Int(unità) ?? 0, category: "antistaminico", isPinned: false)
-                        
-                        
-                        
-                        // add all the boxes of that medicine
-                        for i in 1...numerobox {
-                            boxViewModel.addNewBox(medicine: nome, expirationDate: expirationDate[i-1], state: .usable)
-                        }
-                        
-                    }
-                    .foregroundColor(.white)
-                    .padding()
-                    .background(Color.accentColor)
-                    .cornerRadius(8)
+//                        Spacer()
                     
-                        Spacer()
-                    }
                     
                     
                     
@@ -201,11 +236,12 @@ struct NewItemView: View {
                     UITableView.appearance().backgroundColor = UIColor.clear
                     UITableViewCell.appearance().backgroundColor = UIColor.clear
                 })
+                .focused($amountIsFocused)
                 
             }
             
             .navigationTitle("Nuovo medicinale")
-            
+            .onTapGesture {amountIsFocused = false}
         }
     }
 }

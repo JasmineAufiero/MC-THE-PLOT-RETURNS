@@ -18,9 +18,8 @@ struct SingleMedView: View {
     var medicineViewModel: MedicineViewModel
     var boxViewModel: BoxViewModel
     
-
-    @State private var alertdonate = false
-    @State private var alertexpire = false
+    @State  var alertdonate = false
+    @State  var alertexpire = false
     @State var isPinned : Bool = false
     @State var newBoxAdded :Int = 0 // it is a state variable that refreshes the view when a new box is added
     
@@ -31,9 +30,9 @@ struct SingleMedView: View {
             
             VStack {
                 
-                Image("pills").resizable()
+                Image("pills").resizable().scaledToFit()
                     .frame(width: 200, height: 200, alignment: .center).padding()
-                    .rotation3DEffect(.degrees(50), axis: (x: 0, y: 0, z: 1))
+                    .rotation3DEffect(.degrees(80), axis: (x: 0, y: 0, z: 1))
                 
                 Spacer()
                 
@@ -96,7 +95,7 @@ struct SingleMedView: View {
                             Button{alertexpire.toggle()} label: {
                                 Image(systemName: "trash.fill")
                             }
-                            .tint(.red)
+                            .tint(CustomColor.expiredred)
 
 
                             Button{alertdonate.toggle()} label: {
@@ -106,17 +105,18 @@ struct SingleMedView: View {
 
 
                             }
-                            .tint(.green)
+                            .tint(CustomColor.donnatedgreen)
 
                         }
                     }
                 }
                 .listStyle(.inset)
-                .frame(height: UIScreen.screenHeight)
+                .fixedSize(horizontal: false, vertical: false)
+                .frame(height: UIScreen.screenHeight/2)
                 .padding(20)
              
             }
-            .padding(20)
+            .padding(15)
             
         }
         .onAppear(perform: {
@@ -124,7 +124,8 @@ struct SingleMedView: View {
             UITableView.appearance().backgroundColor = UIColor.clear
         UITableViewCell.appearance().backgroundColor = UIColor.clear
                       })
-
+        .sheet(isPresented: $alertdonate, content: {AlertView(statethrow: false, alertdonate: $alertdonate ,alertexpire: $alertexpire)})
+            .sheet(isPresented: $alertexpire, content: {AlertView(statethrow: true, alertdonate: $alertdonate ,alertexpire: $alertexpire)})
         
         //        .sheet(isPresented: $alertdonate, content: {AlertView(statethrow: false)})
         //            .sheet(isPresented: $alertexpire, content: {AlertView(statethrow: true)})
