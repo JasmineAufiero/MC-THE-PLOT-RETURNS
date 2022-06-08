@@ -26,6 +26,14 @@ struct CabinetView: View {
         GridItem(.flexible(minimum: 90))
     ]
 
+    var filteredMeds :[MedData] {
+        if searchQuery.isEmpty{
+            return medicineViewModel.medicines
+        }else {
+            return medicineViewModel.medicines.filter{$0.name.localizedCaseInsensitiveContains(searchQuery)}
+        }
+    }
+    
 
     var body: some View {
         
@@ -38,7 +46,7 @@ struct CabinetView: View {
                 // modified: add a dynamic card
                 LazyVGrid(columns: columns, spacing: 20) {
                     
-                    ForEach(medicineViewModel.medicines) { item in
+                    ForEach(filteredMeds , id: \.self) { item in
                         
                         NavigationLink(destination: SingleMedView(nome: item.name, dosaggio: item.dosage, tipologia: item.type, unità: item.units, categoria: item.category, medicineViewModel: medicineViewModel, boxViewModel: boxViewModel)) {
                             

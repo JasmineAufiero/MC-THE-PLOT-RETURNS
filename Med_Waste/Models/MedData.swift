@@ -10,7 +10,7 @@ import SwiftUI
 
 
 
-struct MedData: Identifiable, Codable {
+struct MedData: Identifiable, Hashable , Codable {
 
     let id: UUID
     var name :String
