@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		275E28BC284F9D2D00856D12 /* CircleStatistic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275E28BB284F9D2D00856D12 /* CircleStatistic.swift */; };
+		275E28BE284F9D3600856D12 /* StatCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275E28BD284F9D3600856D12 /* StatCardView.swift */; };
+		275E28C0284F9D5F00856D12 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275E28BF284F9D5F00856D12 /* SearchView.swift */; };
 		470DE6D5284F958400FFB711 /* CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470DE6D3284F958400FFB711 /* CustomColors.swift */; };
 		470DE6D6284F958400FFB711 /* RecognizeText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470DE6D4284F958400FFB711 /* RecognizeText.swift */; };
 		473D8010284F99FD00D2FD6A /* BoxViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473D800D284F99FD00D2FD6A /* BoxViewModel.swift */; };
@@ -40,6 +43,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		275E28BB284F9D2D00856D12 /* CircleStatistic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleStatistic.swift; sourceTree = "<group>"; };
+		275E28BD284F9D3600856D12 /* StatCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatCardView.swift; sourceTree = "<group>"; };
+		275E28BF284F9D5F00856D12 /* SearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		470DE6D3284F958400FFB711 /* CustomColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomColors.swift; sourceTree = "<group>"; };
 		470DE6D4284F958400FFB711 /* RecognizeText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecognizeText.swift; sourceTree = "<group>"; };
 		473D800D284F99FD00D2FD6A /* BoxViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoxViewModel.swift; sourceTree = "<group>"; };
@@ -130,6 +136,8 @@
 			isa = PBXGroup;
 			children = (
 				473D801B284F9A2A00D2FD6A /* CircleCheckBox.swift */,
+				275E28BB284F9D2D00856D12 /* CircleStatistic.swift */,
+				275E28BD284F9D3600856D12 /* StatCardView.swift */,
 				473D801F284F9A2A00D2FD6A /* DonateIcon.swift */,
 				473D801C284F9A2A00D2FD6A /* FactsCardView.swift */,
 				473D801D284F9A2A00D2FD6A /* MedCardView.swift */,
@@ -155,6 +163,7 @@
 				473D8029284F9A4100D2FD6A /* AlertView.swift */,
 				473D8025284F9A4100D2FD6A /* MapView.swift */,
 				473D8028284F9A4100D2FD6A /* NewItemView.swift */,
+				275E28BF284F9D5F00856D12 /* SearchView.swift */,
 				473D8026284F9A4100D2FD6A /* ScanView.swift */,
 				473D8027284F9A4100D2FD6A /* SingleMedView.swift */,
 			);
@@ -283,6 +292,7 @@
 				473D8039284F9A6500D2FD6A /* ContentView.swift in Sources */,
 				473D803C284FAF7600D2FD6A /* DataFormat.swift in Sources */,
 				473D802C284F9A4100D2FD6A /* SingleMedView.swift in Sources */,
+				275E28C0284F9D5F00856D12 /* SearchView.swift in Sources */,
 				473D8037284F9A6500D2FD6A /* StatisticsView.swift in Sources */,
 				473D8019284F9A0800D2FD6A /* RecognizedContent.swift in Sources */,
 				473D8021284F9A2A00D2FD6A /* FactsCardView.swift in Sources */,
@@ -293,6 +303,7 @@
 				473D8012284F99FD00D2FD6A /* MapViewModel.swift in Sources */,
 				473D801A284F9A0800D2FD6A /* MedBox.swift in Sources */,
 				473D8032284F9A5000D2FD6A /* CheckBoxView.swift in Sources */,
+				275E28BC284F9D2D00856D12 /* CircleStatistic.swift in Sources */,
 				473D8022284F9A2A00D2FD6A /* MedCardView.swift in Sources */,
 				473D8020284F9A2A00D2FD6A /* CircleCheckBox.swift in Sources */,
 				473D8031284F9A5000D2FD6A /* StepperView.swift in Sources */,
@@ -306,6 +317,7 @@
 				473D8024284F9A2A00D2FD6A /* DonateIcon.swift in Sources */,
 				473D802E284F9A4100D2FD6A /* AlertView.swift in Sources */,
 				470DE6D5284F958400FFB711 /* CustomColors.swift in Sources */,
+				275E28BE284F9D3600856D12 /* StatCardView.swift in Sources */,
 				473D8011284F99FD00D2FD6A /* MedicineViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -437,7 +449,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Med_Waste/Preview Content\"";
-				DEVELOPMENT_TEAM = U7LH8RJ437;
+				DEVELOPMENT_TEAM = Z33CSW7W9J;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
