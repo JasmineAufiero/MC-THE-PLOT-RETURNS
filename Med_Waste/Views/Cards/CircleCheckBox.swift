@@ -13,9 +13,8 @@ struct CircleCheckBox: View {
     
     var body: some View {
         HStack(spacing: 10){
-            
-            Image(systemName: isSelected ? "checkmark.circle.fill" : "circle")
-            Text(state).font(.title3)  .multilineTextAlignment(.leading)
+            Label(state, systemImage: isSelected ? "checkmark.circle.fill" : "circle")
+            .font(.title3)  .multilineTextAlignment(.leading)
         }.frame(maxWidth : .infinity, alignment: .leading)
             .padding(10)
       

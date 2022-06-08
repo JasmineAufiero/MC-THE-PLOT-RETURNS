@@ -20,6 +20,9 @@ struct NewItemView: View {
     @State var categoria = ""
     @State var expirationDate :[Date] = [Date.now] // an array of expiration date for different boxes
     
+    @Binding var showData: Bool
+    
+    
     var medicineViewModel :MedicineViewModel
     var boxViewModel :BoxViewModel
     
@@ -79,7 +82,7 @@ struct NewItemView: View {
                         
                     } // :Information section
                     .padding()
-                    .listRowBackground(Color.init(red: 202/255, green: 230/255, blue: 247/255))
+                    .listRowBackground(CustomColor.blueform)
                     
                     // adding the number of boxes
                     
@@ -106,7 +109,7 @@ struct NewItemView: View {
 //                                    .multilineTextAlignment(.trailing)
                             }
                             
-                        }.listRowBackground(Color.init(red: 202/255, green: 230/255, blue: 247/255)).padding()
+                        }.listRowBackground(CustomColor.blueform).padding()
                         // : section for stepper
                         
                     }
@@ -146,7 +149,7 @@ struct NewItemView: View {
                             
                         }
                     }
-                    .listRowBackground(Color.init(red: 247/255, green: 213/255, blue: 223/255)).padding()
+                    .listRowBackground(CustomColor.redform).padding()
                     // : section for stepper
                     
                     
@@ -189,6 +192,8 @@ struct NewItemView: View {
                                 print("***")
                             }
                         }
+                        
+                        showData = false
                         
                     }
                     .foregroundColor(.white)
