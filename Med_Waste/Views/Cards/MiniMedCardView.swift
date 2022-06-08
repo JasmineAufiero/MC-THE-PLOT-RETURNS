@@ -20,6 +20,9 @@ struct MiniMedCardView: View {
                
               
                 Text("Ayrinal").font(.subheadline).fontWeight(.bold).textCase(.uppercase)
+                    .scaledToFit()
+                        .minimumScaleFactor(0.01)
+                        .lineLimit(1)
                      }.padding().foregroundColor(CustomColor.graytext))
        
         

@@ -14,23 +14,24 @@ struct StatisticsView: View {
     @State var showloader = false
     var body: some View {
         NavigationView{
+            ScrollView{
 //
 //                card per le informzoni
             VStack{
                 if showloader{
             CircleStatistic()
-                    .frame(width: UIScreen.screenWidth, height: UIScreen.screenHeight/2.5, alignment: .top)
+                    .frame(width: UIScreen.screenWidth, height: UIScreen.screenHeight/2.5, alignment: .center)
                 }
-            ScrollView{
-                VStack (spacing:0){
+           
+//                VStack (spacing:0){
                     StatCardView(Status: "donated")
                     StatCardView(Status: "total")
                     StatCardView(Status: "expired")
-                }
+//                }
 
                
             } //scrool view
-            .frame(maxWidth: UIScreen.screenWidth, maxHeight: UIScreen.screenHeight/2)
+//            .frame(maxWidth: UIScreen.screenWidth, maxHeight: UIScreen.screenHeight/2)
                 
             
             }.onAppear{

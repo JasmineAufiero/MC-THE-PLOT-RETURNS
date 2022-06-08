@@ -29,7 +29,8 @@ struct MedCardView: View {
             VStack(alignment: .center, spacing: 10){
                 
                 // modified: dynamic change of the card
-                Image("pills").resizable().scaledToFit().padding() // add a method in the ViewModel that define the image based on the type
+                Image("pills").resizable().scaledToFit().padding()
+                // add a method in the ViewModel that define the image based on the type
                 RoundedRectangle(cornerRadius: 20).fixedSize(horizontal: false, vertical: false).frame( height: 5 , alignment: .center).foregroundColor(Color.systemOrange)
                 HStack{
                     Text(medname).font(.title3).fontWeight(.bold).textCase(.uppercase)
