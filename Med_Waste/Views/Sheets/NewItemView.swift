@@ -13,7 +13,7 @@ struct NewItemView: View {
     
     @State var nome: String = ""
     @State var dosaggio: String = ""
-    @State var tipologia: String = ""
+    @State var tipologia = "Pillole"
     @State var prezzo: String = ""
     @State var unità: String = ""
     @State private var numerobox = 1
@@ -23,7 +23,10 @@ struct NewItemView: View {
     
 //        .focused($amountIsFocused)
     
+    @State var expand = false // for the tipology picker
     @Binding var showData: Bool
+    var tipologia_picker = ["Pillole", "Bustine", "Sciroppo", "Pomata"]
+    
     var medicineViewModel :MedicineViewModel
     var boxViewModel :BoxViewModel
     
@@ -61,9 +64,29 @@ struct NewItemView: View {
                                 Text("Tipogia")
                                     .fontWeight(.semibold)
                                 Spacer()
-                                TextField("Tipologia", text: $tipologia)
-                                    .multilineTextAlignment(.trailing)
-                                //
+                                
+                                Button(action: {
+                                    self.expand.toggle()
+                                }, label: {
+                                        
+                                        if expand {
+                                            Picker("Tipologia", selection: $tipologia) {
+                                                ForEach(tipologia_picker, id: \.self) {
+                                                    Text($0)
+                                                }
+                                            }.pickerStyle(.wheel)
+                                            
+                                        }
+                                        else {
+                                            Text("\(tipologia)")
+                                                .multilineTextAlignment(.trailing)
+                                                .foregroundColor(.gray)
+                                        }
+                                })
+                    
+                            }
+                            .onTapGesture {
+                                expand.toggle()
                             }
                             HStack {
                                 Text("Prezzo")
