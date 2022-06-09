@@ -48,7 +48,7 @@ struct CabinetView: View {
                     
                     ForEach(filteredMeds , id: \.self) { item in
                         
-                        NavigationLink(destination: SingleMedView(nome: item.name, dosaggio: item.dosage, tipologia: item.type, unità: item.units, categoria: item.category, medicineViewModel: medicineViewModel, boxViewModel: boxViewModel)) {
+                        NavigationLink(destination: SingleMedView(nome: item.name, dosaggio: item.dosage, tipologia: item.type, unità: item.units, categoria: item.category, isPinned: item.isPinned, medicineViewModel: medicineViewModel, boxViewModel: boxViewModel)) {
                             
                             MedCardView(medname: item.name, dosage: item.dosage, medCategory: item.category)
                                 .padding(5)
@@ -97,7 +97,7 @@ struct CabinetView: View {
 //                } didCancelScanning: {showScanner = false}
 //
 //            })
-        .sheet(isPresented: $showData, content: {NewItemView( showData : $showData ,medicineViewModel: medicineViewModel, boxViewModel: boxViewModel)})
+        .sheet(isPresented: $showData, content: {NewItemView( showData : $showData ,medicineViewModel: medicineViewModel, boxViewModel: boxViewModel, statsViewModel: StatsViewModel())})
     }
 }
 

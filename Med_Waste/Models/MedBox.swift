@@ -8,8 +8,8 @@
 import Foundation
 
 struct MedBox :Identifiable, Codable {
-    
-    let id: UUID = UUID()
+//    I changed the id from let to var
+    var id: UUID = UUID()
     var medicine :String
     var expirationDate :Date
     var state :MedState

@@ -10,9 +10,10 @@ import SwiftUI
 
 
 struct StatCardView: View {
-    var stat : Double = 230.3
+   
     
     @State var Status: String
+    var stat : Double 
 //    the string can have values donated, expired or total and indicated the respective category of money
     
 //    switch case per cambiare i dettagli a lato e cambiare il colore in base alle informazioni lette
@@ -30,9 +31,10 @@ struct StatCardView: View {
             HStack (spacing: 10){
                 
             if (Status == "donated"){
-                    Text("\(stat)" + "€")
+                    Text("\(stat)" + " €")
+                    .font(Font.system(size: 28, weight: .bold))
                     .foregroundColor(CustomColor.donnatedgreen)
-                        .font(Font.system(size: 28, weight: .bold))
+          
                 
                 Text("Somma di denaro donato in medicinali fino ad ora.")
                     .foregroundColor(CustomColor.graytext)
@@ -44,11 +46,11 @@ struct StatCardView: View {
                     
                     
             if (Status == "expired"){
-                    Text("\(stat)" + "€")
+                    Text("\(stat)" + " €")
                         .font(Font.system(size: 28, weight: .bold))
                         .foregroundColor(CustomColor.expiredred)
                 
-                Text("Somma dedotta in base ai medicinali scaduti presenti nell'app.")
+                Text("Somma dedotta in base ai medicinali scaduti \n presenti nell'app.")
                     .foregroundColor(CustomColor.graytext)
                     .multilineTextAlignment(.leading)
                     .padding()
@@ -58,7 +60,7 @@ struct StatCardView: View {
                     
                 if (Status == "total"){
                     
-                    Text("\(stat)" + "€")
+                    Text("\(stat)" + " €")
                         .font(Font.system(size: 28, weight: .bold))
                         .foregroundColor(CustomColor.darkblue)
                     

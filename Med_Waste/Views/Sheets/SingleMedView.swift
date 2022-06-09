@@ -14,15 +14,14 @@ struct SingleMedView: View {
     var tipologia: String
     var unità: Int
     var categoria :String
-    
+    var isPinned : Bool
     var medicineViewModel: MedicineViewModel
     var boxViewModel: BoxViewModel
     
     
-    
     @State  var alertdonate = false
     @State  var alertexpire = false
-    @State var isPinned : Bool = false
+//    @State var isPinned : Bool = false
     @State var newBoxAdded :Int = 0
 
    
@@ -44,7 +43,7 @@ struct SingleMedView: View {
                         Text(nome).font(.title2).fontWeight(.bold).textCase(.uppercase)
                         Spacer()
                         Image(systemName: isPinned ? "heart.fill" : "heart").scaleEffect(1.5).foregroundColor(.pink).onTapGesture {
-                            isPinned.toggle()
+//                            self.isPinned.toggle()
                         }
                     }
                     Text(dosaggio).font(.title3)

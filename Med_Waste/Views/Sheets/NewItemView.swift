@@ -16,6 +16,7 @@ struct NewItemView: View {
     @State var tipologia: String = ""
     @State var prezzo: String = ""
     @State var unità: String = ""
+    @State var isPinned:Bool = false
     @State private var numerobox = 1
     @State var isTheSameDate = false
     @State var categoria = ""
@@ -26,6 +27,11 @@ struct NewItemView: View {
     
     var medicineViewModel :MedicineViewModel
     var boxViewModel :BoxViewModel
+    @ObservedObject var statsViewModel : StatsViewModel
+    
+//    init( prezzo : Binding<Double> = .constant(0) ) {
+//     _prezzo = prezzo
+//    }
     
     
     var body: some View {
@@ -70,7 +76,7 @@ struct NewItemView: View {
                             //
                         }
                         HStack {
-                            Text("Prezzo")
+                            Text("Prezzo (€)")
                                 .fontWeight(.semibold)
                             Spacer()
                             TextField("Prezzo", text: $prezzo)
@@ -92,6 +98,7 @@ struct NewItemView: View {
                     } // :Information section
                     .padding()
                     .listRowBackground(CustomColor.blueform)
+                    .onTapGesture {amountIsFocused = false}
                     
                     // adding the number of boxes
                     
@@ -184,27 +191,47 @@ struct NewItemView: View {
                     
                     // "Done Button" it allows to add an element inside the cabinet view
                
-                        
+                    
+                    
+//
+//                    Button(/*@START_MENU_TOKEN@*/"Button"/*@END_MENU_TOKEN@*/) {
+//
+//
+//                    }
+//
+//                    *********************************
+//
                         Button(action: {
-                            medicineViewModel.addNewMedicine(name: nome, dosage: dosaggio, type: tipologia, price: prezzo, units: Int(unità) ?? 0, category: "antistaminico",isPinned: false)
+                            medicineViewModel.addNewMedicine(name: nome, dosage: dosaggio, type: tipologia, price: Double(prezzo)!, units: Int(unità) ?? 0, category: "antistaminico",isPinned: isPinned)
+
+//                            print (Double(prezzo)!)
+////
+//                            // add all the boxes of that medicine
+//                            for i in 1...numerobox {
+//                                boxViewModel.addNewBox(medicine: nome, expirationDate: expirationDate[i-1], state: .usable)
+//                            }
+
+                            statsViewModel.changeValue(price: prezzo, type: 0)
+                            print(   statsViewModel.stats[0].value)
+//                            statsViewModel.stats[0].value = medicineViewModel.addPriceToTotal(prize: Double(Float(prezzo)!), total: statsViewModel.stats[0].value)
+                            //                        print(medicineViewModel.addPriceToTotal(prize: Double(Float(prezzo)!), total: statsViewModel.stats[0].value))
                             
                             
-                            
-                            // add all the boxes of that medicine
-                            for i in 1...numerobox {
-                                boxViewModel.addNewBox(medicine: nome, expirationDate: expirationDate[i-1], state: .usable)
-                            }
-                            
+                            print("Pressed")
+
                             showData = false
                         }, label: {
                             RoundedRectangle(cornerRadius: 10)
                                 .frame(width: 300, height: 50, alignment: .center)
-                            
+
                                 .overlay(Text("Conferma").foregroundColor(.white))
-                        }).disabled(nome.isEmpty || dosaggio.isEmpty || tipologia.isEmpty || tipologia.isEmpty || prezzo.isEmpty || unità.isEmpty ).padding()
-                        
-                        
-                        
+                        })
+//                        .disabled(nome.isEmpty || dosaggio.isEmpty || tipologia.isEmpty  || prezzo.isEmpty || unità.isEmpty )
+                        .padding()
+                        .listRowBackground(Color.clear)
+
+
+                    //                    *********************************
                         
                         
 //                    Button("Conferma") {
@@ -236,12 +263,12 @@ struct NewItemView: View {
                     UITableView.appearance().backgroundColor = UIColor.clear
                     UITableViewCell.appearance().backgroundColor = UIColor.clear
                 })
-                .focused($amountIsFocused)
+//                .focused($amountIsFocused)
                 
             }
             
             .navigationTitle("Nuovo medicinale")
-            .onTapGesture {amountIsFocused = false}
+//
         }
     }
 }
