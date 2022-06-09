@@ -19,13 +19,14 @@ struct ContentView: View {
     
     @StateObject var medicineViewModel = MedicineViewModel()
     @StateObject var boxViewModel = BoxViewModel()
-    
+   
     init(){
         Theme.navigationBarColors( titleColor: UIColor(CustomColor.darkblue))
         }
 
     var body: some View {
             TabView(){
+                
                 SummaryView(medicineViewModel: medicineViewModel, boxViewModel: boxViewModel)
                     .tabItem {Label("Riepilogo", systemImage: "square.grid.2x2.fill")}
   
@@ -37,7 +38,6 @@ struct ContentView: View {
                     .tabItem {Label("Statistiche", systemImage: "chart.pie.fill")}
 
             }
-
     }
 }
 

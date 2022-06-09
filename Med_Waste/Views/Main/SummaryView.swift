@@ -13,10 +13,10 @@ struct SummaryView: View {
     var medicineViewModel :MedicineViewModel
     var boxViewModel :BoxViewModel
     
+    @State var pinnedMedicine :[MedData] = []
+    
     
     let data = (1...10).map { "Item \($0)" }
-//    @StateObject var medicineViewModel = MedicineViewModel()
-    
     
     var pinnedMeds :[MedData] {
         return medicineViewModel.medicines.filter{$0.isPinned}
@@ -32,13 +32,14 @@ struct SummaryView: View {
                 
                 ScrollView(.horizontal){
                     HStack(spacing: 5 ){
-                        ForEach(pinnedMeds , id: \.self) { item in
-                            NavigationLink(destination:{}
-//                                                                        SingleMedView()
-                                           , label: {MiniMedCardView(name: item.name) .padding(5)})
-                            
+                        
+                        ForEach(pinnedMedicine) { item in
+
+                            NavigationLink(destination:{SingleMedView(medicine: item, medicineViewModel: medicineViewModel, boxViewModel: boxViewModel)}, label: {MiniMedCardView(name: item.name) .padding(5)})
+                                
                             
                         }
+                        
                     }
                 }.fixedSize(horizontal: false, vertical: false)
                 
@@ -47,13 +48,13 @@ struct SummaryView: View {
                 
                 ScrollView(.horizontal){
                     HStack(spacing: 5 ){
-                                                ForEach(pinnedMeds , id: \.self) { item in
-                                                    NavigationLink(destination:{}
-//                                                                    SingleMedView()
-                                                                   , label: {MiniMedCardView(name: item.name)
-                                                        .padding(5)})
-                        
-                  
+                        ForEach(medicineViewModel.pinnedMedicine() , id: \.self) { item in
+                            NavigationLink(destination:{}
+                                           //                                                                    SingleMedView()
+                                           , label: {MiniMedCardView(name: item.name)
+                                .padding(5)})
+                            
+                        }
 
 //                    ScrollView(.horizontal){
 //                        HStack(spacing: 5 ){
@@ -74,9 +75,12 @@ struct SummaryView: View {
                                                     
                                                 }.navigationTitle("Riepilogo")
             }
+            .onAppear(perform: {
+                pinnedMedicine = medicineViewModel.medicines.filter{$0.isPinned}
+            })
         }
 }
-}
+
 
 
 //struct SummaryView_Previews: PreviewProvider {

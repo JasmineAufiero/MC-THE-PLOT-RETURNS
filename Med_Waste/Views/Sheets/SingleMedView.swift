@@ -11,14 +11,6 @@ struct SingleMedView: View {
     
     var medicine: MedData
     
-    //    var nome: String
-    //    var dosaggio: String
-    //    var tipologia: String
-    //    var prezzo :String
-    //    var unità: Int
-    //    var categoria :String
-    //    var isPinned: Bool
-    
     var medicineViewModel: MedicineViewModel
     var boxViewModel: BoxViewModel
     
@@ -46,36 +38,9 @@ struct SingleMedView: View {
                         Spacer()
                         Image(systemName: medicine.isPinned ? "heart.fill" : "heart").scaleEffect(1.5).foregroundColor(.pink)
                             .onTapGesture {
-                                //
-                                //                                if medicineViewModel.searchMedicineByName(medicine: nome)!.isPinned{
-                                //                                    isPinned = false
-                                //                                }
-                                //                                else {
-                                //                                    isPinned = true
-                                //                                }
-                                //                                isPinned = medicineViewModel.isPinnedMedicine(name: nome)
-                                
+                               
                                 medicineViewModel.pinMedicine(nome: medicine.name)
-                                
-                                //                                isPinned.toggle()
                             }
-                        
-                        //                                for i in 0..<medicineViewModel.medicines.count{
-                        //                                    if medicineViewModel.medicines[i].isPinned{
-                        //                                        medicineViewModel.medicines[i].isPinned = false
-                        //                                    }else{
-                        //                                        medicineViewModel.medicines[i].isPinned = true
-                        //
-                        //                                    }
-                        //                                }
-                        //
-                        //                                if isPinned
-                        //                                    medicineViewModel.addPinnedMedicines(name: nome, dosage: dosaggio, type: tipologia, price: prezzo, units: unità, category: categoria)
-                        //                                }
-                        //                                else {
-                        //                                    medicineViewModel.removePinnedMedicines(name: nome)
-                        //                                }
-                        //                                pinnedMedicineNumber = medicineViewModel.pinnedMedicines.count-1
                         
                     }
                 }

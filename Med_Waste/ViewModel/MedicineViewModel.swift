@@ -15,25 +15,15 @@ class MedicineViewModel :ObservableObject {
     
     ]
     
-//    @Published var pinnedMedicines :[MedData] = [
-////        MedData(name: "Ayrinal", dosage: "100 mg", type: "compresse", price: "10,90 €",  units: 30, category: "antistaminico")
-//    ]
+    
+    func pinnedMedicine() -> [MedData] {
+        return medicines.filter{$0.isPinned}
+    }
     
      func pinMedicine(nome: String) {
-         
-         
          let index = medicines.firstIndex{ $0.name == nome }
          medicines[index!].isPinned.toggle()
-//         for i in 0..<medicines.count {
-//             medicines[i].isPinned.toggle()
-////             if medicines[i].name == nome {
-////                 if medicines[i].isPinned{
-////                     medicines[i].isPinned = false
-////                 }else{
-////                     medicines[i].isPinned = true
-////                 }
-////             }
-//         }
+         objectWillChange.send()
     }
     
     
@@ -48,32 +38,12 @@ class MedicineViewModel :ObservableObject {
     }
     
     
+    
+    
+    
     func addNewMedicine(name :String, dosage: String, type :String, price :String, units :Int, category :String, isPinned: Bool) {
         medicines.append(MedData(name: name, dosage: dosage, type: type, price: price, units: units, category: category, isPinned: isPinned))
     }
-//    
-//    func addPinnedMedicines(name :String, dosage: String, type :String, price :String, units :Int, category :String) {
-//        pinnedMedicines.append(MedData(name: name, dosage: dosage, type: type, price: price, units: units, category: category))
-//    }
-//    
-//    func isPinnedMedicine(name: String) -> Bool {
-//        for medicine in pinnedMedicines {
-//            if medicine.name == name {
-//                return true
-//            }
-//        }
-//        return false
-//    }
-//    
-//    func removePinnedMedicines(name: String) {
-//        if !pinnedMedicines.isEmpty {
-//            for index in 0...pinnedMedicines.count-1 {
-//                if pinnedMedicines[index].name == name {
-//                    pinnedMedicines.remove(at: index)
-//                }
-//            }
-//        }
-//    }
     
     
     
