@@ -10,15 +10,15 @@
 import SwiftUI
 
 struct SummaryView: View {
-    var medicineViewModel :MedicineViewModel
+    @ObservedObject var medicineViewModel :MedicineViewModel
     var boxViewModel :BoxViewModel
     
-    @State var pinnedMedicine :[MedData] = []
+//    @State var pinnedMedicine :[MedData] = []
     
     
     let data = (1...10).map { "Item \($0)" }
     
-    var pinnedMeds :[MedData] {
+    var pinnedMedicines :[MedData] {
         return medicineViewModel.medicines.filter{$0.isPinned}
        
     }
@@ -33,7 +33,7 @@ struct SummaryView: View {
                 ScrollView(.horizontal){
                     HStack(spacing: 5 ){
                         
-                        ForEach(pinnedMedicine) { item in
+                        ForEach(pinnedMedicines) { item in
 
                             NavigationLink(destination:{SingleMedView(medicine: item, medicineViewModel: medicineViewModel, boxViewModel: boxViewModel)}, label: {MiniMedCardView(name: item.name) .padding(5)})
                                 
@@ -75,9 +75,9 @@ struct SummaryView: View {
                                                     
                                                 }.navigationTitle("Riepilogo")
             }
-            .onAppear(perform: {
-                pinnedMedicine = medicineViewModel.medicines.filter{$0.isPinned}
-            })
+//            .onAppear(perform: {
+//                pinnedMedicine = medicineViewModel.medicines.filter{$0.isPinned}
+//            })
         }
 }
 

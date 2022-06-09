@@ -80,10 +80,11 @@ struct CabinetView: View {
                 
 //                new button that redirects to the view for the scanning of the meds and not to the sheet
                 Button(action: {
+                    showData.toggle()
                 }) {
-                    NavigationLink(destination: CameraView()) {
+                    
                         Image(systemName: "plus.circle.fill").foregroundColor(CustomColor.darkblue).scaleEffect(1.5)
-                    }
+                    
                 }
             })
         }

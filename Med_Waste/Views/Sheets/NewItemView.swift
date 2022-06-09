@@ -201,7 +201,8 @@ struct NewItemView: View {
                                 .frame(width: 300, height: 50, alignment: .center)
                             
                                 .overlay(Text("Conferma").foregroundColor(.white))
-                        }).disabled(nome.isEmpty || dosaggio.isEmpty || tipologia.isEmpty || tipologia.isEmpty || prezzo.isEmpty || unità.isEmpty ).padding()
+                        })
+//                        .disabled(nome.isEmpty || dosaggio.isEmpty || tipologia.isEmpty || tipologia.isEmpty || prezzo.isEmpty || unità.isEmpty ).padding()
                         
                         
                         
