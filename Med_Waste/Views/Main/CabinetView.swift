@@ -69,8 +69,16 @@ struct CabinetView: View {
                                     HStack(spacing: 20){
                 Button(action: { showMap = true }, label: { Image(systemName: "map.circle.fill").scaleEffect(1.5)})
                 
-                Button(action: {guard !isRecognizing else { return }
-                    showScanner = true ; showData = true }, label: { Image(systemName: "plus.circle.fill").foregroundColor(CustomColor.darkblue).scaleEffect(1.5)})
+//                Button(action: {guard !isRecognizing else { return }
+//                    showScanner = true ; showData = true }, label: { Image(systemName: "plus.circle.fill").foregroundColor(CustomColor.darkblue).scaleEffect(1.5)})
+                
+//                new button that redirects to the view for the scanning of the meds and not to the sheet
+                Button(action: {
+                }) {
+                    NavigationLink(destination: CameraView()) {
+                        Image(systemName: "plus.circle.fill").foregroundColor(CustomColor.darkblue).scaleEffect(1.5)
+                    }
+                }
             })
         }
         

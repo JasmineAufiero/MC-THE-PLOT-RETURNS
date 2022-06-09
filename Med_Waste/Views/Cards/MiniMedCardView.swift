@@ -31,8 +31,8 @@ struct MiniMedCardView: View {
     }
 }
 
-struct MiniMedCardView_Previews: PreviewProvider {
-    static var previews: some View {
-        MiniMedCardView()
-    }
-}
+//struct MiniMedCardView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        MiniMedCardView()
+//    }
+//}
