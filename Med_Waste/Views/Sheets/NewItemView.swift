@@ -26,7 +26,6 @@ struct NewItemView: View {
     @State var expand = false // for the tipology picker
     @Binding var showData: Bool
     var tipologia_picker = ["Pillole", "Bustine", "Sciroppo", "Pomata"]
-    
     var medicineViewModel :MedicineViewModel
     var boxViewModel :BoxViewModel
     
@@ -176,22 +175,26 @@ struct NewItemView: View {
                         // : section for stepper
                         
                         
-    //                    Text("Categoria")
-    //                        .font(.title2)
-    //                        .fontWeight(.semibold)
-    //                        .multilineTextAlignment(.leading)
-    //
-    //
-    //                    VStack(spacing: 20) {
-    //                        Picker(selection: $categoria, label: Text("Categoria Medicinale")) {
-    //                            Text("Antistaminici").tag(1)
-    //                            Text("Antivirali").tag(2)
-    //                            Text("Anti-Infiammatori").tag(3)
-    //                            Text("Antibiotici").tag(4)
-    //                            Text("Antimicotici").tag(5)
-    //                            Text("Analgesici").tag(6)
-    //                        }
-    //                    }
+//                        Text("Categoria")
+//                            .font(.title2)
+//                            .fontWeight(.semibold)
+//                            .multilineTextAlignment(.leading)
+//
+//
+//                        VStack(spacing: 20) {
+//                            Picker(selection: $categoria, label: Text("Categoria Medicinale")) {
+//                                Text("Antibiotici").tag(1)
+//                                Text("Antidolorifici").tag(2)
+//                                Text("Anti-Infiammatori").tag(3)
+//                                Text("Antivirali").tag(4)
+//                                Text("Antistaminici").tag(5)
+//                                Text("Dermatologici").tag(6)
+//                                Text("Gastointestinali").tag(7)
+//                                Text("Gastointestinali").tag(8)
+//                                Text("Integratori").tag(9)
+//                                Text("Altro").tag(10)
+//                            }
+//                        }
                         
                         Spacer()
                         

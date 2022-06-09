@@ -43,28 +43,31 @@ struct SingleMedView: View {
                             }
                         
                     }
+                    Text(medicine.dosage).font(.title3)
+                        .foregroundColor(.secondary)
+                        .multilineTextAlignment(.leading)
+                        .padding(.vertical, 5)
+                    
+                    Text("AYRINAL compresse contiene il principio attivo bilastina che è un antistaminico. AYRINAL 20 mg compresse viene utilizzato per alleviare i sintomi di febbre da fieno (starnuti , prurito, naso che cola, naso chiuso ed arrossamento e lacrimazione oculare) ed altre forme di rinite allergica.").multilineTextAlignment(.leading)
+                        .padding(.vertical, 5)
+                    //                Divider()
                 }
-                
-                Text(medicine.dosage).font(.title3)
-                Text("AYRINAL compresse contiene il principio attivo bilastina che è un antistaminico. AYRINAL 20 mg compresse viene utilizzato per alleviare i sintomi di febbre da fieno (starnuti , prurito, naso che cola, naso chiuso ed arrossamento e lacrimazione oculare) ed altre forme di rinite allergica.").multilineTextAlignment(.leading)
-                //                Divider()
-                Spacer()
-                HStack{
-                    Text("Scatole").font(.title2).fontWeight(.bold)
-                    Spacer()
-                    Button(action: {
-                        boxViewModel.addNewBox(medicine: medicine.name, expirationDate: Date.now, state: .usable)
-                        newBoxAdded = boxViewModel.filterBoxesForMedicine(medicine: medicine.name).count
-//                        newBoxAdded+=1
-                    })
-                    { Image(systemName: "plus.circle.fill").scaleEffect(1.5).foregroundColor(CustomColor.darkblue)}
-                }
-                
                 
             }
             .padding(20)
             //            .foregroundColor(CustomColor.graytext)
             
+            HStack{
+                Text("Scatole").font(.title2).fontWeight(.bold)
+                Spacer()
+                Button(action: {
+                    boxViewModel.addNewBox(medicine: medicine.name, expirationDate: Date.now, state: .usable)
+                    newBoxAdded = boxViewModel.filterBoxesForMedicine(medicine: medicine.name).count
+//                        newBoxAdded+=1
+                })
+                { Image(systemName: "plus.circle.fill").scaleEffect(1.5).foregroundColor(CustomColor.darkblue)}
+            }
+            .padding(.horizontal,20)
             
             List {
                 ForEach(0..<(newBoxAdded == 0 ? boxViewModel.filterBoxesForMedicine(medicine: medicine.name).count : newBoxAdded), id: \.self) { index in
@@ -99,7 +102,7 @@ struct SingleMedView: View {
                             .tint(CustomColor.donnatedgreen)
                             
                         }
-                }
+                }.padding(20)
             }
             .listStyle(.inset)
             .fixedSize(horizontal: false, vertical: false)
