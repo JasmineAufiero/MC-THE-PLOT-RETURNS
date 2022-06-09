@@ -31,6 +31,9 @@ struct MedData: Identifiable, Hashable, Codable {
         self.category = category
         self.isPinned = isPinned
     }
+    
+    
+    
 
 }
 

@@ -47,11 +47,16 @@ struct CabinetView: View {
                 // modified: add a dynamic card
                 LazyVGrid(columns: columns, spacing: 20) {
                     
-                    ForEach(filteredMeds , id: \.self) { item in
+                    ForEach(filteredMeds) { item in
                         
-                        NavigationLink(destination: SingleMedView(nome: item.name, dosaggio: item.dosage, tipologia: item.type, prezzo: item.price, unità: item.units, categoria: item.category, medicineViewModel: medicineViewModel, boxViewModel: boxViewModel)) {
+                        NavigationLink(destination:
+                                        SingleMedView(medicine: item, medicineViewModel: medicineViewModel, boxViewModel: boxViewModel)
+//                                            nome: item.name, dosaggio: item.dosage, tipologia: item.type, prezzo: item.price, unità: item.units, categoria: item.category, isPinned: item.isPinned, medicineViewModel: medicineViewModel, boxViewModel: boxViewModel)
+                        ) {
                             
-                            MedCardView(medname: item.name, dosage: item.dosage, medCategory: item.category)
+                            MedCardView(
+                                medicine: item)
+//                            , medname: item.name, dosage: item.dosage, medCategory: item.category)
                                 .padding(5)
                             }
                         }

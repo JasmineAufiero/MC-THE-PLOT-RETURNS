@@ -15,7 +15,7 @@ struct SummaryView: View {
     
     
     let data = (1...10).map { "Item \($0)" }
-    @StateObject var medicineViewModel = MedicineViewModel()
+//    @StateObject var medicineViewModel = MedicineViewModel()
     
     
     var pinnedMeds :[MedData] {
@@ -35,7 +35,7 @@ struct SummaryView: View {
                         ForEach(pinnedMeds , id: \.self) { item in
                             NavigationLink(destination:{}
 //                                                                        SingleMedView()
-                                           , label: {MiniMedCardView(nome: item.name) .padding(5)})
+                                           , label: {MiniMedCardView(name: item.name) .padding(5)})
                             
                             
                         }
@@ -50,7 +50,7 @@ struct SummaryView: View {
                                                 ForEach(pinnedMeds , id: \.self) { item in
                                                     NavigationLink(destination:{}
 //                                                                    SingleMedView()
-                                                                   , label: {MiniMedCardView(nome: item.name)
+                                                                   , label: {MiniMedCardView(name: item.name)
                                                         .padding(5)})
                         
                   
@@ -63,6 +63,7 @@ struct SummaryView: View {
 //
 //                            }
 //                        }
+                                                }
                        }.fixedSize(horizontal: false, vertical: false)
                                                     
                                                     Text("Curiosità").fontWeight(.bold).font(.title3)
@@ -76,6 +77,7 @@ struct SummaryView: View {
         }
 }
 }
+
 
 //struct SummaryView_Previews: PreviewProvider {
 //    static var previews: some View {

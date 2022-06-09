@@ -11,9 +11,12 @@ import SwiftUI
 
 struct MedCardView: View {
     // modified: add parameters
-    var medname :String
-    var dosage :String
-    var medCategory :String
+    
+    var medicine: MedData
+    
+//    var medname :String
+//    var dosage :String
+//    var medCategory :String
 //    var image :String // add a parameter that can be used as image
     
     var body: some View {
@@ -22,7 +25,6 @@ struct MedCardView: View {
             
             RoundedRectangle(cornerRadius: 20, style: .continuous)
                 .foregroundColor(CustomColor.medcardgray)
-//                .frame(width: <#T##CGFloat?#>, height: <#T##CGFloat?#>, alignment: <#T##Alignment#>)
                 .fixedSize(horizontal: false, vertical: false)
                 .shadow(color: .gray, radius: 2, x: 0, y: 2)
             
@@ -33,15 +35,15 @@ struct MedCardView: View {
                 // add a method in the ViewModel that define the image based on the type
                 RoundedRectangle(cornerRadius: 20).fixedSize(horizontal: false, vertical: false).frame( height: 5 , alignment: .center).foregroundColor(Color.systemOrange)
                 HStack{
-                    Text(medname).font(.title3).fontWeight(.bold).textCase(.uppercase)
+                    Text(medicine.name).font(.title3).fontWeight(.bold).textCase(.uppercase)
                         .scaledToFit()
                             .minimumScaleFactor(0.01)
                             .lineLimit(1)
                     Spacer()
-                    Text (dosage).font(.subheadline)
+                    Text (medicine.dosage).font(.subheadline)
                 }
                 HStack{
-                    Text(medCategory.capitalizingFirstLetter())
+                    Text(medicine.category.capitalizingFirstLetter())
                     Spacer()
                 }
                 
@@ -51,9 +53,9 @@ struct MedCardView: View {
         }
     }
 }
-
-struct MedCardView_Previews: PreviewProvider {
-    static var previews: some View {
-        MedCardView(medname: "Tachipirina", dosage: "20mg", medCategory: "Antistaminico")
-    }
-}
+//
+//struct MedCardView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        MedCardView(medname: "Tachipirina", dosage: "20mg", medCategory: "Antistaminico")
+//    }
+//}

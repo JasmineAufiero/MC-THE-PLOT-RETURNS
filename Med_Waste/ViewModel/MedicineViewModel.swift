@@ -19,6 +19,34 @@ class MedicineViewModel :ObservableObject {
 ////        MedData(name: "Ayrinal", dosage: "100 mg", type: "compresse", price: "10,90 €",  units: 30, category: "antistaminico")
 //    ]
     
+     func pinMedicine(nome: String) {
+         
+         
+         let index = medicines.firstIndex{ $0.name == nome }
+         medicines[index!].isPinned.toggle()
+//         for i in 0..<medicines.count {
+//             medicines[i].isPinned.toggle()
+////             if medicines[i].name == nome {
+////                 if medicines[i].isPinned{
+////                     medicines[i].isPinned = false
+////                 }else{
+////                     medicines[i].isPinned = true
+////                 }
+////             }
+//         }
+    }
+    
+    
+    func searchMedicineByName(medicine :String) -> MedData? {
+        
+        for i in 0..<medicines.count{
+            if medicines[i].name == medicine {
+                return medicines[i]
+            }
+        }
+        return nil
+    }
+    
     
     func addNewMedicine(name :String, dosage: String, type :String, price :String, units :Int, category :String, isPinned: Bool) {
         medicines.append(MedData(name: name, dosage: dosage, type: type, price: price, units: units, category: category, isPinned: isPinned))
