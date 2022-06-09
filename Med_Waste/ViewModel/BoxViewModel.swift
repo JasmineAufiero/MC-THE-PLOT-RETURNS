@@ -12,7 +12,7 @@ import SwiftUI
 class BoxViewModel :ObservableObject {
     
     @Published var boxes :[MedBox] = [
-        MedBox(medicine: "Tachipirina", expirationDate: Date.now, state: .usable),
+        MedBox(medicine: "Tachipirina", expirationDate: Date.now.addingTimeInterval(86500), state: .usable),
         MedBox(medicine: "Tachipirina", expirationDate: Date.now, state: .usable),
         MedBox(medicine: "Ayrinal", expirationDate: Date.now, state: .usable)
     ]

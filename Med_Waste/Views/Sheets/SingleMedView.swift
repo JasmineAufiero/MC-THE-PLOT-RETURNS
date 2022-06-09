@@ -54,7 +54,8 @@ struct SingleMedView: View {
                     Spacer()
                     Button(action: {
                         boxViewModel.addNewBox(medicine: medicine.name, expirationDate: Date.now, state: .usable)
-                        newBoxAdded = boxViewModel.boxes.count
+                        newBoxAdded = boxViewModel.filterBoxesForMedicine(medicine: medicine.name).count
+//                        newBoxAdded+=1
                     })
                     { Image(systemName: "plus.circle.fill").scaleEffect(1.5).foregroundColor(CustomColor.darkblue)}
                 }
@@ -66,7 +67,7 @@ struct SingleMedView: View {
             
             
             List {
-                ForEach(0..<(newBoxAdded == 0 ? boxViewModel.boxes.count : newBoxAdded), id: \.self) { index in
+                ForEach(0..<(newBoxAdded == 0 ? boxViewModel.filterBoxesForMedicine(medicine: medicine.name).count : newBoxAdded), id: \.self) { index in
                     
                     //                        HStack{
                     //                            Text("Box \(index+1)")
