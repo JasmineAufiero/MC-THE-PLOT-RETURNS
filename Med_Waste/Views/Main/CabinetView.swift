@@ -16,6 +16,7 @@ struct CabinetView: View {
     @State public var showData = false
     @State private var isRecognizing = false
     
+    @EnvironmentObject var locationManagerK : MapViewModel
     var medicineViewModel :MedicineViewModel
     var boxViewModel :BoxViewModel
     @ObservedObject var recognizedContent = RecognizedContent()
@@ -59,36 +60,36 @@ struct CabinetView: View {
             .navigationTitle("Armadietto")
             .navigationBarItems(trailing:
                                     HStack(spacing: 20){
-                Button(action: { showMap = true }, label: { Image(systemName: "map.circle.fill").scaleEffect(1.5)})
+                Button(action: { locationManagerK.showMap = true }, label: { Image(systemName: "map.circle.fill").scaleEffect(1.5)})
                 
                 Button(action: {guard !isRecognizing else { return }
                     showScanner = true ; showData = true }, label: { Image(systemName: "plus.circle.fill").foregroundColor(CustomColor.darkblue).scaleEffect(1.5)})
             })
         }
         
-//        .sheet(isPresented: $showScanner) { // modified: add new medicine sheet
+//       .sheet(isPresented: $showScanner) { // modified: add new medicine sheet
 //            NewItemView(medicineViewModel: medicineViewModel, boxViewModel: boxViewModel)
 //        }
 
-//        .sheet(isPresented: $showMap, content: {MapView()})
-//            .sheet(isPresented: $showScanner, content: {
-//                ScanView{ result in
-//                    switch result{
-//                    case .success(let scannedImages):
-//                        isRecognizing = true
-//                        RecognizeText(scannedImages: scannedImages, recognizedContent: recognizedContent){
-//                            isRecognizing = false
-//                            showScanner = false
-//                            showData = true
-//                        }.recognizeText()
-//
-//                    case .failure(let error):
-//                        print(error.localizedDescription)
-//                    }
-//                    showScanner = false
-//                } didCancelScanning: {showScanner = false}
-//
-//            })
+        .sheet(isPresented: $locationManagerK.showMap, content: {MapView()})
+            .sheet(isPresented: $showScanner, content: {
+                ScanView{ result in
+                    switch result{
+                    case .success(let scannedImages):
+                        isRecognizing = true
+                        RecognizeText(scannedImages: scannedImages, recognizedContent: recognizedContent){
+                            isRecognizing = false
+                            showScanner = false
+                            showData = true
+                        }.recognizeText()
+
+                    case .failure(let error):
+                        print(error.localizedDescription)
+                    }
+                    showScanner = false
+                } didCancelScanning: {showScanner = false}
+
+            })
         .sheet(isPresented: $showData, content: {NewItemView( showData : $showData ,medicineViewModel: medicineViewModel, boxViewModel: boxViewModel)})
     }
 }

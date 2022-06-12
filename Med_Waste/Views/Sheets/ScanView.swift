@@ -34,7 +34,7 @@ struct ScanView: UIViewControllerRepresentable {
         }
         func documentCameraViewController(_ controller: VNDocumentCameraViewController, didFinishWith scan: VNDocumentCameraScan) {
             var scannedBoxes = [UIImage]()
-            for i in 0..<scan.pageCount {
+            for _ in 0..<scan.pageCount {
                 scannedBoxes.append(scan.imageOfPage(at: 1))
             }
             scanView.didFinishScanning(.success(scannedBoxes))
