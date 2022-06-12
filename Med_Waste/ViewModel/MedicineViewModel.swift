@@ -15,6 +15,24 @@ class MedicineViewModel :ObservableObject {
     
     ]
     
+    init() {
+        if let data = UserDefaults.standard.data(forKey: "SavedData") {
+            if let decoded = try? JSONDecoder().decode([MedData].self, from: data) {
+                medicines = decoded
+                return
+            }
+        }
+
+        medicines = []
+    }
+    
+    func save() {
+        if let encoded = try? JSONEncoder().encode(medicines) {
+            UserDefaults.standard.set(encoded, forKey: "SavedData")
+        }
+    }
+    
+
     
     func pinnedMedicine() -> [MedData] {
         return medicines.filter{$0.isPinned}
@@ -24,6 +42,7 @@ class MedicineViewModel :ObservableObject {
          let index = medicines.firstIndex{ $0.name == nome }
          medicines[index!].isPinned.toggle()
          objectWillChange.send()
+         save()
     }
     
     
@@ -43,6 +62,7 @@ class MedicineViewModel :ObservableObject {
     
     func addNewMedicine(name :String, dosage: String, type :String, price :String, units :Int, category :String, isPinned: Bool) {
         medicines.append(MedData(name: name, dosage: dosage, type: type, price: price, units: units, category: category, isPinned: isPinned))
+        save()
     }
     
     

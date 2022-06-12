@@ -40,6 +40,7 @@ struct SingleMedView: View {
                             .onTapGesture {
                                
                                 medicineViewModel.pinMedicine(nome: medicine.name)
+//                                medicineViewModel.toggle(medicine)
                             }
                         
                     }
