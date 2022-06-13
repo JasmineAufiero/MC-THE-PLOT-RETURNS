@@ -52,9 +52,19 @@ struct CabinetView: View {
                 Text("Tutti i medicinali").fontWeight(.bold)
                     .frame(maxWidth: .infinity, alignment: .leading).padding(.leading, 20)
                 // modified: add a dynamic card
+                
+               
+                
+                
+                
                 LazyVGrid(columns: columns, spacing: 20) {
-                    
-                    ForEach(filteredMeds) { item in
+                    if (medicineViewModel.medicines.isEmpty) {
+                        
+                      PlaceholderMedicine()
+                            .padding(.leading, 20)
+                      
+                    }else{
+                    ForEach(filteredMeds.reversed()) { item in
                         
                         NavigationLink(destination:
                                         SingleMedView(medicine: item, medicineViewModel: medicineViewModel, boxViewModel: boxViewModel)
@@ -67,6 +77,7 @@ struct CabinetView: View {
                                 .padding(5)
                             }
                         }
+                    }
                     }.searchable(text: $searchQuery, prompt: "Cerca i medicinali")
                     
                 {
@@ -124,7 +135,7 @@ struct CabinetView: View {
                                     
                                     Text("Antistaminici")
                                         .padding()
-                                        .background(Color.systemBlue)
+                                        .background(Color("blu"))
                                         .cornerRadius(40)
                                         .foregroundColor(.white)
                                 }
@@ -136,7 +147,7 @@ struct CabinetView: View {
                                     
                                     Text("Integratori")
                                         .padding()
-                                        .background(Color.systemYellow)
+                                        .background(Color("giallo"))
                                         .cornerRadius(40)
                                         .foregroundColor(.white)
                                 }
@@ -150,7 +161,7 @@ struct CabinetView: View {
                                     
                                     Text("Gastrointestinali")
                                         .padding()
-                                        .background(Color.systemGreen)
+                                        .background(Color("verde"))
                                         .cornerRadius(40)
                                         .foregroundColor(.white)
                                 }
@@ -163,7 +174,7 @@ struct CabinetView: View {
                                 } label: {
                                     Text("Antidolorifici")
                                         .padding()
-                                        .background(Color.systemOrange)
+                                        .background(Color("rosso"))
                                         .cornerRadius(40)
                                         .foregroundColor(.white)
                                 }
@@ -183,8 +194,9 @@ struct CabinetView: View {
                         
                         
                         
-                    }
+                    
 
+                }
                 }
 //                .onAppear{
 //                    searchForCategory = false

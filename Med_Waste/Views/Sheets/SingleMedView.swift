@@ -26,7 +26,7 @@ struct SingleMedView: View {
             
             VStack {
                 
-                Image("pills").resizable().scaledToFit()
+                Image(medicineViewModel.chooseImage(type: medicine.type , medicine: medicine)).resizable().scaledToFit()
                     .frame(width: 200, height: 200, alignment: .center).padding()
                     .rotation3DEffect(.degrees(80), axis: (x: 0, y: 0, z: 1))
                 
@@ -53,7 +53,7 @@ struct SingleMedView: View {
                         .multilineTextAlignment(.leading)
                         .padding(.vertical, 5)
                     
-                    Text("Questo medicinale appartiene alla categoria dei \(medicine.category).").multilineTextAlignment(.leading)
+                    Text("Questo medicinale appartiene alla categoria dei :  \(medicine.category).").multilineTextAlignment(.leading)
                         .padding(.vertical, 5)
                     //                Divider()
                 }

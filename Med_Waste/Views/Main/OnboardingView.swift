@@ -70,6 +70,19 @@ struct OnboardingHowItWorks : View{
         @Binding var onboardingState : Int
     @Binding var onBoardingFatto : Bool
       
+    @ObservedObject var statsviewmodel = StatsViewModel()
+    
+    
+    
+    
+    
+    func createStatInstances(){
+    statsviewmodel.addStatData(index: 0, name: "Total", color: "BlueForm", value: 0.0)
+    statsviewmodel.addStatData(index: 1, name: "Donabili", color: "DonatedGreen", value: 0.0)
+    statsviewmodel.addStatData(index: 2, name: "Scaduti", color: "ExpiredRed", value: 0.0)
+    statsviewmodel.addStatData(index: 3, name: "InScadenza", color: "RedForm", value: 0.0)
+    }
+    
         var body: some View{
             VStack {
                 HStack{
@@ -77,6 +90,8 @@ struct OnboardingHowItWorks : View{
                         .foregroundColor(CustomColor.graytext)
                 }
                 .onTapGesture {
+                    
+                  createStatInstances()
                     onBoardingFatto = true
                 }
                 .frame(width: UIScreen.screenWidth-50, height: 50, alignment: .trailing)
@@ -110,14 +125,16 @@ struct OnboardingHowItWorks : View{
                     .opacity(0.3)
                    
                 BottoneContinue(onboardingstate: $onboardingState, ONBoardingDone: $onBoardingFatto)
-        }
+            }.onAppear{
+                
+            }
         }
     }
 
 struct BottoneContinue : View{
     @Binding var onboardingstate : Int
     @Binding var ONBoardingDone : Bool
-    @ObservedObject var statsviewmodel = StatsViewModel()
+   
     var body: some View {
         RoundedRectangle(cornerRadius: 20, style: .continuous)
             .foregroundColor(CustomColor.blueform)
@@ -140,11 +157,10 @@ struct BottoneContinue : View{
             )
             .onTapGesture {
                 if (onboardingstate == 6){ //ultimo valore dlel'onboarding
-                    statsviewmodel.addStatData(index: 0, name: "Total", color: "BlueForm", value: 0.0)
-                    statsviewmodel.addStatData(index: 1, name: "Donabili", color: "DonatedGreen", value: 0.0)
-                    statsviewmodel.addStatData(index: 2, name: "Scaduti", color: "ExpiredRed", value: 0.0)
-                    statsviewmodel.addStatData(index: 3, name: "InScadenza", color: "RedForm", value: 0.0)
-                  
+                   
+                     
+                    
+                    OnboardingHowItWorks(onboardingState: $onboardingstate, onBoardingFatto: $ONBoardingDone).createStatInstances()
                     ONBoardingDone = true //serve per aggiornare l avaribile per l'onboarding  first launch
                 } else {
                 onboardingstate += 1

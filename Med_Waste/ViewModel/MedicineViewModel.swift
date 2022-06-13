@@ -6,13 +6,14 @@
 //
 
 import Foundation
+import SwiftUI
 
 class MedicineViewModel :ObservableObject {
     
     @Published var medicines :[MedData] = [
         MedData(name: "Tachipirina", dosage: "100 mg", type: "compresse", price: "9,00 €",  units: 30, category: "antivirale", isPinned: false),
         MedData(name: "Ayrinal", dosage: "100 mg", type: "compresse", price: "10,90 €",  units: 30, category: "antistaminico", isPinned: false)
-    
+        
     ]
     
     init() {
@@ -22,7 +23,7 @@ class MedicineViewModel :ObservableObject {
                 return
             }
         }
-
+        
         medicines = []
     }
     
@@ -32,17 +33,17 @@ class MedicineViewModel :ObservableObject {
         }
     }
     
-
+    
     
     func pinnedMedicine() -> [MedData] {
         return medicines.filter{$0.isPinned}
     }
     
-     func pinMedicine(nome: String) {
-         let index = medicines.firstIndex{ $0.name == nome }
-         medicines[index!].isPinned.toggle()
-         objectWillChange.send()
-         save()
+    func pinMedicine(nome: String) {
+        let index = medicines.firstIndex{ $0.name == nome }
+        medicines[index!].isPinned.toggle()
+        objectWillChange.send()
+        save()
     }
     
     
@@ -67,7 +68,7 @@ class MedicineViewModel :ObservableObject {
         return nil
     }
     
-
+    
     
     
     
@@ -77,48 +78,81 @@ class MedicineViewModel :ObservableObject {
         save()
     }
     
+    func categoryColor (medicine: MedData) -> String {
+        
+        switch medicine.category {
+        case "Antibiotici":
+            return "arancione"
+        case "Antidolorifici":
+//            return "arancione"
+            return "rosso"
+        case "Anti-Infiammatori":
+//            return "arancione"
+            return "nero"
+        case "Antivirali":
+            return "verde"
+        case "Antistaminici":
+            return "blu"
+        case "Dermatologici":
+//            return "verde"
+            return "viola"
+        case "Gastrointestinali":
+            return "verde"
+        case "Integratori":
+            return "giallo"
+        default:
+            return "grigio"
+        }
+        
+    }
     
     
-    
-    func chooseImage(type: String) -> String {
+    func chooseImage(type: String, medicine : MedData) -> String {
         
         switch type {
-        case "tubo":
-            return "tubo_image"
+        case "Pillole":
+            return "pillola\(categoryColor(medicine: medicine))"
             
-        case "pomata":
-            return "tubo_image"
+        case "Bustine":
+            return "bustina\(categoryColor(medicine: medicine))"
             
-        case "integratore":
-            return "integratore_image"
+        case "Pomata":
+            return "pomata\(categoryColor(medicine: medicine))"
             
-        case "granulato":
-            return "bustine_image"
+        case "Sciroppo":
+            return "sciroppo\(categoryColor(medicine: medicine))"
             
-        case "compresse":
-            return "compresse_image"
             
-        case "capsule":
-            return "capsule_image"
-            
-        case "gocce":
-            return "gocce_image"
-            
-        case "sciroppo":
-            return "sciroppo_image"
-            
-        case "soluzione_iniettabile":
-            return "soluzione_image"
-            
-        case "soluzione orale":
-            return "spray_image"
-        
-        case "spray":
-            return "spray_image"
-            
+        case "Fiala":
+            return "fiala\(categoryColor(medicine: medicine))"
             
         default:
-            return "pills"
+            return "pillolagrigio"
+            //        case "granulato":
+            //            return "bustine_image"
+            //
+            //        case "compresse":
+            //            return "compresse_image"
+            //
+            //        case "capsule":
+            //            return "capsule_image"
+            //
+            
+            //
+            //        case "sciroppo":
+            //            return "sciroppo_image"
+            //
+            //        case "soluzione_iniettabile":
+            //            return "soluzione_image"
+            //
+            //        case "soluzione orale":
+            //            return "spray_image"
+            //
+            //        case "spray":
+            //            return "spray_image"
+            
+            
+       
         }
     }
     

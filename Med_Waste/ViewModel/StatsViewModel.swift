@@ -42,7 +42,7 @@ class StatsViewModel : ObservableObject {
     
     func convertToPercentage( currentvalue : Double) -> Double  {
         let percent = convertToScale(currentvalue: currentvalue) * 100
-                return round(percent)
+                return percent.rounded()
     }
 
     
@@ -53,6 +53,7 @@ class StatsViewModel : ObservableObject {
     
     func changeValue(price : String, type : Int , noOfBoxes : Double) {
         stats[type].value += Double(price)! * noOfBoxes
+        stats[type].value.round(.towardZero)
         saveStats()
     }
  

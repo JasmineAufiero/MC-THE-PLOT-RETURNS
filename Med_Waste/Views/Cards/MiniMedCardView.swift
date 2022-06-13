@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct MiniMedCardView: View {
+    var medicine : MedData
     var name: String
     
     var body: some View {
@@ -18,7 +19,7 @@ struct MiniMedCardView: View {
 
             .shadow(color: .gray, radius: 2, x: 0, y: 2)
             .overlay( VStack(alignment: .center, spacing: 10){
-                Image("pills").resizable().scaledToFit()
+                Image(MedicineViewModel().chooseImage(type: medicine.type, medicine: medicine)).resizable().scaledToFit()
                
               
                 Text(name).font(.subheadline).fontWeight(.bold).textCase(.uppercase)

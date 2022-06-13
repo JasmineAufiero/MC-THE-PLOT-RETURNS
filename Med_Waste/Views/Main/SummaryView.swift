@@ -41,9 +41,9 @@ struct SummaryView: View {
                 ScrollView(.horizontal){
                     HStack(spacing: 5 ){
                         
-                        ForEach(pinnedMedicines) { item in
+                        ForEach(pinnedMedicines.reversed()) { item in
 
-                            NavigationLink(destination:{SingleMedView(medicine: item, medicineViewModel: medicineViewModel, boxViewModel: boxViewModel)}, label: {MiniMedCardView(name: item.name) .padding(5)})
+                            NavigationLink(destination:{SingleMedView(medicine: item, medicineViewModel: medicineViewModel, boxViewModel: boxViewModel)}, label: {MiniMedCardView(medicine: item , name: item.name)    .padding(.leading, 20)})
                                 
                             
                         }
