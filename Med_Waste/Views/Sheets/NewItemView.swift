@@ -207,7 +207,7 @@ struct NewItemView: View {
                             
                             
                             Section {
-                                Picker("Categoria", selection: $chosenCategory) {
+                                Picker("Scegli", selection: $chosenCategory) {
                                     ForEach(categoria_picker, id: \.self) {
                                                     Text($0)
 //                                                        .onTapGesture{

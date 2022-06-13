@@ -120,10 +120,7 @@ struct CabinetView: View {
                             if searchForCategory{
                             HStack{
                                 Button{
-//                                    searchForCategory = true
-                                    searchQuery = "Antistaminici"
-                                    
-                                }label: {
+                                    } label: {
                                     
                                     Text("Antistaminici")
                                         .padding()
@@ -131,10 +128,10 @@ struct CabinetView: View {
                                         .cornerRadius(40)
                                         .foregroundColor(.white)
                                 }
+                                    .onTapGesture{
+                                        searchQuery = "Antistaminici"
+                                    }
                                 Button{
-//                                    searchForCategory = true
-                                    searchQuery = "Integratori"
-                                    
                                 }label: {
                                     
                                     Text("Integratori")
@@ -143,12 +140,12 @@ struct CabinetView: View {
                                         .cornerRadius(40)
                                         .foregroundColor(.white)
                                 }
+                                .onTapGesture{
+                                    searchQuery = "Integratori"
+                                }
                             }
                             HStack{
                                 Button {
-//                                    searchForCategory = true
-                                    searchQuery = "Gastrointestinali"
-                                    
                                 }label: {
                                     
                                     Text("Gastrointestinali")
@@ -157,12 +154,12 @@ struct CabinetView: View {
                                         .cornerRadius(40)
                                         .foregroundColor(.white)
                                 }
+                                .onTapGesture{
+                                    searchQuery = "Gastrointestinali"
+                                }
+                               
                            
-                                Button {
-//                                    searchForCategory = true
-                                    searchQuery = "Antidolorifici"
-                                    
-                                    
+                                Button {    
                                 } label: {
                                     Text("Antidolorifici")
                                         .padding()
@@ -170,6 +167,10 @@ struct CabinetView: View {
                                         .cornerRadius(40)
                                         .foregroundColor(.white)
                                 }
+                                .onTapGesture{
+                                    searchQuery = "Antidolorifici"
+                                }
+                                
                                 
                             }
 
