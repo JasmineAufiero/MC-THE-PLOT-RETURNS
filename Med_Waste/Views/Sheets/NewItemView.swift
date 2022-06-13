@@ -22,6 +22,7 @@ struct NewItemView: View {
     @State var expirationDate :[Date] = [Date.now] // an array of expiration date for different boxes
     
 //        .focused($amountIsFocused)
+    @State var chosenCategory :String = ""
     
     @State var expand = false // for the tipology picker
     @Binding var showData: Bool
@@ -205,9 +206,12 @@ struct NewItemView: View {
                             
                             
                             Section {
-                                Picker(selection: $numberofMedCategories, label: Text("Categoria")) {
-                                                ForEach(0 ..< categoria.count) {
-                                                    Text(self.categoria[$0])
+                                Picker("Categoria", selection: $chosenCategory) {
+                                    ForEach(categoria, id: \.self) {
+                                                    Text($0)
+//                                                        .onTapGesture{
+//                                                            chosenCategory = categoria[numberofMedCategories]
+//                                                        }
                                                 }
                                             }
                                         }
@@ -223,7 +227,7 @@ struct NewItemView: View {
                             Spacer()
                         Button("Conferma") {
                             
-                            medicineViewModel.addNewMedicine(name: nome, dosage: dosaggio, type: tipologia, price: prezzo, units: Int(unità) ?? 0, category: "antistaminico", isPinned: false)
+                            medicineViewModel.addNewMedicine(name: nome, dosage: dosaggio, type: tipologia, price: prezzo, units: Int(unità) ?? 0, category: chosenCategory, isPinned: false)
                             
                             
                             

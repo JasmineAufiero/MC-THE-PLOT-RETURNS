@@ -5,12 +5,16 @@
 //  Created by Irene Fernando on 07/06/22.
 //
 
+
+//not needed anymore
+
 import SwiftUI
 
 struct SearchView: View {
     var medicineViewModel :MedicineViewModel
     var boxViewModel :BoxViewModel
-//   @State var searchForCategory: String
+//   @Binding var searchForCategory: String
+  
     
     
     var body: some View {
@@ -51,7 +55,7 @@ struct SearchView: View {
             Text("Categoria").font(.title).fontWeight(.semibold)  //most used categories
             HStack{
                 Button{
-//                   searchForCategory = "antistaminico"
+                    
                     
                 }label: {
                     
@@ -73,6 +77,8 @@ struct SearchView: View {
                         .cornerRadius(40)
                         .foregroundColor(.white)
                 }
+            }
+            HStack{
                 Button{}label: {
                     
                     Text("Gastrointestinali")
@@ -81,8 +87,7 @@ struct SearchView: View {
                         .cornerRadius(40)
                         .foregroundColor(.white)
                 }
-            }
-            HStack{
+           
                 Button{}label: {
                     Text("Antidolorifici")
                         .padding()
