@@ -20,6 +20,7 @@ struct CabinetView: View {
     
     var medicineViewModel :MedicineViewModel
     var boxViewModel :BoxViewModel
+    var statsViewModel :StatsViewModel
     @ObservedObject var recognizedContent = RecognizedContent()
     
 //    let data = (1...10).map { "Item \($0)" }
@@ -117,7 +118,7 @@ struct CabinetView: View {
 //                } didCancelScanning: {showScanner = false}
 //
 //            })
-        .sheet(isPresented: $showData, content: {NewItemView( showData : $showData ,medicineViewModel: medicineViewModel, boxViewModel: boxViewModel, statsViewModel: StatsViewModel())})
+        .sheet(isPresented: $showData, content: {NewItemView( showData : $showData ,medicineViewModel: medicineViewModel, boxViewModel: boxViewModel, statsViewModel: statsViewModel)})
 
     }
 }

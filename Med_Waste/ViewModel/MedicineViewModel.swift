@@ -72,6 +72,7 @@ class MedicineViewModel :ObservableObject {
     
     
     func addNewMedicine(name :String, dosage: String, type :String, price :String, units :Int, category :String, isPinned: Bool) {
+        
         medicines.append(MedData(name: name, dosage: dosage, type: type, price: price, units: units, category: category, isPinned: isPinned))
         save()
     }

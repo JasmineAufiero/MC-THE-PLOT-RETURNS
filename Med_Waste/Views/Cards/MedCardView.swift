@@ -13,13 +13,37 @@ struct MedCardView: View {
     // modified: add parameters
     
     var medicine: MedData
-    
+    var color : Color = .systemGreen
+
+//    var switching : String = medicine.category
 //    var medname :String
 //    var dosage :String
 //    var medCategory :String
 //    var image :String // add a parameter that can be used as image
     
+   
+    func GiveColor (medicine: MedData) -> Color{
+    
+    switch medicine.category {
+    case "Antistaminici":
+        return .systemBlue
+    case "Integratori":
+        return .systemYellow
+    case "Gastrointestinali":
+        return .systemGreen
+    case "Antidolorifici":
+        return .systemOrange
+//    case "Dermatologici":
+//        return .systemTeal     check the color if it's right
+    default:
+        return .systemRed
+    }
+    
+    }
+    
     var body: some View {
+        
+        
         
         ZStack{
             
@@ -33,7 +57,7 @@ struct MedCardView: View {
                 // modified: dynamic change of the card
                 Image("pills").resizable().scaledToFit().padding()
                 // add a method in the ViewModel that define the image based on the type
-                RoundedRectangle(cornerRadius: 20).fixedSize(horizontal: false, vertical: false).frame( height: 5 , alignment: .center).foregroundColor(Color.systemOrange)
+                RoundedRectangle(cornerRadius: 20).fixedSize(horizontal: false, vertical: false).frame( height: 5 , alignment: .center).foregroundColor(GiveColor(medicine: medicine))
                 HStack{
                     Text(medicine.name).font(.title3).fontWeight(.bold).textCase(.uppercase)
                         .scaledToFit()

@@ -18,7 +18,7 @@ struct NewItemView: View {
     @State var unità: String = ""
     @State private var numerobox = 1
     @State var isTheSameDate = false
-//    @State var categoria = ""
+    @State var categoria = ""
     @State var expirationDate :[Date] = [Date.now] // an array of expiration date for different boxes
     
 //        .focused($amountIsFocused)
@@ -31,7 +31,7 @@ struct NewItemView: View {
     var statsViewModel : StatsViewModel
     
     var MedCategoriesPicker = ["Antibiotici", "Antidolorifici", "Anti-Infiammatori", "Antivirali", "Antistaminici", "Dermatologici", "Gastrointestinali", "Integratori", "Altro"]
-    var categoria = ["Antibiotici", "Antidolorifici", "Anti-Infiammatori", "Antivirali", "Antistaminici", "Dermatologici", "Gastrointestinali", "Integratori", "Altro"]
+    var categoria_picker = ["Antibiotici", "Antidolorifici", "Anti-Infiammatori", "Antivirali", "Antistaminici", "Dermatologici", "Gastrointestinali", "Integratori", "Altro"]
     @State var numberofMedCategories = 0  //necessary for the picker choice
     
     var body: some View {
@@ -206,14 +206,23 @@ struct NewItemView: View {
                             
                             
                             Section {
-                                Picker(selection: $numberofMedCategories, label: Text("Categoria")) {
-                                                ForEach(0 ..< categoria.count) {
-                                                    Text(self.categoria[$0])
-                                                }
-                                            }
+                                
+                                Picker("Categoria", selection: $categoria) {
+                                    ForEach(categoria_picker, id: \.self) {
+                                        Text($0)
+                                    }
+                                
+                                
+                                
+//                                Picker(selection: $numberofMedCategories, label: Text("Categoria")) {
+//                                                ForEach(0 ..< categoria.count) {
+//                                                    Text(self.categoria[$0])
+//                                                }
+//                                            }
                                         }
                         }
                         
+                        }
                        
                     
                         VStack{  //necessary to have the space between the category picker and the done button
@@ -224,7 +233,7 @@ struct NewItemView: View {
                             Spacer()
                         Button("Conferma") {
                             
-                            medicineViewModel.addNewMedicine(name: nome, dosage: dosaggio, type: tipologia, price: prezzo, units: Int(unità) ?? 0, category: "antistaminico", isPinned: false)
+                            medicineViewModel.addNewMedicine(name: nome, dosage: dosaggio, type: tipologia, price: prezzo, units: Int(unità) ?? 0, category: categoria, isPinned: false)
                             statsViewModel.changeValue(price: prezzo, type: 0 ,noOfBoxes: Double(numerobox))
                             
                             
@@ -235,6 +244,7 @@ struct NewItemView: View {
                             showData = false
                             
                         }
+                        .disabled(nome.isEmpty || tipologia.isEmpty || prezzo.isEmpty )
                         .foregroundColor(.white)
                         .padding()
                         .background(Color.accentColor)

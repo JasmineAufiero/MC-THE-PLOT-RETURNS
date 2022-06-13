@@ -11,7 +11,7 @@ struct SearchView: View {
     var medicineViewModel :MedicineViewModel
     var boxViewModel :BoxViewModel
 //   @State var searchForCategory: String
-    
+   
     
     var body: some View {
         VStack(alignment: .leading, spacing: 10){

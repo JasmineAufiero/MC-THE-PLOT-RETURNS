@@ -44,12 +44,16 @@ struct SingleMedView: View {
                             }
                         
                     }
-                    Text(medicine.dosage).font(.title3)
+                    Group{
+                    Text(medicine.dosage)
+//                    Text(medicine.category)
+                    }
+                        .font(.title3)
                         .foregroundColor(.secondary)
                         .multilineTextAlignment(.leading)
                         .padding(.vertical, 5)
                     
-                    Text("AYRINAL compresse contiene il principio attivo bilastina che è un antistaminico. AYRINAL 20 mg compresse viene utilizzato per alleviare i sintomi di febbre da fieno (starnuti , prurito, naso che cola, naso chiuso ed arrossamento e lacrimazione oculare) ed altre forme di rinite allergica.").multilineTextAlignment(.leading)
+                    Text("Questo medicinale appartiene alla categoria dei \(medicine.category).").multilineTextAlignment(.leading)
                         .padding(.vertical, 5)
                     //                Divider()
                 }
