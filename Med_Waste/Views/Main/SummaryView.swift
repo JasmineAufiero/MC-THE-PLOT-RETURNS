@@ -27,8 +27,15 @@ struct SummaryView: View {
         NavigationView{
             
             VStack{
+//                in  this way we show the pinned section only if the array of pinned medicines is not empty
+                if (pinnedMedicines.isEmpty) {
+                  
+                }
+                else {
+                   
                 Text("In evidenza").fontWeight(.bold).font(.title3)
                     .frame(maxWidth: .infinity, alignment: .leading).padding(.leading, 20)
+                    .padding(.top, 30)
                 
                 ScrollView(.horizontal){
                     HStack(spacing: 5 ){
@@ -42,6 +49,8 @@ struct SummaryView: View {
                         
                     }
                 }.fixedSize(horizontal: false, vertical: false)
+                } //close else
+                
                 
                 Text("In scadenza").fontWeight(.bold).font(.title3)
                     .frame(maxWidth: .infinity, alignment: .leading).padding(.leading, 20)
@@ -70,7 +79,7 @@ struct SummaryView: View {
                                                     Text("Curiosità").fontWeight(.bold).font(.title3)
                                                         .frame(maxWidth: .infinity, alignment: .leading).padding(.leading, 20)
                                                     
-                                                    FactsCardView().frame(width: UIScreen.screenWidth - 30, height: 150, alignment: .center).padding()
+                                                    FactsCardView().frame(width: UIScreen.screenWidth - 30, height: 140, alignment: .center).padding()
                                                     Spacer()
                                                     
                                                 }.navigationTitle("Riepilogo")

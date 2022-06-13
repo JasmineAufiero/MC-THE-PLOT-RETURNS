@@ -38,6 +38,17 @@ class MedicineViewModel :ObservableObject {
     }
     
     
+    func searchMedicineByCategory(category :String) -> MedData? {
+        
+        for i in 0..<medicines.count{
+            if medicines[i].category == category {
+                return medicines[i]
+            }
+        }
+        return nil
+    }
+    
+
     
     
     

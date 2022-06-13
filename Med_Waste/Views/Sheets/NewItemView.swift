@@ -18,7 +18,7 @@ struct NewItemView: View {
     @State var unità: String = ""
     @State private var numerobox = 1
     @State var isTheSameDate = false
-    @State var categoria = ""
+//    @State var categoria = ""
     @State var expirationDate :[Date] = [Date.now] // an array of expiration date for different boxes
     
 //        .focused($amountIsFocused)
@@ -28,6 +28,10 @@ struct NewItemView: View {
     var tipologia_picker = ["Pillole", "Bustine", "Sciroppo", "Pomata"]
     var medicineViewModel :MedicineViewModel
     var boxViewModel :BoxViewModel
+    
+    var MedCategoriesPicker = ["Antibiotici", "Antidolorifici", "Anti-Infiammatori", "Antivirali", "Antistaminici", "Dermatologici", "Gastrointestinali", "Integratori", "Altro"]
+    var categoria = ["Antibiotici", "Antidolorifici", "Anti-Infiammatori", "Antivirali", "Antistaminici", "Dermatologici", "Gastrointestinali", "Integratori", "Altro"]
+    @State var numberofMedCategories = 0  //necessary for the picker choice
     
     var body: some View {
             
@@ -93,6 +97,7 @@ struct NewItemView: View {
                                 Spacer()
                                 TextField("Prezzo", text: $prezzo)
                                     .multilineTextAlignment(.trailing)
+                                    .keyboardType(.numberPad)
                             }
                             HStack {
                                 Text("Unità")
@@ -100,6 +105,7 @@ struct NewItemView: View {
                                 Spacer()
                                 TextField("Unità", text: $unità)
                                     .multilineTextAlignment(.trailing)
+                                    .keyboardType(.numberPad)
                             }
                             
                         } // :Information section
@@ -175,14 +181,16 @@ struct NewItemView: View {
                         // : section for stepper
                         
                         
-//                        Text("Categoria")
-//                            .font(.title2)
-//                            .fontWeight(.semibold)
-//                            .multilineTextAlignment(.leading)
-//
-//
-//                        VStack(spacing: 20) {
-//                            Picker(selection: $categoria, label: Text("Categoria Medicinale")) {
+                        Text("Categoria")
+                            .font(.title2)
+                            .fontWeight(.semibold)
+                            .multilineTextAlignment(.leading)
+
+
+                        VStack(spacing: 20) {
+//                            Picker(selection: $categoria, label: Text("Categoria Medicinale \($categoria)")) {
+////                                ForEach(0 ..< MedCategoriesPicker.count) {
+////                                                Text(self.MedCategoriesPicker[$0]).tag($0)
 //                                Text("Antibiotici").tag(1)
 //                                Text("Antidolorifici").tag(2)
 //                                Text("Anti-Infiammatori").tag(3)
@@ -190,14 +198,24 @@ struct NewItemView: View {
 //                                Text("Antistaminici").tag(5)
 //                                Text("Dermatologici").tag(6)
 //                                Text("Gastointestinali").tag(7)
-//                                Text("Gastointestinali").tag(8)
-//                                Text("Integratori").tag(9)
-//                                Text("Altro").tag(10)
+//                                Text("Integratori").tag(8)
+//                                Text("Altro").tag(9)
+////                                }
 //                            }
-//                        }
+                            
+                            
+                            Section {
+                                Picker(selection: $numberofMedCategories, label: Text("Categoria")) {
+                                                ForEach(0 ..< categoria.count) {
+                                                    Text(self.categoria[$0])
+                                                }
+                                            }
+                                        }
+                        }
                         
-                        Spacer()
-                        
+                       
+                    
+                        VStack{  //necessary to have the space between the category picker and the done button
                         
                         // "Done Button" it allows to add an element inside the cabinet view
                         HStack {
@@ -213,6 +231,7 @@ struct NewItemView: View {
                             for i in 1...numerobox {
                                 boxViewModel.addNewBox(medicine: nome, expirationDate: expirationDate[i-1], state: .usable)
                             }
+                            showData = false
                             
                         }
                         .foregroundColor(.white)
@@ -223,7 +242,7 @@ struct NewItemView: View {
                             Spacer()
                         }
                         
-                        
+                        }.padding()
                         
                     } // :form
                     .onAppear(perform: {

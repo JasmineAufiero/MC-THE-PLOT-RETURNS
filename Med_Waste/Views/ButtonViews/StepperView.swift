@@ -13,12 +13,14 @@ struct StepperView: View {
     @State private var value = 1 // stepper value
     @Binding var expirationDates :[Date] // array of expiration dates
     @Binding var numerobox :Int
+   
     
     // function that define the behaviour of the stepper while increasing its value
     // increasing the number of box, it will appear a new box item that needs a new expiration date
     func incrementStep() {
         
-        if value >= 50 { value = 50 }
+//        if value >= 50 { value = 50 }  //
+        if value >= 5 { value = 5 }  
         
         else {
             value += 1

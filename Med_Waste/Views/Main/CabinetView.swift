@@ -16,6 +16,7 @@ struct CabinetView: View {
     @State public var showData = false
     @State private var isRecognizing = false
     @State var pinnedMedicineNumber :Int
+    @State var SearchviewMedVar : String = ""
     
     var medicineViewModel :MedicineViewModel
     var boxViewModel :BoxViewModel
@@ -30,7 +31,10 @@ struct CabinetView: View {
     var filteredMeds :[MedData] {
         if searchQuery.isEmpty{
             return medicineViewModel.medicines
-        }else {
+        }else if searchQuery == SearchviewMedVar {
+            return medicineViewModel.medicines.filter{$0.category.localizedCaseInsensitiveContains(searchQuery)}
+          
+        } else {
             return medicineViewModel.medicines.filter{$0.name.localizedCaseInsensitiveContains(searchQuery)}
         }
     }
@@ -63,7 +67,8 @@ struct CabinetView: View {
                     }.searchable(text: $searchQuery, prompt: "Cerca i medicinali")
                 {
                     if searchQuery.isEmpty{
-                        SearchView()
+                        SearchView(medicineViewModel: medicineViewModel, boxViewModel: boxViewModel)
+//                                   searchForCategory: SearchviewMedVar)
                     }
                 
                 }
@@ -78,7 +83,7 @@ struct CabinetView: View {
 //                Button(action: {guard !isRecognizing else { return }
 //                    showScanner = true ; showData = true }, label: { Image(systemName: "plus.circle.fill").foregroundColor(CustomColor.darkblue).scaleEffect(1.5)})
                 
-//                new button that redirects to the view for the scanning of the meds and not to the sheet
+//                new button that redirects to the view for adding a new item
                 Button(action: {
                     showData.toggle()
                 }) {
@@ -113,6 +118,7 @@ struct CabinetView: View {
 //
 //            })
         .sheet(isPresented: $showData, content: {NewItemView( showData : $showData ,medicineViewModel: medicineViewModel, boxViewModel: boxViewModel)})
+
     }
 }
 

@@ -8,13 +8,21 @@
 import SwiftUI
 
 struct SearchView: View {
+    var medicineViewModel :MedicineViewModel
+    var boxViewModel :BoxViewModel
+//   @State var searchForCategory: String
+    
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 10){
             Text("Stato")
                 .font(.title).fontWeight(.semibold)
             HStack{
                 
-                Button{}label: {
+                Button{
+//                    search for expired meds
+                    
+                }label: {
                     HStack{
                         Image(systemName: "trash.fill")
                         Text("Scaduti")
@@ -25,7 +33,9 @@ struct SearchView: View {
                         .cornerRadius(40)
                 }
                 
-                Button{}label: {
+                Button{
+//                    search for donable meds
+                }label: {
                     HStack{
                         
                         DonateIcon()
@@ -38,30 +48,36 @@ struct SearchView: View {
                 }
                 
             }
-            Text("Categoria").font(.title).fontWeight(.semibold)
+            Text("Categoria").font(.title).fontWeight(.semibold)  //most used categories
             HStack{
-                Button{}label: {
+                Button{
+//                   searchForCategory = "antistaminico"
+                    
+                }label: {
                     
                     
                     Text("Antistaminici")
                         .padding()
-                        .background(Color.systemOrange)
+                        .background(Color.systemBlue)
+                        .cornerRadius(40)
+                        .foregroundColor(.white)
+                }
+                Button{
+//                    search for the category antistaminici
+//                    searchForCategory = "integratore"
+                }label: {
+                    
+                    Text("Integratori")
+                        .padding()
+                        .background(Color.systemYellow)
                         .cornerRadius(40)
                         .foregroundColor(.white)
                 }
                 Button{}label: {
                     
-                    Text("Antibiotici")
+                    Text("Gastrointestinali")
                         .padding()
-                        .background(Color.systemTeal)
-                        .cornerRadius(40)
-                        .foregroundColor(.white)
-                }
-                Button{}label: {
-                    
-                    Text("Antibiotici")
-                        .padding()
-                        .background(Color.systemPurple)
+                        .background(Color.systemGreen)
                         .cornerRadius(40)
                         .foregroundColor(.white)
                 }
@@ -70,18 +86,21 @@ struct SearchView: View {
                 Button{}label: {
                     Text("Antidolorifici")
                         .padding()
-                        .background(Color.systemBlue)
+                        .background(Color.systemOrange)
                         .cornerRadius(40)
                         .foregroundColor(.white)
                 }
                 
             }
+
         }.navigationTitle("Tutti i medicinali")
     }
+    
+    
 }
 
-struct SearchView_Previews: PreviewProvider {
-    static var previews: some View {
-        SearchView()
-    }
-}
+//struct SearchView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        SearchView()
+//    }
+//}

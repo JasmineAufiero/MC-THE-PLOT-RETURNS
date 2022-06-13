@@ -49,6 +49,20 @@ class BoxViewModel :ObservableObject {
         }
     }
     
+//    function that allowa to understand when a med is donable (more than 6-8 months prior the expiration date)
+    
+//    func filterDonableMedicinesBoxes (name: String){
+//        var donableBoxes :[MedBox] = []
+//
+//        for box in boxes {
+//            if (box.expirationDate < ) {
+//
+//            }
+//        }
+//
+//
+//    }
+    
     
     func addNewBox(medicine: String, expirationDate: Date, state :MedState) {
 
