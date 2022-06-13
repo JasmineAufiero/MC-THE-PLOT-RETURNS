@@ -31,6 +31,23 @@ class BoxViewModel :ObservableObject {
         
     }
     
+    init() {
+        if let data = UserDefaults.standard.data(forKey: "SavedBoxes") {
+            if let decoded = try? JSONDecoder().decode([MedBox].self, from: data) {
+                boxes = decoded
+                return
+            }
+        }
+
+        boxes = []
+    }
+    
+    func save() {
+        if let encoded = try? JSONEncoder().encode(boxes) {
+            UserDefaults.standard.set(encoded, forKey: "SavedBoxes")
+        }
+    }
+    
 //    func filerAboutToExpireMedicines(name: String) -> [MedData] {
 //        var aboutToExpire :[MedData] = []
 //
@@ -68,7 +85,7 @@ class BoxViewModel :ObservableObject {
 
         boxes.append(MedBox(medicine: medicine, expirationDate: expirationDate, state: state))
 //        medicineViewModel.addBox(MedBox(medicine: medicine, expirationDate: expirationDate, state: state)
-
+save()
     }
     
     
