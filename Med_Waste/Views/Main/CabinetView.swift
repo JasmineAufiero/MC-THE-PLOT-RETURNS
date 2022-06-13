@@ -16,14 +16,15 @@ struct CabinetView: View {
     @State public var showData = false
     @State private var isRecognizing = false
     @State var pinnedMedicineNumber :Int
-    @State var SearchviewMedVar : String = ""
+    @State var searchForCategory : Bool = false
+   
     
     var medicineViewModel :MedicineViewModel
     var boxViewModel :BoxViewModel
     var statsViewModel :StatsViewModel
     @ObservedObject var recognizedContent = RecognizedContent()
     
-//    let data = (1...10).map { "Item \($0)" }
+
     let columns = [
         GridItem(.flexible(minimum: 90)),
         GridItem(.flexible(minimum: 90))
@@ -32,11 +33,12 @@ struct CabinetView: View {
     var filteredMeds :[MedData] {
         if searchQuery.isEmpty{
             return medicineViewModel.medicines
-        }else if searchQuery == SearchviewMedVar {
-            return medicineViewModel.medicines.filter{$0.category.localizedCaseInsensitiveContains(searchQuery)}
-          
         } else {
-            return medicineViewModel.medicines.filter{$0.name.localizedCaseInsensitiveContains(searchQuery)}
+            if (searchForCategory) {
+                return medicineViewModel.medicines.filter{$0.category.localizedCaseInsensitiveContains(searchQuery)}
+            } else {
+                return medicineViewModel.medicines.filter{$0.name.localizedCaseInsensitiveContains(searchQuery)}
+            }
         }
     }
     
@@ -66,13 +68,126 @@ struct CabinetView: View {
                             }
                         }
                     }.searchable(text: $searchQuery, prompt: "Cerca i medicinali")
+                    
                 {
-                    if searchQuery.isEmpty{
-                        SearchView(medicineViewModel: medicineViewModel, boxViewModel: boxViewModel)
-//                                   searchForCategory: SearchviewMedVar)
+                    if searchQuery.isEmpty {
+//                        SearchView(medicineViewModel: medicineViewModel, boxViewModel: boxViewModel)
+////                                   searchForCategory: SearchviewMedVar)
+                     
+                       
+                        
+                        
+                        VStack(alignment: .leading, spacing: 10){
+                            Text("Stato")
+                                .font(.title).fontWeight(.semibold)
+                            HStack{
+                                
+                                Button{
+                //                    search for expired meds
+                                    
+                                    
+                                    
+                                }label: {
+                                    HStack{
+                                        Image(systemName: "trash.fill")
+                                        Text("Scaduti")
+                                        
+                                    }.padding()
+                                        .background(CustomColor.expiredred)
+                                        .foregroundColor(.white)
+                                        .cornerRadius(40)
+                                }
+                                
+                                Button{
+                //                    search for donable meds
+                                }label: {
+                                    HStack{
+                                        
+                                        DonateIcon()
+                                        Text("Donabili")
+                                        
+                                    }.padding()
+                                        .background(CustomColor.donnatedgreen)
+                                        .foregroundColor(.white)
+                                        .cornerRadius(40)
+                                }
+                                
+                            }
+                            Toggle(isOn: $searchForCategory) {
+                                Text("Categoria").font(.title).fontWeight(.semibold)
+                            }
+                             //most used categories
+                            if searchForCategory{
+                            HStack{
+                                Button{
+//                                    searchForCategory = true
+                                    searchQuery = "Antistaminici"
+                                    
+                                }label: {
+                                    
+                                    Text("Antistaminici")
+                                        .padding()
+                                        .background(Color.systemBlue)
+                                        .cornerRadius(40)
+                                        .foregroundColor(.white)
+                                }
+                                Button{
+//                                    searchForCategory = true
+                                    searchQuery = "Integratori"
+                                    
+                                }label: {
+                                    
+                                    Text("Integratori")
+                                        .padding()
+                                        .background(Color.systemYellow)
+                                        .cornerRadius(40)
+                                        .foregroundColor(.white)
+                                }
+                            }
+                            HStack{
+                                Button {
+//                                    searchForCategory = true
+                                    searchQuery = "Gastrointestinali"
+                                    
+                                }label: {
+                                    
+                                    Text("Gastrointestinali")
+                                        .padding()
+                                        .background(Color.systemGreen)
+                                        .cornerRadius(40)
+                                        .foregroundColor(.white)
+                                }
+                           
+                                Button {
+//                                    searchForCategory = true
+                                    searchQuery = "Antidolorifici"
+                                    
+                                    
+                                } label: {
+                                    Text("Antidolorifici")
+                                        .padding()
+                                        .background(Color.systemOrange)
+                                        .cornerRadius(40)
+                                        .foregroundColor(.white)
+                                }
+                                
+                            }
+
+                        }
+                        }
+//                        .onDisappear{
+//                            searchForCategory = false
+//                        }
+//
+                        
+                        
+                        
                     }
-                
+
                 }
+//                .onAppear{
+//                    searchForCategory = false
+//                }
                 }
             }
             

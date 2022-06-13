@@ -22,6 +22,7 @@ struct NewItemView: View {
     @State var expirationDate :[Date] = [Date.now] // an array of expiration date for different boxes
     
 //        .focused($amountIsFocused)
+    @State var chosenCategory :String = ""
     
     @State var expand = false // for the tipology picker
     @Binding var showData: Bool
@@ -206,19 +207,14 @@ struct NewItemView: View {
                             
                             
                             Section {
-                                
-                                Picker("Categoria", selection: $categoria) {
-                                    ForEach(categoria_picker, id: \.self) {
-                                        Text($0)
-                                    }
-                                
-                                
-                                
-//                                Picker(selection: $numberofMedCategories, label: Text("Categoria")) {
-//                                                ForEach(0 ..< categoria.count) {
-//                                                    Text(self.categoria[$0])
-//                                                }
-//                                            }
+                                Picker("Categoria", selection: $chosenCategory) {
+                                    ForEach(categoria, id: \.self) {
+                                                    Text($0)
+//                                                        .onTapGesture{
+//                                                            chosenCategory = categoria[numberofMedCategories]
+//                                                        }
+                                                }
+                                            }
                                         }
                         }
                         
