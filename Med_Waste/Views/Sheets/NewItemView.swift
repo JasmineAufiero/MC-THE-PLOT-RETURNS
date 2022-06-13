@@ -208,7 +208,7 @@ struct NewItemView: View {
                             
                             Section {
                                 Picker("Categoria", selection: $chosenCategory) {
-                                    ForEach(categoria, id: \.self) {
+                                    ForEach(categoria_picker, id: \.self) {
                                                     Text($0)
 //                                                        .onTapGesture{
 //                                                            chosenCategory = categoria[numberofMedCategories]
@@ -216,7 +216,7 @@ struct NewItemView: View {
                                                 }
                                             }
                                         }
-                        }
+                        
                         
                         }
                        
@@ -229,7 +229,7 @@ struct NewItemView: View {
                             Spacer()
                         Button("Conferma") {
                             
-                            medicineViewModel.addNewMedicine(name: nome, dosage: dosaggio, type: tipologia, price: prezzo, units: Int(unità) ?? 0, category: categoria, isPinned: false)
+                            medicineViewModel.addNewMedicine(name: nome, dosage: dosaggio, type: tipologia, price: prezzo, units: Int(unità) ?? 0, category: chosenCategory, isPinned: false)
                             statsViewModel.changeValue(price: prezzo, type: 0 ,noOfBoxes: Double(numerobox))
                             
                             
