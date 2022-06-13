@@ -15,6 +15,10 @@ struct MapView: View {
     var body: some View {
              ZStack {
                  map
+                 // Easter Egg
+                 if(locationManagerK.duckCount == 5){
+                    DuckView()
+                 }
              }
              .overlay(closeMapButtpm, alignment: .topTrailing)
     }
@@ -24,6 +28,7 @@ extension MapView {
     private var closeMapButtpm: some View {
         Button {
             print("I Like Ducks")
+            locationManagerK.duckCount += 1
             locationManagerK.showMap = false
         } label: {
             Image(systemName: "xmark")
@@ -45,26 +50,20 @@ extension MapView {
             annotationContent: { pharma in
             MapAnnotation(coordinate: pharma.coordinates){
                 if(pharma.donation == true && pharma.dispose == true){
-                    Image(systemName: "pills.fill")
-                        .shadow(radius: 10)
-                        .foregroundColor(.yellow)
+                    PinView(imgName: "throwDonate")
                 }
                 
                 if(pharma.donation == true && pharma.dispose == false){
-                    Image(systemName: "pills.fill")
-                        .shadow(radius: 10)
-                        .foregroundColor(.green)
+                    PinView(imgName: "donate")
                 }
                 
                 if(pharma.donation == false && pharma.dispose == true){
-                    Image(systemName: "pills.fill")
-                        .shadow(radius: 10)
-                        .foregroundColor(.purple)
+                    PinView(imgName: "dispose")
                 }
             }
         })
             .ignoresSafeArea()
-            .accentColor(Color(.systemPink))
+            .accentColor(.purple)
             .onAppear{
                 locationManagerK.checkIfLocationServiceIsEnabled()
             }

@@ -12,6 +12,8 @@ class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
     
     @Published var showMap : Bool = false
     
+    @Published var duckCount :Int = 0
+    
     @Published var locations : [Pharmacy]
     
     override init(){
