@@ -10,9 +10,8 @@ import SwiftUI
 
 
 struct StatCardView: View {
-    var stat : Double = 230.3
-    
     @State var Status: String
+    @State var stat : Double
 //    the string can have values donated, expired or total and indicated the respective category of money
     
 //    switch case per cambiare i dettagli a lato e cambiare il colore in base alle informazioni lette
@@ -62,7 +61,7 @@ struct StatCardView: View {
                         .font(Font.system(size: 28, weight: .bold))
                         .foregroundColor(CustomColor.darkblue)
                     
-                    Text("Totale spesa medicinali. La media italiana per cittadino \n è 438 €.")
+                    Text("Totale spesa medicinali. La \n media italiana per cittadino \n è 438 €.")
                         .foregroundColor(CustomColor.graytext)
                         .multilineTextAlignment(.leading)
                         .padding()

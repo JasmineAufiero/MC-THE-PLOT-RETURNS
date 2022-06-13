@@ -117,6 +117,7 @@ struct OnboardingHowItWorks : View{
 struct BottoneContinue : View{
     @Binding var onboardingstate : Int
     @Binding var ONBoardingDone : Bool
+    @ObservedObject var statsviewmodel = StatsViewModel()
     var body: some View {
         RoundedRectangle(cornerRadius: 20, style: .continuous)
             .foregroundColor(CustomColor.blueform)
@@ -139,6 +140,10 @@ struct BottoneContinue : View{
             )
             .onTapGesture {
                 if (onboardingstate == 6){ //ultimo valore dlel'onboarding
+                    statsviewmodel.addStatData(index: 0, name: "Total", color: "BlueForm", value: 0.0)
+                    statsviewmodel.addStatData(index: 1, name: "Donabili", color: "DonatedGreen", value: 0.0)
+                    statsviewmodel.addStatData(index: 2, name: "InScadenza", color: "RedForm", value: 0.0)
+                    statsviewmodel.addStatData(index: 3, name: "Scaduti", color: "ExpiredRed", value: 0.0)
                     ONBoardingDone = true //serve per aggiornare l avaribile per l'onboarding  first launch
                 } else {
                 onboardingstate += 1

@@ -18,6 +18,10 @@ struct AlertView: View {
    
     @Binding var alertdonate: Bool
     @Binding var alertexpire: Bool
+    var prezzo : String
+    @State var amount = 0.0
+    
+
     
     var body: some View {
         VStack {
@@ -40,6 +44,7 @@ struct AlertView: View {
                     if isEmpty{
                         isHalf = false
                         isFull = false
+                        amount = 0.35
                     }
                     
                 }
@@ -48,6 +53,7 @@ struct AlertView: View {
                     if isHalf{
                         isEmpty = false
                         isFull = false
+                        amount = 0.5
                     }
                 }
                 CircleCheckBox(isSelected: isFull, state: "Quasi tutto lo scatolo").onTapGesture {
@@ -55,11 +61,13 @@ struct AlertView: View {
                     if isFull{
                         isHalf = false
                         isEmpty = false
+                        amount = 0.8
                     }
                 }
             }.padding()
             Spacer()
             Button(action: {
+                alertdonate ? StatsViewModel().changeValue(price: prezzo, type: 1,noOfBoxes: amount) : StatsViewModel().changeValue(price: prezzo, type: 2,noOfBoxes: amount)
                 statethrow ? alertexpire.toggle() : alertdonate.toggle()
             }, label: {
                 RoundedRectangle(cornerRadius: 10)

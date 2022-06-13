@@ -8,30 +8,26 @@
 import SwiftUI
 
 struct CircleStatistic: View {
-    
+     var statsviewmodel = StatsViewModel()
     @State var animation : CGFloat = 300
     var body: some View {
        
         VStack{
             ZStack(alignment: .center) {
-           Circle()
-                .foregroundColor(CustomColor.darkblue)
-                .scaleEffect(1.0, anchor: .leading)
+                ForEach(statsviewmodel.stats){ stat in
+//                    if !statsviewmodel.stats.isEmpty {
+                        CircleAnimationCard(percent: statsviewmodel.convertToPercentage(currentvalue: statsviewmodel.stats[stat.index].value), scale: statsviewmodel.convertToScale(currentvalue: statsviewmodel.stats[stat.index].value), color: stat.color)
+                        
+                        
+//                    }else{
+//                        CircleAnimationCard(percent: 20, scale: 0.4, color: "DonatedGreen")
+//                    }
+                    
+                    
+                    
+                    
+                }
 
-              
-            Circle()
-                    .foregroundColor(CustomColor.donnatedgreen)
-                .scaleEffect(0.9, anchor: .leading)
-
-   
-            Circle()
-                .foregroundColor(.orange)
-                .scaleEffect(0.7, anchor: .leading)
-
-            Circle()
-
-                .foregroundColor(CustomColor.expiredred)
-                .scaleEffect(0.4, anchor: .leading)
 
                 
         }

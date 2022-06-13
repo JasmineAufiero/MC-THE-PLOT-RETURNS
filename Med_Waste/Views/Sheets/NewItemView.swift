@@ -28,6 +28,7 @@ struct NewItemView: View {
     var tipologia_picker = ["Pillole", "Bustine", "Sciroppo", "Pomata"]
     var medicineViewModel :MedicineViewModel
     var boxViewModel :BoxViewModel
+    var statsViewModel : StatsViewModel
     
     var MedCategoriesPicker = ["Antibiotici", "Antidolorifici", "Anti-Infiammatori", "Antivirali", "Antistaminici", "Dermatologici", "Gastrointestinali", "Integratori", "Altro"]
     var categoria = ["Antibiotici", "Antidolorifici", "Anti-Infiammatori", "Antivirali", "Antistaminici", "Dermatologici", "Gastrointestinali", "Integratori", "Altro"]
@@ -224,7 +225,7 @@ struct NewItemView: View {
                         Button("Conferma") {
                             
                             medicineViewModel.addNewMedicine(name: nome, dosage: dosaggio, type: tipologia, price: prezzo, units: Int(unità) ?? 0, category: "antistaminico", isPinned: false)
-                            
+                            statsViewModel.changeValue(price: prezzo, type: 0 ,noOfBoxes: Double(numerobox))
                             
                             
                             // add all the boxes of that medicine

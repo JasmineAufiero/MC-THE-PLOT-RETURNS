@@ -12,6 +12,9 @@ import SwiftUI
 struct StatisticsView: View {
 //    @Binding var status : String
     @State var showloader = false
+    @ObservedObject var statsviewmodel = StatsViewModel()
+    @State var animation : CGFloat = 300
+    
     var body: some View {
         NavigationView{
             ScrollView{
@@ -24,11 +27,12 @@ struct StatisticsView: View {
                 }
            
 //                VStack (spacing:0){
-                    StatCardView(Status: "donated")
-                    StatCardView(Status: "total")
-                    StatCardView(Status: "expired")
+             
 //                }
-
+//StatsDetailView()
+                StatCardView(Status: "total" , stat : statsviewmodel.stats[0].value )
+                StatCardView(Status: "donated", stat : statsviewmodel.stats[1].value )
+                StatCardView(Status: "expired", stat : statsviewmodel.stats[2].value )
                
             } //scrool view
 //            .frame(maxWidth: UIScreen.screenWidth, maxHeight: UIScreen.screenHeight/2)

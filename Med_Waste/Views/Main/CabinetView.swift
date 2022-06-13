@@ -117,7 +117,7 @@ struct CabinetView: View {
 //                } didCancelScanning: {showScanner = false}
 //
 //            })
-        .sheet(isPresented: $showData, content: {NewItemView( showData : $showData ,medicineViewModel: medicineViewModel, boxViewModel: boxViewModel)})
+        .sheet(isPresented: $showData, content: {NewItemView( showData : $showData ,medicineViewModel: medicineViewModel, boxViewModel: boxViewModel, statsViewModel: StatsViewModel())})
 
     }
 }

@@ -116,8 +116,8 @@ struct SingleMedView: View {
             UITableView.appearance().backgroundColor = UIColor.clear
             UITableViewCell.appearance().backgroundColor = UIColor.clear
         })
-        .sheet(isPresented: $alertdonate, content: {AlertView(statethrow: false, alertdonate: $alertdonate ,alertexpire: $alertexpire)})
-        .sheet(isPresented: $alertexpire, content: {AlertView(statethrow: true, alertdonate: $alertdonate ,alertexpire: $alertexpire)})
+        .sheet(isPresented: $alertdonate, content: {AlertView(statethrow: false, alertdonate: $alertdonate ,alertexpire: $alertexpire, prezzo: medicine.price)})
+        .sheet(isPresented: $alertexpire, content: {AlertView(statethrow: true, alertdonate: $alertdonate ,alertexpire: $alertexpire, prezzo: medicine.price)})
         
         //        .sheet(isPresented: $alertdonate, content: {AlertView(statethrow: false)})
         //            .sheet(isPresented: $alertexpire, content: {AlertView(statethrow: true)})
