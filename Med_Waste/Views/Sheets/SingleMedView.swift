@@ -16,9 +16,8 @@ struct SingleMedView: View {
     
     @State  var alertdonate = false
     @State  var alertexpire = false
-    //    @State var isPinned : Bool = false
     @State var newBoxAdded :Int = 0 // it is a state variable that refreshes the view when a new box is added
-    
+    var expirationDate :[Date] = [Date.now]
     
     var body: some View {
         
@@ -38,9 +37,7 @@ struct SingleMedView: View {
                         Spacer()
                         Image(systemName: medicine.isPinned ? "heart.fill" : "heart").scaleEffect(1.5).foregroundColor(.pink)
                             .onTapGesture {
-                               
                                 medicineViewModel.pinMedicine(nome: medicine.name)
-//                                medicineViewModel.toggle(medicine)
                             }
                         
                     }
@@ -68,46 +65,43 @@ struct SingleMedView: View {
                 Button(action: {
                     boxViewModel.addNewBox(medicine: medicine.name, expirationDate: Date.now, state: .usable)
                     newBoxAdded = boxViewModel.filterBoxesForMedicine(medicine: medicine.name).count
-//                        newBoxAdded+=1
                 })
                 { Image(systemName: "plus.circle.fill").scaleEffect(1.5).foregroundColor(CustomColor.darkblue)}
             }
             .padding(.horizontal,20)
             
             List {
+                
+                
+                // if no boxes are added
                 ForEach(0..<(newBoxAdded == 0 ? boxViewModel.filterBoxesForMedicine(medicine: medicine.name).count : newBoxAdded), id: \.self) { index in
-                    
-                    //                        HStack{
-                    //                            Text("Box \(index+1)")
-                    //                                .fontWeight(.semibold)
-                    //                            Spacer()
-                    //
-                    //
-                    //                            Text("\(boxViewModel.boxes[index].expirationDate.formatToString(using: .MMddyy))")
-                    //                                .foregroundColor(.secondary)
-                    //                                .multilineTextAlignment(.leading)
-                    //                        }
-                    DatePickerView(selection: boxViewModel.boxes[index].expirationDate, index: index)
+
+                    DatePickerView(selection: boxViewModel.filterBoxesForMedicine(medicine: medicine.name)[index].expirationDate, index: index)
                         .listRowBackground(Color.init(red: 247/255, green: 213/255, blue: 223/255))
                         .swipeActions {
-                            
+
                             Button{alertexpire.toggle()} label: {
                                 Image(systemName: "trash.fill")
                             }
                             .tint(CustomColor.expiredred)
-                            
-                            
+
+
                             Button{alertdonate.toggle()} label: {
-                                
+
                                 //                            DonateIcon()
                                 Image(systemName: "hand.raised.fill")
-                                
-                                
+
+
                             }
                             .tint(CustomColor.donnatedgreen)
-                            
+
                         }
+//                        .onTapGesture {
+//                            boxViewModel.newExpirationDate(box: &boxViewModel.filterBoxesForMedicine(medicine: medicine.name)[index], expirationDate: boxViewModel.filterBoxesForMedicine(medicine: medicine.name)[index].expirationDate)
+//                       }
+                
                 }.padding(20)
+                    
             }
             .listStyle(.inset)
             .fixedSize(horizontal: false, vertical: false)

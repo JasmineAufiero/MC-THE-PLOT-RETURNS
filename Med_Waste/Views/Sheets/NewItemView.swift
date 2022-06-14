@@ -28,7 +28,7 @@ struct NewItemView: View {
     @Binding var showData: Bool
     var tipologia_picker = ["Pillole", "Bustine", "Sciroppo", "Pomata", "Fiala"]
     var medicineViewModel :MedicineViewModel
-    var boxViewModel :BoxViewModel
+    @ObservedObject var boxViewModel :BoxViewModel
     var statsViewModel : StatsViewModel
     
     var MedCategoriesPicker = ["Antibiotici", "Antidolorifici", "Anti-Infiammatori", "Antivirali", "Antistaminici", "Dermatologici", "Gastrointestinali", "Integratori", "Altro"]
@@ -232,10 +232,11 @@ struct NewItemView: View {
                             medicineViewModel.addNewMedicine(name: nome, dosage: dosaggio, type: tipologia, price: prezzo, units: Int(unità) ?? 0, category: chosenCategory, isPinned: false)
                             statsViewModel.changeValue(price: prezzo, type: 0 ,noOfBoxes: Double(numerobox))
                             
-                            
+                           
                             // add all the boxes of that medicine
                             for i in 1...numerobox {
                                 boxViewModel.addNewBox(medicine: nome, expirationDate: expirationDate[i-1], state: .usable)
+                                boxViewModel.newExpirationDate(box: &boxViewModel.boxes[i-1], expirationDate: boxViewModel.boxes[i-1].expirationDate)
                             }
                             showData = false
                             

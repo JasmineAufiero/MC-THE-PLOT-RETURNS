@@ -13,14 +13,14 @@ struct SummaryView: View {
     @ObservedObject var medicineViewModel :MedicineViewModel
     var boxViewModel :BoxViewModel
     
-//    @State var pinnedMedicine :[MedData] = []
+    //    @State var pinnedMedicine :[MedData] = []
     
     
     let data = (1...10).map { "Item \($0)" }
     
     var pinnedMedicines :[MedData] {
         return medicineViewModel.medicines.filter{$0.isPinned}
-       
+        
     }
     
     var body: some View {
@@ -30,68 +30,61 @@ struct SummaryView: View {
                 Text("In evidenza").fontWeight(.bold).font(.title3)
                     .frame(maxWidth: .infinity, alignment: .leading).padding(.leading, 20)
                     .padding(.top, 30)
-
-                if (pinnedMedicines.isEmpty) {
+                
+                if (pinnedMedicines.isEmpty) { // when there aren't any pinned medicine, add the placeholder
                     
-                  InEvidenzaPlaceholderPinned()
+                    InEvidenzaPlaceholderPinned()
                         .padding(.leading, 20)
-                  
+                    
                 }
-                else {
-                ScrollView(.horizontal){
-                    HStack(spacing: 5 ){
-                        
-                        ForEach(pinnedMedicines.reversed()) { item in
-
-                            NavigationLink(destination:{SingleMedView(medicine: item, medicineViewModel: medicineViewModel, boxViewModel: boxViewModel)}, label: {MiniMedCardView(medicine: item , name: item.name)    .padding(.leading, 20)})
+                else { // add the pin med when someone of them is pinned
+                    ScrollView(.horizontal){
+                        HStack(spacing: 5 ){
+                            
+                            ForEach(pinnedMedicines.reversed()) { item in
                                 
+                                NavigationLink(destination:{SingleMedView(medicine: item, medicineViewModel: medicineViewModel, boxViewModel: boxViewModel)}, label: {MiniMedCardView(medicine: item , name: item.name)
+                                    .padding(.leading, 20)})
+                                
+                            }
                             
                         }
-                        
-                    }
-                }.fixedSize(horizontal: false, vertical: false)
+                    }.fixedSize(horizontal: false, vertical: false)
                 } //close else
                 
                 
                 Text("In scadenza").fontWeight(.bold).font(.title3)
                     .frame(maxWidth: .infinity, alignment: .leading).padding(.leading, 20)
-                InEvidenzaPlaceholderAboutToExpire()
-                    .padding(.leading, 20)
                 
-//                ScrollView(.horizontal){
-//                    HStack(spacing: 5 ){
-////                        ForEach(medicineViewModel.pinnedMedicine() , id: \.self) { item in
-////                            NavigationLink(destination:{}
-////                                           //                                                                    SingleMedView()
-////                                           , label: {MiniMedCardView(name: item.name)
-////                                .padding(5)})
-////
-////                        }
-//
-//
-////                    ScrollView(.horizontal){
-////                        HStack(spacing: 5 ){
-////                            ForEach(data, id: \.self) { item in
-////                                NavigationLink(destination: SingleMedView(nome: medicine.name, dosaggio: medicine.dosage, tipologia: medicine.type, unità: medicine.units, categoria: medicine.category, medicineViewModel: medicineViewModel, boxViewModel: boxViewModel), label: {MiniMedCardView()
-////                                    .padding(5)})
-////
-////                            }
-////                        }
-//                                                }
-//                       }.fixedSize(horizontal: false, vertical: false)
-                                                    
-                                                    Text("Curiosità").fontWeight(.bold).font(.title3)
-                                                        .frame(maxWidth: .infinity, alignment: .leading).padding(.leading, 20)
-                                                    
-                                                    FactsCardView().frame(width: UIScreen.screenWidth - 30, height: 140, alignment: .center).padding()
-                                                    Spacer()
-                                                    
-                                                }.navigationTitle("Riepilogo")
-            }
-//            .onAppear(perform: {
-//                pinnedMedicine = medicineViewModel.medicines.filter{$0.isPinned}
-//            })
+                if boxViewModel.filterAboutToExpireBoxes().isEmpty { // when there aren't any about to expire medicine, add the placeholder
+                    InEvidenzaPlaceholderAboutToExpire()
+                        .padding(.leading, 20)
+                }
+                else {
+                    ScrollView(.horizontal){
+                        HStack(spacing: 5 ){
+                            ForEach(medicineViewModel.filterMedicinesFromBoxes(boxes: boxViewModel.filterAboutToExpireBoxes())) { item in
+                                NavigationLink(destination:{SingleMedView(medicine: item, medicineViewModel: medicineViewModel, boxViewModel: boxViewModel)}, label: {MiniMedCardView(medicine: item , name: item.name)
+                                    .padding(.leading, 20)})
+                            }
+                        }
+                    }.fixedSize(horizontal: false, vertical: false)
+                }
+                
+                
+                
+                Text("Curiosità").fontWeight(.bold).font(.title3)
+                    .frame(maxWidth: .infinity, alignment: .leading).padding(.leading, 20)
+                
+                FactsCardView().frame(width: UIScreen.screenWidth - 30, height: 140, alignment: .center).padding()
+                Spacer()
+                
+            }.navigationTitle("Riepilogo")
         }
+        //            .onAppear(perform: {
+        //                pinnedMedicine = medicineViewModel.medicines.filter{$0.isPinned}
+        //            })
+    }
 }
 
 
