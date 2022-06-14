@@ -27,8 +27,8 @@ struct SingleMedView: View {
             VStack {
                 
                 Image(medicineViewModel.chooseImage(type: medicine.type , medicine: medicine)).resizable().scaledToFit()
-                    .frame(width: 200, height: 200, alignment: .center).padding()
-                    .rotation3DEffect(.degrees(80), axis: (x: 0, y: 0, z: 1))
+                    .frame(width: 200, height: 200, alignment: .center).padding().scaleEffect(1.25)
+                    .rotation3DEffect(.degrees(25), axis: (x: 0, y: 0, z: 1))
                 
                 Spacer()
                 
@@ -88,7 +88,11 @@ struct SingleMedView: View {
                     //                                .multilineTextAlignment(.leading)
                     //                        }
                     DatePickerView(selection: boxViewModel.boxes[index].expirationDate, index: index)
-                        .listRowBackground(Color.init(red: 247/255, green: 213/255, blue: 223/255))
+//                        .accentColor(Color("AccentColor"))
+//                        .foregroundColor(Color("rosso"))
+                       
+                        .listRowBackground(CustomColor.redform)
+//                        .background(Color("rosso"))
                         .swipeActions {
                             
                             Button{alertexpire.toggle()} label: {
@@ -107,7 +111,11 @@ struct SingleMedView: View {
                             .tint(CustomColor.donnatedgreen)
                             
                         }
+//
+                        .foregroundColor(boxViewModel.boxes[index].state == .expired ? Color("rosso") : CustomColor.graytext)
                 }.padding(20)
+                
+                   
             }
             .listStyle(.inset)
             .fixedSize(horizontal: false, vertical: false)
@@ -115,7 +123,7 @@ struct SingleMedView: View {
             .padding(20)
             
         }
-        .padding(15)
+//        .padding(15)
         .onAppear(perform: {
             UITableView.appearance().backgroundColor = UIColor.clear
             UITableViewCell.appearance().backgroundColor = UIColor.clear

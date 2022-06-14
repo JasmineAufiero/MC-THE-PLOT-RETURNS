@@ -14,6 +14,11 @@ struct StatisticsView: View {
     @State var showloader = false
     @ObservedObject var statsviewmodel = StatsViewModel()
     @State var animation : CGFloat = 300
+//    @Published var ok = StatsViewModel().stats[0].value {
+//        willSet{
+//            objectWillChange()
+//        }
+//    }
     
     var body: some View {
         NavigationView{
@@ -30,9 +35,9 @@ struct StatisticsView: View {
              
 //                }
 //StatsDetailView()
-                StatCardView(Status: "total" , stat : statsviewmodel.stats[0].value )
-                StatCardView(Status: "donated", stat : statsviewmodel.stats[1].value )
-                StatCardView(Status: "expired", stat : statsviewmodel.stats[2].value )
+                StatCardView(Status: "total" , stat : statsviewmodel.statValue(currentvalue: statsviewmodel.stats[0].value))
+                StatCardView(Status: "donated", stat : statsviewmodel.statValue(currentvalue: statsviewmodel.stats[1].value) )
+                StatCardView(Status: "expired", stat : statsviewmodel.statValue(currentvalue: statsviewmodel.stats[2].value) )
                
             } //scrool view
 //            .frame(maxWidth: UIScreen.screenWidth, maxHeight: UIScreen.screenHeight/2)

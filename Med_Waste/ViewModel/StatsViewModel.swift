@@ -17,6 +17,10 @@ class StatsViewModel : ObservableObject {
         StatsData(index : 2,name: "InScadenza", color: "RedForm", value: 0.0),
         StatsData(index : 3,name: "Scaduti", color: "ExpiredRed", value: 0.0)
     ]
+    {
+    willSet{
+        objectWillChange.send()
+    }}
 
     init() {
         if let data = UserDefaults.standard.data(forKey: "SavedStats") {
@@ -40,9 +44,9 @@ class StatsViewModel : ObservableObject {
         }
     }
     
-    func convertToPercentage( currentvalue : Double) -> Double  {
+    func convertToPercentage( currentvalue : Double) -> Int  {
         let percent = convertToScale(currentvalue: currentvalue) * 100
-                return percent.rounded()
+                return Int(percent)
     }
 
     
@@ -54,8 +58,27 @@ class StatsViewModel : ObservableObject {
     func changeValue(price : String, type : Int , noOfBoxes : Double) {
         stats[type].value += Double(price)! * noOfBoxes
         stats[type].value.round(.towardZero)
+//        if stats[type].value.digitCount >= 5 {
+//            stats[type].value = stats[type].value / 1000
+//        }
+//        stats[type].value.round(.towardZero)
         saveStats()
     }
+    
+    func statValue(currentvalue : Double) -> String  {
+        var statValue : Double = 0.0
+        if currentvalue.digitCount >= 5 {
+            statValue = currentvalue / 1000
+            statValue.round(.towardZero)
+            objectWillChange.send()
+            return String(statValue) + "K"
+        }else {
+            statValue = currentvalue
+            objectWillChange.send()
+            return String(statValue)
+        }
+      
+   }
  
     
 }

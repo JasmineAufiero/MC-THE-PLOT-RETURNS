@@ -34,7 +34,7 @@ struct FactsCardView: View {
 //                .foregroundColor(colors.randomElement())
 //                .opacity(0.6)
 ////            .fixedSize(horizontal: false, vertical: false)
-//           
+//
 //            .shadow(color: .gray, radius: 2, x: 0, y: 2)
 //            .overlay( Text(randomtip).font(.subheadline).fontWeight(.bold)
 //                .multilineTextAlignment(.center) .padding(35)

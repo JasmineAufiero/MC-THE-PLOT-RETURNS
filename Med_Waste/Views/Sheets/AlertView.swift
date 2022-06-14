@@ -68,7 +68,7 @@ struct AlertView: View {
             Spacer()
             Button(action: {
                 alertdonate ? StatsViewModel().changeValue(price: prezzo, type: 1,noOfBoxes: amount) : StatsViewModel().changeValue(price: prezzo, type: 2,noOfBoxes: amount)
-                BoxViewModel().changeState()
+//                BoxViewModel().changeState()
 //                medicineViewModel.pinMedicine(nome: medicine.name)
                 
 //                statethrow ? box.

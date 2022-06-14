@@ -32,8 +32,8 @@ struct CircleStatistic: View {
                 
         }
         .padding()
-        .offset(x: 17, y: 0)
-        .frame(width: animation, height: 300, alignment: .center)
+        .offset(x: 5, y: 0)
+        .frame(width: animation, height: 300, alignment: .leading)
         .animation(.easeIn(duration: 1), value: animation)
 
         .onAppear {
@@ -46,7 +46,7 @@ struct CircleStatistic: View {
             HStack(spacing: 30){
             HStack (spacing: 20){
                 RoundedRectangle(cornerRadius: 7, style: .continuous)
-                    .fill(CustomColor.darkblue)
+                    .fill(CustomColor.blueform)
                     .frame(width: 20, height: 20)
         Text("Tutti i farmaci")
                     .font(.subheadline)

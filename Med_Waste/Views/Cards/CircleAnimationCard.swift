@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CircleAnimationCard: View {
-    var percent : Double
+    var percent : Int
     var scale : Double
     var color : String
     
@@ -18,7 +18,7 @@ struct CircleAnimationCard: View {
         
         Circle()
             .foregroundColor(Color(color)).zIndex(1)
-            .overlay(alignment: .center, content: {Text("\(percent)" + "%").foregroundColor(Color(color)).offset(x:180, y: 100)
+            .overlay(alignment: .center, content: {Text("\(percent)" + "%").foregroundColor(Color(color)).offset(x:150, y: 100)
                   .scaledToFit()
                         
                     .font(.system(size: 40))
@@ -45,6 +45,6 @@ struct CircleAnimationCard: View {
 
 struct CircleAnimationCard_Previews: PreviewProvider {
     static var previews: some View {
-        CircleAnimationCard(percent: 20.0, scale: 0.6, color: "DarkBlue")
+        CircleAnimationCard(percent: 20, scale: 0.6, color: "DarkBlue")
     }
 }

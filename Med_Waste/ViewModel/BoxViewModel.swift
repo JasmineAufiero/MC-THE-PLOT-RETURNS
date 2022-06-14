@@ -56,16 +56,26 @@ class BoxViewModel :ObservableObject {
 //        }
 //    }
     
-    func changeState(){
-//        var expiredBoxes :[MedBox] = []
-        
-        for box in boxes {
-            if box.expirationDate > Date.now {
-//                box.state = .expired
-            }
-        }
-        save()
-    }
+//    func changeState(){
+////        var expiredBoxes :[MedBox] = []
+//        
+//        
+//        let box = boxes.filter{ $0.expirationDate > Date.now}
+//        box. = .expired
+////        medicines[index!].isPinned.toggle()
+//        objectWillChange.send()
+//        save()
+//        
+//        
+//        
+////        for box in boxes {
+////            if box.expirationDate > Date.now {
+////                box.state = .expired
+////                objectWillChange.send()
+////            }
+////        }
+////        save()
+//    }
     
     
     

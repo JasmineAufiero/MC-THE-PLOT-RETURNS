@@ -48,13 +48,15 @@ struct SummaryView: View {
                         
                         ForEach(pinnedMedicines.reversed()) { item in
 
-                            NavigationLink(destination:{SingleMedView(medicine: item, medicineViewModel: medicineViewModel, boxViewModel: boxViewModel)}, label: {MiniMedCardView(medicine: item , name: item.name)    .padding(.leading, 20)})
+                            NavigationLink(destination:{SingleMedView(medicine: item, medicineViewModel: medicineViewModel, boxViewModel: boxViewModel)}, label: {MiniMedCardView(medicine: item , name: item.name).padding(.vertical, 5)    .padding(.leading, 20)})
                                 
                             
                         }
                         
                     }
-                }.fixedSize(horizontal: false, vertical: false)
+                }
+//                .frame(height: 200)
+//                .fixedSize(horizontal: false, vertical: false)
                 } //close else
                 
                 
