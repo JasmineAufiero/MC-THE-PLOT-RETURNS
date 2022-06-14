@@ -33,7 +33,7 @@ struct StatCardView: View {
                     .foregroundColor(CustomColor.donnatedgreen)
                         .font(Font.system(size: 28, weight: .bold))
                 
-                Text("Somma di denaro donato in medicinali fino ad ora.")
+                Text(LocalizedStringKey(String("Somma di denaro donato in medicinali fino ad ora.")))
                     .foregroundColor(CustomColor.graytext)
                     .multilineTextAlignment(.leading)
                     .padding()
@@ -47,7 +47,7 @@ struct StatCardView: View {
                         .font(Font.system(size: 28, weight: .bold))
                         .foregroundColor(CustomColor.expiredred)
                 
-                Text("Somma dedotta in base ai medicinali scaduti presenti nell'app.")
+                Text(LocalizedStringKey(String("Somma dedotta in base ai medicinali scaduti presenti nell'app.")))
                     .foregroundColor(CustomColor.graytext)
                     .multilineTextAlignment(.leading)
                     .padding()
@@ -61,7 +61,7 @@ struct StatCardView: View {
                         .font(Font.system(size: 28, weight: .bold))
                         .foregroundColor(CustomColor.darkblue)
                     
-                    Text("Totale spesa medicinali. La \n media italiana per cittadino \n è 438 €.")
+                    Text(LocalizedStringKey(String("Totale spesa medicinali. La media italiana per cittadino è 438 €.")))
                         .foregroundColor(CustomColor.graytext)
                         .multilineTextAlignment(.leading)
                         .padding()

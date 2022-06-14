@@ -10,12 +10,12 @@ import SwiftUI
 struct CheckBoxView: View {
     
     @Binding var isTheSameDate :Bool
-    
+    var TextString = "Tutte le scatole hanno la stessa data di scadenza"
     var body: some View {
         
         HStack {
             isTheSameDate ? Image(systemName: "checkmark.circle.fill") : Image(systemName: "circle")
-            Text("Tutte le scatole hanno la stessa data di scadenza")
+            Text(LocalizedStringKey(String(TextString)))
                 .font(.caption)
         }
     }

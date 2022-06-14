@@ -41,7 +41,7 @@ struct NewItemView: View {
                 
                 VStack(alignment: .leading, spacing: 0) {
                     
-                    Text("Conferma Informazioni")
+                    Text(LocalizedStringKey(String("Conferma Informazioni")))
                         .font(.title2)
                         .fontWeight(.semibold)
                         .multilineTextAlignment(.leading)
@@ -51,22 +51,22 @@ struct NewItemView: View {
                         
                         Section {
                             HStack {
-                                Text("Nome")
+                                Text(LocalizedStringKey(String("Nome")))
                                     .fontWeight(.semibold)
                                 Spacer()
-                                TextField("Nome", text: $nome)
+                                TextField(LocalizedStringKey(String("Nome")), text: $nome)
                                     .multilineTextAlignment(.trailing)
                                 
                             }
                             HStack {
-                                Text("Dosaggio")
+                                Text(LocalizedStringKey(String("Dosaggio")))
                                     .fontWeight(.semibold)
                                 Spacer()
-                                TextField("Dosaggio", text: $dosaggio)
+                                TextField(LocalizedStringKey(String("Dosaggio")), text: $dosaggio)
                                     .multilineTextAlignment(.trailing)
                             }
                             HStack {
-                                Text("Tipogia")
+                                Text(LocalizedStringKey(String("Tipologia")))
                                     .fontWeight(.semibold)
                                 Spacer()
                                 
@@ -75,15 +75,15 @@ struct NewItemView: View {
                                 }, label: {
                                         
                                         if expand {
-                                            Picker("Tipologia", selection: $tipologia) {
+                                            Picker(LocalizedStringKey(String("Tipologia")), selection: $tipologia) {
                                                 ForEach(tipologia_picker, id: \.self) {
-                                                    Text($0)
+                                                    Text(LocalizedStringKey(String("\($0)")))
                                                 }
                                             }.pickerStyle(.wheel)
                                             
                                         }
                                         else {
-                                            Text("\(tipologia)")
+                                            Text(LocalizedStringKey(String("\(tipologia)")))
                                                 .multilineTextAlignment(.trailing)
                                                 .foregroundColor(.gray)
                                         }
@@ -94,18 +94,18 @@ struct NewItemView: View {
                                 expand.toggle()
                             }
                             HStack {
-                                Text("Prezzo")
+                                Text(LocalizedStringKey(String("Prezzo")))
                                     .fontWeight(.semibold)
                                 Spacer()
-                                TextField("Prezzo", text: $prezzo)
+                                TextField(LocalizedStringKey(String("Prezzo")), text: $prezzo)
                                     .multilineTextAlignment(.trailing)
                                     .keyboardType(.numberPad)
                             }
                             HStack {
-                                Text("Unità")
+                                Text(LocalizedStringKey(String("Unità")))
                                     .fontWeight(.semibold)
                                 Spacer()
-                                TextField("Unità", text: $unità)
+                                TextField(LocalizedStringKey(String("Unità")), text: $unità)
                                     .multilineTextAlignment(.trailing)
                                     .keyboardType(.numberPad)
                             }
@@ -119,8 +119,14 @@ struct NewItemView: View {
                         Group {
                             Section {
                                 HStack {
-                                    Text("Numero di scatole:  \(numerobox)")
-                                        .fontWeight(.semibold)
+                                    Group{
+                                    Text(LocalizedStringKey(String("Numero di scatole: ")))
+                                            .fontWeight(.semibold)
+                                        + Text("\(numerobox)")
+                                            .fontWeight(.semibold)
+                                    }
+
+                                        
                                     
                                     StepperView(expirationDates: $expirationDate, numerobox: $numerobox)
                                     
@@ -145,7 +151,7 @@ struct NewItemView: View {
                         }
                         
                         
-                        Text("Date di Scadenza")
+                        Text(LocalizedStringKey(String("Date di Scadenza")))
                             .font(.title2)
                             .fontWeight(.semibold)
                             .multilineTextAlignment(.leading)
@@ -183,7 +189,7 @@ struct NewItemView: View {
                         // : section for stepper
                         
                         
-                        Text("Categoria")
+                        Text(LocalizedStringKey(String("Categoria")))
                             .font(.title2)
                             .fontWeight(.semibold)
                             .multilineTextAlignment(.leading)
@@ -207,9 +213,9 @@ struct NewItemView: View {
                             
                             
                             Section {
-                                Picker("Scegli", selection: $chosenCategory) {
+                                Picker(LocalizedStringKey(String("Scegli")), selection: $chosenCategory) {
                                     ForEach(categoria_picker, id: \.self) {
-                                                    Text($0)
+                                        Text(LocalizedStringKey(String("\($0)")))
 //                                                        .onTapGesture{
 //                                                            chosenCategory = categoria[numberofMedCategories]
 //                                                        }
@@ -227,7 +233,7 @@ struct NewItemView: View {
                         HStack {
                         
                             Spacer()
-                        Button("Conferma") {
+                        Button(LocalizedStringKey(String("Conferma"))) {
                             
                             medicineViewModel.addNewMedicine(name: nome, dosage: dosaggio, type: tipologia, price: prezzo, units: Int(unità) ?? 0, category: chosenCategory, isPinned: false)
                             statsViewModel.changeValue(price: prezzo, type: 0 ,noOfBoxes: Double(numerobox))
@@ -259,7 +265,7 @@ struct NewItemView: View {
                     
                 }
                 
-                .navigationTitle("Nuovo medicinale")
+                .navigationTitle(LocalizedStringKey(String("Nuovo medicinale")))
                 
             }
         }

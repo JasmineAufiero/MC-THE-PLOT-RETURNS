@@ -35,9 +35,16 @@ struct AlertView: View {
             Spacer().frame(height: 50)
             
             VStack(alignment:.leading){
-                Text(statethrow ? expireQ : donateQ )
+                
+                if statethrow {
+                    Text(LocalizedStringKey(String(expireQ)))
+                        .font(.title3)
+                        .fontWeight(.semibold)
+                } else {
+                Text(LocalizedStringKey(String(donateQ)))
                     .font(.title3)
                     .fontWeight(.semibold)
+                }
                 
                 CircleCheckBox(isSelected: isEmpty, state: "Meno della metà").onTapGesture {
                     isEmpty.toggle()
@@ -64,7 +71,8 @@ struct AlertView: View {
                         amount = 0.8
                     }
                 }
-            }.padding()
+            }//close the vstack
+            .padding()
             Spacer()
             Button(action: {
                 alertdonate ? StatsViewModel().changeValue(price: prezzo, type: 1,noOfBoxes: amount) : StatsViewModel().changeValue(price: prezzo, type: 2,noOfBoxes: amount)
@@ -73,7 +81,7 @@ struct AlertView: View {
                 RoundedRectangle(cornerRadius: 10)
                     .frame(width: 300, height: 50, alignment: .center)
                 
-                    .overlay(Text("Fatto").foregroundColor(.white))
+                    .overlay(Text(LocalizedStringKey(String("Fatto"))).foregroundColor(.white))
             }).disabled(!(isFull || isHalf || isEmpty))
             
             

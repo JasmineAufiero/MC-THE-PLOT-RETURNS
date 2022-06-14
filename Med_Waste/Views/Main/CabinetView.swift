@@ -42,6 +42,8 @@ struct CabinetView: View {
         }
     }
     
+//    localized string keys
+    
 
     var body: some View {
         
@@ -49,7 +51,7 @@ struct CabinetView: View {
             ScrollView {
                 
             VStack{
-                Text("Tutti i medicinali").fontWeight(.bold)
+                Text(LocalizedStringKey(String("Tutti i farmaci"))).fontWeight(.bold)
                     .frame(maxWidth: .infinity, alignment: .leading).padding(.leading, 20)
                 // modified: add a dynamic card
                 
@@ -78,7 +80,7 @@ struct CabinetView: View {
                             }
                         }
                     }
-                    }.searchable(text: $searchQuery, prompt: "Cerca i medicinali")
+                    }.searchable(text: $searchQuery, prompt: LocalizedStringKey(String("Cerca i medicinali")))
                     
                 {
                     if searchQuery.isEmpty {
@@ -101,7 +103,7 @@ struct CabinetView: View {
                                 }label: {
                                     HStack{
                                         Image(systemName: "trash.fill")
-                                        Text("Scaduti")
+                                        Text(LocalizedStringKey(String("Scaduti")))
                                         
                                     }.padding()
                                         .background(CustomColor.expiredred)
@@ -115,7 +117,7 @@ struct CabinetView: View {
                                     HStack{
                                         
                                         DonateIcon()
-                                        Text("Donabili")
+                                        Text(LocalizedStringKey(String("Donabili")))
                                         
                                     }.padding()
                                         .background(CustomColor.donnatedgreen)
@@ -125,7 +127,7 @@ struct CabinetView: View {
                                 
                             }
                             Toggle(isOn: $searchForCategory) {
-                                Text("Categoria").font(.title).fontWeight(.semibold)
+                                Text(LocalizedStringKey(String("Categoria"))).font(.title).fontWeight(.semibold)
                             }
                              //most used categories
                             if searchForCategory{
@@ -133,7 +135,7 @@ struct CabinetView: View {
                                 Button{
                                     } label: {
                                     
-                                    Text("Antistaminici")
+                                    Text(LocalizedStringKey(String("Antistaminici")))
                                         .padding()
                                         .background(Color("blu"))
                                         .cornerRadius(40)
@@ -145,7 +147,7 @@ struct CabinetView: View {
                                 Button{
                                 }label: {
                                     
-                                    Text("Integratori")
+                                    Text(LocalizedStringKey(String("Integratori")))
                                         .padding()
                                         .background(Color("giallo"))
                                         .cornerRadius(40)
@@ -159,7 +161,7 @@ struct CabinetView: View {
                                 Button {
                                 }label: {
                                     
-                                    Text("Gastrointestinali")
+                                    Text(LocalizedStringKey(String("Gastrointestinali")))
                                         .padding()
                                         .background(Color("verde"))
                                         .cornerRadius(40)
@@ -172,7 +174,7 @@ struct CabinetView: View {
                            
                                 Button {    
                                 } label: {
-                                    Text("Antidolorifici")
+                                    Text(LocalizedStringKey(String("Antidolorifici")))
                                         .padding()
                                         .background(Color("rosso"))
                                         .cornerRadius(40)
@@ -204,7 +206,7 @@ struct CabinetView: View {
                 }
             }
             
-            .navigationTitle("Armadietto")
+            .navigationTitle(LocalizedStringKey(String("Armadietto")))
             .navigationBarItems(trailing:
                                     HStack(spacing: 20){
                 Button(action: { showMap = true }, label: { Image(systemName: "map.circle.fill").scaleEffect(1.5)})

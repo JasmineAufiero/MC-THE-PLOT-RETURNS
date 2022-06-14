@@ -27,7 +27,7 @@ struct SummaryView: View {
         NavigationView{
             
             VStack (alignment: .leading){
-                Text("In evidenza").fontWeight(.bold).font(.title3)
+                Text(LocalizedStringKey(String("In evidenza"))).fontWeight(.bold).font(.title3)
                     .frame(maxWidth: .infinity, alignment: .leading).padding(.leading, 20)
                     .padding(.top, 30)
 
@@ -53,7 +53,7 @@ struct SummaryView: View {
                 } //close else
                 
                 
-                Text("In scadenza").fontWeight(.bold).font(.title3)
+                Text(LocalizedStringKey(String("In scadenza"))).fontWeight(.bold).font(.title3)
                     .frame(maxWidth: .infinity, alignment: .leading).padding(.leading, 20)
                 InEvidenzaPlaceholderAboutToExpire()
                     .padding(.leading, 20)
@@ -80,13 +80,13 @@ struct SummaryView: View {
 //                                                }
 //                       }.fixedSize(horizontal: false, vertical: false)
                                                     
-                                                    Text("Curiosità").fontWeight(.bold).font(.title3)
+                                                    Text(LocalizedStringKey(String("Curiosità"))).fontWeight(.bold).font(.title3)
                                                         .frame(maxWidth: .infinity, alignment: .leading).padding(.leading, 20)
                                                     
                                                     FactsCardView().frame(width: UIScreen.screenWidth - 30, height: 140, alignment: .center).padding()
                                                     Spacer()
                                                     
-                                                }.navigationTitle("Riepilogo")
+                                                }.navigationTitle(LocalizedStringKey(String("Riepilogo")))
             }
 //            .onAppear(perform: {
 //                pinnedMedicine = medicineViewModel.medicines.filter{$0.isPinned}

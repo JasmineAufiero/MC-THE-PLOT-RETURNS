@@ -50,7 +50,7 @@ struct MedCardView: View {
                     Text (medicine.dosage).font(.subheadline)
                 }
                 HStack{
-                    Text(medicine.category.capitalizingFirstLetter())
+                    Text(LocalizedStringKey(String("\(medicine.category.capitalizingFirstLetter())")))
                     Spacer()
                 }
                 

@@ -13,6 +13,8 @@ struct SingleMedView: View {
     
     var medicineViewModel: MedicineViewModel
     var boxViewModel: BoxViewModel
+    var testo : String = "Questo medicinale appartiene alla categoria: "
+    var testo2 : String = "Il prezzo di ogni singolo sctolo di medicinale è: "
     
     @State  var alertdonate = false
     @State  var alertexpire = false
@@ -53,9 +55,17 @@ struct SingleMedView: View {
                         .multilineTextAlignment(.leading)
                         .padding(.vertical, 5)
                     
-                    Text("Questo medicinale appartiene alla categoria dei :  \(medicine.category).").multilineTextAlignment(.leading)
-                        .padding(.vertical, 5)
+                    Group{
+                    Text(LocalizedStringKey(String(testo)))
+//                        .padding(.vertical, 5)
+                    + Text(LocalizedStringKey(String(medicine.category)))
+                        + Text(". \n")
+                    + Text(LocalizedStringKey(String(testo2)))
+                    + Text("\(medicine.price)" + "€.")
                     //                Divider()
+                    }
+                    .multilineTextAlignment(.leading)
+                    .padding(.vertical, 5)
                 }
                 
             }
@@ -63,7 +73,7 @@ struct SingleMedView: View {
             //            .foregroundColor(CustomColor.graytext)
             
             HStack{
-                Text("Scatole").font(.title2).fontWeight(.bold)
+                Text(LocalizedStringKey(String("Scatole"))).font(.title2).fontWeight(.bold)
                 Spacer()
                 Button(action: {
                     boxViewModel.addNewBox(medicine: medicine.name, expirationDate: Date.now, state: .usable)
