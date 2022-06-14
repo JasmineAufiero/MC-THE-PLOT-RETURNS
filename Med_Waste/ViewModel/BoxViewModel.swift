@@ -56,6 +56,20 @@ class BoxViewModel :ObservableObject {
 //        }
 //    }
     
+    func changeState(){
+//        var expiredBoxes :[MedBox] = []
+        
+        for box in boxes {
+            if box.expirationDate > Date.now {
+//                box.state = .expired
+            }
+        }
+        save()
+    }
+    
+    
+    
+    
     func filterExpiredBoxes(name: String) {
         var expiredBoxes :[MedBox] = []
         

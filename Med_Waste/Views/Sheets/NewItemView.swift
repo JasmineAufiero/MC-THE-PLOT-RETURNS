@@ -99,7 +99,7 @@ struct NewItemView: View {
                                 Spacer()
                                 TextField("Prezzo", text: $prezzo)
                                     .multilineTextAlignment(.trailing)
-                                    .keyboardType(.numberPad)
+                                    .keyboardType(.decimalPad)
                             }
                             HStack {
                                 Text("Unità")

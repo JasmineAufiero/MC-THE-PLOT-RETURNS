@@ -23,9 +23,14 @@ struct SummaryView: View {
        
     }
     
+    var expiredMedicines :[MedBox] {
+        return boxViewModel.boxes.filter{$0.state == .expired}
+       
+    }
+    
     var body: some View {
         NavigationView{
-            
+            ScrollView{
             VStack (alignment: .leading){
                 Text("In evidenza").fontWeight(.bold).font(.title3)
                     .frame(maxWidth: .infinity, alignment: .leading).padding(.leading, 20)
@@ -79,11 +84,11 @@ struct SummaryView: View {
 ////                        }
 //                                                }
 //                       }.fixedSize(horizontal: false, vertical: false)
+                Text("Curiosità").fontWeight(.bold).font(.title3)
+                    .frame(maxWidth: .infinity, alignment: .leading).padding(.leading, 20)
+
                                                     
-                                                    Text("Curiosità").fontWeight(.bold).font(.title3)
-                                                        .frame(maxWidth: .infinity, alignment: .leading).padding(.leading, 20)
-                                                    
-                                                    FactsCardView().frame(width: UIScreen.screenWidth - 30, height: 140, alignment: .center).padding()
+                                                    FactsCardView().padding()
                                                     Spacer()
                                                     
                                                 }.navigationTitle("Riepilogo")
@@ -92,6 +97,7 @@ struct SummaryView: View {
 //                pinnedMedicine = medicineViewModel.medicines.filter{$0.isPinned}
 //            })
         }
+    }
 }
 
 

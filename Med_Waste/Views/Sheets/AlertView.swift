@@ -21,7 +21,7 @@ struct AlertView: View {
     var prezzo : String
     @State var amount = 0.0
     
-
+//    var box : [MedBox]
     
     var body: some View {
         VStack {
@@ -68,6 +68,10 @@ struct AlertView: View {
             Spacer()
             Button(action: {
                 alertdonate ? StatsViewModel().changeValue(price: prezzo, type: 1,noOfBoxes: amount) : StatsViewModel().changeValue(price: prezzo, type: 2,noOfBoxes: amount)
+                BoxViewModel().changeState()
+//                medicineViewModel.pinMedicine(nome: medicine.name)
+                
+//                statethrow ? box.
                 statethrow ? alertexpire.toggle() : alertdonate.toggle()
             }, label: {
                 RoundedRectangle(cornerRadius: 10)
