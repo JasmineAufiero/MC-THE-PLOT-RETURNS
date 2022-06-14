@@ -17,10 +17,10 @@ class StatsViewModel : ObservableObject {
         StatsData(index : 2,name: "InScadenza", color: "RedForm", value: 0.0),
         StatsData(index : 3,name: "Scaduti", color: "ExpiredRed", value: 0.0)
     ]
-    {
-    willSet{
-        objectWillChange.send()
-    }}
+//    {
+//    willSet{
+//        objectWillChange.send()
+//    }}
 
     init() {
         if let data = UserDefaults.standard.data(forKey: "SavedStats") {
@@ -58,10 +58,7 @@ class StatsViewModel : ObservableObject {
     func changeValue(price : String, type : Int , noOfBoxes : Double) {
         stats[type].value += Double(price)! * noOfBoxes
         stats[type].value.round(.towardZero)
-//        if stats[type].value.digitCount >= 5 {
-//            stats[type].value = stats[type].value / 1000
-//        }
-//        stats[type].value.round(.towardZero)
+
         saveStats()
     }
     
