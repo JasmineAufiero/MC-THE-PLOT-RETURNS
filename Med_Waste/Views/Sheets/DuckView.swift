@@ -10,11 +10,11 @@ import AVFoundation
 
 var player : AVAudioPlayer!
 
-func playSound() {
-    let url = Bundle.main.url(forResource: "quack", withExtension: "mp3")
-    player = try! AVAudioPlayer(contentsOf: url!)
-    player.play()
- }
+//func playSound() {
+//    let url = Bundle.main.url(forResource: "quack", withExtension: "mp3")
+//    player = try! AVAudioPlayer(contentsOf: url!)
+//    player.play()
+// }
 
 struct DuckView: View {
     
@@ -23,7 +23,7 @@ struct DuckView: View {
             .resizable()
             .scaledToFit()
             .onTapGesture {
-                playSound()
+//                playSound()
                 print("QUACK")
             }
     }

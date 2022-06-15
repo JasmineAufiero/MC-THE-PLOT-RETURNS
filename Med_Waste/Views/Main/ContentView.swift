@@ -20,6 +20,7 @@ struct ContentView: View {
     @StateObject var medicineViewModel = MedicineViewModel()
     @StateObject var boxViewModel = BoxViewModel()
     @StateObject var statViewModel = StatsViewModel()
+   
     @State var DefaultTab = 2  //necessary to make the cabinet view the default one
     init(){
         Theme.navigationBarColors( titleColor: UIColor(CustomColor.darkblue))

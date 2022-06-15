@@ -56,7 +56,7 @@ struct NewItemView: View {
                                 Spacer()
                                 TextField(LocalizedStringKey(String("Nome")), text: $nome)
                                     .multilineTextAlignment(.trailing)
-                                    .focused($amountIsFocused)
+//                                    .focused($amountIsFocused)
                                 
                             }
                             HStack {
@@ -65,7 +65,7 @@ struct NewItemView: View {
                                 Spacer()
                                 TextField(LocalizedStringKey(String("Dosaggio")), text: $dosaggio)
                                     .multilineTextAlignment(.trailing)
-                                    .focused($amountIsFocused)
+//                                    .focused($amountIsFocused)
                             }
                             HStack {
                                 Text(LocalizedStringKey(String("Tipologia")))
@@ -102,7 +102,7 @@ struct NewItemView: View {
                                 TextField(LocalizedStringKey(String("Prezzo")), text: $prezzo)
                                     .multilineTextAlignment(.trailing)
                                     .keyboardType(.decimalPad)
-                                    .focused($amountIsFocused)
+//                                    .focused($amountIsFocused)
                             }
                             HStack {
                                 Text(LocalizedStringKey(String("Unità")))
@@ -111,13 +111,13 @@ struct NewItemView: View {
                                 TextField(LocalizedStringKey(String("Unità")), text: $unità)
                                     .multilineTextAlignment(.trailing)
                                     .keyboardType(.numberPad)
-                                    .focused($amountIsFocused)
+//                                    .focused($amountIsFocused)
                             }
                             
                         } // :Information section
                         .padding()
                         .listRowBackground(CustomColor.blueform)
-                        .onTapGesture {amountIsFocused = false}
+//                        .onTapGesture {amountIsFocused = false}
                         
                         // adding the number of boxes
                         

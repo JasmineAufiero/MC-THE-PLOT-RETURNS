@@ -14,7 +14,7 @@ struct Med_WasteApp: App {
     
     var body: some Scene {
         WindowGroup {
-            MotherView()
+            MotherView().environmentObject(locationManagerK)
         }
     }
 }

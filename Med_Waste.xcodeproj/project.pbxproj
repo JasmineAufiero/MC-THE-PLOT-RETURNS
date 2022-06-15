@@ -15,7 +15,6 @@
 		275E28C0284F9D5F00856D12 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275E28BF284F9D5F00856D12 /* SearchView.swift */; };
 		3C32006628573D0100743A05 /* PinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C32006528573D0100743A05 /* PinView.swift */; };
 		3C3200682857489600743A05 /* DuckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3200672857489600743A05 /* DuckView.swift */; };
-		3C32006A2857E10500743A05 /* quack.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3C3200692857E10500743A05 /* quack.mp3 */; };
 		3C7A301A2850A39900652B2F /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7A30192850A39900652B2F /* LocationManager.swift */; };
 		3C97316B28564A8C00A32921 /* PharmaciesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C97316A28564A8C00A32921 /* PharmaciesData.swift */; };
 		3C97316D2856625D00A32921 /* PharmacyPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C97316C2856625D00A32921 /* PharmacyPreview.swift */; };
@@ -67,7 +66,6 @@
 		275E28BF284F9D5F00856D12 /* SearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		3C32006528573D0100743A05 /* PinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinView.swift; sourceTree = "<group>"; };
 		3C3200672857489600743A05 /* DuckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuckView.swift; sourceTree = "<group>"; };
-		3C3200692857E10500743A05 /* quack.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = quack.mp3; path = ../../../../../Downloads/quack.mp3; sourceTree = "<group>"; };
 		3C7A30192850A39900652B2F /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		3C97316A28564A8C00A32921 /* PharmaciesData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PharmaciesData.swift; sourceTree = "<group>"; };
 		3C97316C2856625D00A32921 /* PharmacyPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PharmacyPreview.swift; sourceTree = "<group>"; };
@@ -134,8 +132,7 @@
 		470DE6C6284F954C00FFB711 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				                3C3200692857E10500743A05 /* quack.mp3 */,
-                3CB4BE0728534B430049F7F4 /* Pharmacy.swift */,
+				3CB4BE0728534B430049F7F4 /* Pharmacy.swift */,
 				27498C2128572DC900BE0DFE /* StatsData.swift */,
 				473D8016284F9A0800D2FD6A /* MedBox.swift */,
 				473D8013284F9A0800D2FD6A /* MedData.swift */,
@@ -334,7 +331,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3C32006A2857E10500743A05 /* quack.mp3 in Resources */,
 				3CB4BE0628534AA10049F7F4 /* PharmaciesData.json in Resources */,
 				477C82EF284F91A600108CF2 /* Preview Assets.xcassets in Resources */,
 				5A959926285873F5003CBC13 /* Localizable.strings in Resources */,
@@ -536,11 +532,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Med_Waste/Preview Content\"";
-				DEVELOPMENT_TEAM = YR37B9HTTD;
+				DEVELOPMENT_TEAM = 232QK9T2BM;
 				ENABLE_PREVIEWS = YES;
-                GENERATE_INFOPLIST_FILE = YES;
+				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Maka;
-                    INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Posizione a piacere capo";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Posizione a piacere capo";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -565,15 +561,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				DEVELOPMENT_TEAM = Z33CSW7W9J;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Med_Waste/Preview Content\"";
-				DEVELOPMENT_TEAM = Z33CSW7W9J;
+				DEVELOPMENT_TEAM = 232QK9T2BM;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Maka;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Posizione a piacere capo";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-                    INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Posizione a piacere capo";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
