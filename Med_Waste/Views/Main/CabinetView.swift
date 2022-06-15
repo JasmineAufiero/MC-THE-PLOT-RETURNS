@@ -19,6 +19,7 @@ struct CabinetView: View {
     @State var searchForCategory : Bool = false
    
     
+    @EnvironmentObject var locationManagerK : MapViewModel
     var medicineViewModel :MedicineViewModel
     var boxViewModel :BoxViewModel
     var statsViewModel :StatsViewModel
@@ -207,7 +208,7 @@ struct CabinetView: View {
             .navigationTitle("Armadietto")
             .navigationBarItems(trailing:
                                     HStack(spacing: 20){
-                Button(action: { showMap = true }, label: { Image(systemName: "map.circle.fill").scaleEffect(1.5)})
+                Button(action: { locationManagerK.showMap = true }, label: { Image(systemName: "map.circle.fill").scaleEffect(1.5)})
                 
 //                Button(action: {guard !isRecognizing else { return }
 //                    showScanner = true ; showData = true }, label: { Image(systemName: "plus.circle.fill").foregroundColor(CustomColor.darkblue).scaleEffect(1.5)})
@@ -223,7 +224,7 @@ struct CabinetView: View {
             })
         }
         
-//        .sheet(isPresented: $showScanner) { // modified: add new medicine sheet
+//       .sheet(isPresented: $showScanner) { // modified: add new medicine sheet
 //            NewItemView(medicineViewModel: medicineViewModel, boxViewModel: boxViewModel)
 //        }
 
@@ -246,6 +247,8 @@ struct CabinetView: View {
 //                } didCancelScanning: {showScanner = false}
 //
 //            })
+        
+        .sheet(isPresented: $locationManagerK.showMap, content: {MapView()})
         .sheet(isPresented: $showData, content: {NewItemView( showData : $showData ,medicineViewModel: medicineViewModel, boxViewModel: boxViewModel, statsViewModel: statsViewModel)})
 
     }

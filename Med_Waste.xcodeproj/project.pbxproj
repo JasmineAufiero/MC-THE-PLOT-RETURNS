@@ -13,6 +13,14 @@
 		275E28BC284F9D2D00856D12 /* CircleStatistic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275E28BB284F9D2D00856D12 /* CircleStatistic.swift */; };
 		275E28BE284F9D3600856D12 /* StatCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275E28BD284F9D3600856D12 /* StatCardView.swift */; };
 		275E28C0284F9D5F00856D12 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275E28BF284F9D5F00856D12 /* SearchView.swift */; };
+		3C32006628573D0100743A05 /* PinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C32006528573D0100743A05 /* PinView.swift */; };
+		3C3200682857489600743A05 /* DuckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3200672857489600743A05 /* DuckView.swift */; };
+		3C32006A2857E10500743A05 /* quack.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3C3200692857E10500743A05 /* quack.mp3 */; };
+		3C7A301A2850A39900652B2F /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7A30192850A39900652B2F /* LocationManager.swift */; };
+		3C97316B28564A8C00A32921 /* PharmaciesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C97316A28564A8C00A32921 /* PharmaciesData.swift */; };
+		3C97316D2856625D00A32921 /* PharmacyPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C97316C2856625D00A32921 /* PharmacyPreview.swift */; };
+		3CB4BE0628534AA10049F7F4 /* PharmaciesData.json in Resources */ = {isa = PBXBuildFile; fileRef = 3CB4BE0528534AA00049F7F4 /* PharmaciesData.json */; };
+		3CB4BE0828534B430049F7F4 /* Pharmacy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB4BE0728534B430049F7F4 /* Pharmacy.swift */; };
 		470DE6D5284F958400FFB711 /* CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470DE6D3284F958400FFB711 /* CustomColors.swift */; };
 		470DE6D6284F958400FFB711 /* RecognizeText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470DE6D4284F958400FFB711 /* RecognizeText.swift */; };
 		473D8010284F99FD00D2FD6A /* BoxViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473D800D284F99FD00D2FD6A /* BoxViewModel.swift */; };
@@ -56,6 +64,14 @@
 		275E28BB284F9D2D00856D12 /* CircleStatistic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleStatistic.swift; sourceTree = "<group>"; };
 		275E28BD284F9D3600856D12 /* StatCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatCardView.swift; sourceTree = "<group>"; };
 		275E28BF284F9D5F00856D12 /* SearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		3C32006528573D0100743A05 /* PinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinView.swift; sourceTree = "<group>"; };
+		3C3200672857489600743A05 /* DuckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuckView.swift; sourceTree = "<group>"; };
+		3C3200692857E10500743A05 /* quack.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = quack.mp3; path = ../../../../../Downloads/quack.mp3; sourceTree = "<group>"; };
+		3C7A30192850A39900652B2F /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		3C97316A28564A8C00A32921 /* PharmaciesData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PharmaciesData.swift; sourceTree = "<group>"; };
+		3C97316C2856625D00A32921 /* PharmacyPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PharmacyPreview.swift; sourceTree = "<group>"; };
+		3CB4BE0528534AA00049F7F4 /* PharmaciesData.json */ = {isa = PBXFileReference; explicitFileType = text.json; path = PharmaciesData.json; sourceTree = "<group>"; };
+		3CB4BE0728534B430049F7F4 /* Pharmacy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pharmacy.swift; sourceTree = "<group>"; };
 		470DE6D3284F958400FFB711 /* CustomColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomColors.swift; sourceTree = "<group>"; };
 		470DE6D4284F958400FFB711 /* RecognizeText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecognizeText.swift; sourceTree = "<group>"; };
 		473D800D284F99FD00D2FD6A /* BoxViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoxViewModel.swift; sourceTree = "<group>"; };
@@ -104,9 +120,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3C97316928564A6E00A32921 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				3C97316A28564A8C00A32921 /* PharmaciesData.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 		470DE6C6284F954C00FFB711 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				                3C3200692857E10500743A05 /* quack.mp3 */,
+                3CB4BE0728534B430049F7F4 /* Pharmacy.swift */,
 				27498C2128572DC900BE0DFE /* StatsData.swift */,
 				473D8016284F9A0800D2FD6A /* MedBox.swift */,
 				473D8013284F9A0800D2FD6A /* MedData.swift */,
@@ -123,6 +149,7 @@
 				473D800F284F99FD00D2FD6A /* MapViewModel.swift */,
 				27498C1F28572DBE00BE0DFE /* StatsViewModel.swift */,
 				473D800E284F99FD00D2FD6A /* MedicineViewModel.swift */,
+				3C7A30192850A39900652B2F /* LocationManager.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -182,8 +209,11 @@
 			children = (
 				473D8029284F9A4100D2FD6A /* AlertView.swift */,
 				473D8025284F9A4100D2FD6A /* MapView.swift */,
+				3C32006528573D0100743A05 /* PinView.swift */,
+				3C97316C2856625D00A32921 /* PharmacyPreview.swift */,
 				473D8028284F9A4100D2FD6A /* NewItemView.swift */,
 				275E28BF284F9D5F00856D12 /* SearchView.swift */,
+				3C3200672857489600743A05 /* DuckView.swift */,
 				473D8026284F9A4100D2FD6A /* ScanView.swift */,
 				473D8027284F9A4100D2FD6A /* SingleMedView.swift */,
 				5ACDA4B62857604A003CCFBB /* InEvidenzaPlaceholder.swift */,
@@ -220,11 +250,13 @@
 		477C82E6284F91A600108CF2 /* Med_Waste */ = {
 			isa = PBXGroup;
 			children = (
+				3C97316928564A6E00A32921 /* Data */,
 				470DE6D7284F959300FFB711 /* Views */,
 				470DE6D2284F957C00FFB711 /* Constants */,
 				470DE6CB284F956000FFB711 /* ViewModel */,
 				470DE6C6284F954C00FFB711 /* Models */,
 				477C82E7284F91A600108CF2 /* Med_WasteApp.swift */,
+				3CB4BE0528534AA00049F7F4 /* PharmaciesData.json */,
 				477C82EB284F91A600108CF2 /* Assets.xcassets */,
 				477C82ED284F91A600108CF2 /* Preview Content */,
 			);
@@ -297,6 +329,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C32006A2857E10500743A05 /* quack.mp3 in Resources */,
+				3CB4BE0628534AA10049F7F4 /* PharmaciesData.json in Resources */,
 				477C82EF284F91A600108CF2 /* Preview Assets.xcassets in Resources */,
 				477C82EC284F91A600108CF2 /* Assets.xcassets in Resources */,
 			);
@@ -314,12 +348,17 @@
 				473D8039284F9A6500D2FD6A /* ContentView.swift in Sources */,
 				473D803C284FAF7600D2FD6A /* DataFormat.swift in Sources */,
 				473D802C284F9A4100D2FD6A /* SingleMedView.swift in Sources */,
+				3C97316D2856625D00A32921 /* PharmacyPreview.swift in Sources */,
+				3C7A301A2850A39900652B2F /* LocationManager.swift in Sources */,
 				275E28C0284F9D5F00856D12 /* SearchView.swift in Sources */,
 				473D8037284F9A6500D2FD6A /* StatisticsView.swift in Sources */,
 				473D8019284F9A0800D2FD6A /* RecognizedContent.swift in Sources */,
 				473D8021284F9A2A00D2FD6A /* FactsCardView.swift in Sources */,
+				3CB4BE0828534B430049F7F4 /* Pharmacy.swift in Sources */,
 				473D8038284F9A6500D2FD6A /* SummaryView.swift in Sources */,
 				473D803A284F9A6500D2FD6A /* CabinetView.swift in Sources */,
+				3C97316B28564A8C00A32921 /* PharmaciesData.swift in Sources */,
+				3C32006628573D0100743A05 /* PinView.swift in Sources */,
 				473D802A284F9A4100D2FD6A /* MapView.swift in Sources */,
 				473D802B284F9A4100D2FD6A /* ScanView.swift in Sources */,
 				473D8012284F99FD00D2FD6A /* MapViewModel.swift in Sources */,
@@ -345,6 +384,7 @@
 				473D802E284F9A4100D2FD6A /* AlertView.swift in Sources */,
 				470DE6D5284F958400FFB711 /* CustomColors.swift in Sources */,
 				275E28BE284F9D3600856D12 /* StatCardView.swift in Sources */,
+				3C3200682857489600743A05 /* DuckView.swift in Sources */,
 				473D8011284F99FD00D2FD6A /* MedicineViewModel.swift in Sources */,
 				27498C2428572ECA00BE0DFE /* CircleAnimationCard.swift in Sources */,
 			);
@@ -477,10 +517,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Med_Waste/Preview Content\"";
-				DEVELOPMENT_TEAM = Z33CSW7W9J;
+				DEVELOPMENT_TEAM = YR37B9HTTD;
 				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
+                GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Maka;
+                    INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Posizione a piacere capo";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -505,7 +546,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Z33CSW7W9J;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Med_Waste/Preview Content\"";
 				DEVELOPMENT_TEAM = Z33CSW7W9J;
@@ -513,6 +554,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Maka;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+                    INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Posizione a piacere capo";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;

@@ -9,6 +9,9 @@ import SwiftUI
 
 @main
 struct Med_WasteApp: App {
+    
+    @StateObject var locationManagerK = MapViewModel()
+    
     var body: some Scene {
         WindowGroup {
             MotherView()
