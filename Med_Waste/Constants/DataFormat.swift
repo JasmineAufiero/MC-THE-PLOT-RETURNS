@@ -55,3 +55,35 @@ private func numberOfDigits(in number: Double) -> Int {
 }
 }
 
+extension String {
+    static let numberFormatter = NumberFormatter()
+    var doubleValue: Double {
+        String.numberFormatter.decimalSeparator = "."
+        if let result =  String.numberFormatter.number(from: self) {
+            return result.doubleValue
+        } else {
+            String.numberFormatter.decimalSeparator = ","
+            if let result = String.numberFormatter.number(from: self) {
+                return result.doubleValue
+            }
+        }
+        return 0
+    }
+}
+
+
+
+extension NumberFormatter {
+    convenience init(style: Style) {
+        self.init()
+        self.numberStyle = style
+    }
+}
+extension Formatter {
+    static let currency = NumberFormatter(style: .currency)
+}
+extension FloatingPoint {
+    var currency: String {
+        return Formatter.currency.string(for: self) ?? ""
+    }
+}

@@ -29,7 +29,7 @@ struct StatCardView: View {
             HStack (spacing: 20){
                 
             if (Status == "donated"){
-                    Text("\(stat)" + "€")
+                    Text("\(stat)" )
                     .foregroundColor(CustomColor.donnatedgreen)
                         .font(Font.system(size: 28, weight: .bold))
                         .scaledToFit()
@@ -47,7 +47,7 @@ struct StatCardView: View {
                     
                     
             if (Status == "expired"){
-                    Text("\(stat)" + "€")
+                    Text("\(stat)" )
                         .font(Font.system(size: 28, weight: .bold))
                         .foregroundColor(CustomColor.expiredred)
                         .scaledToFit()
@@ -66,7 +66,7 @@ struct StatCardView: View {
                     
                 if (Status == "total"){
                     
-                    Text("\(stat)" + "€")
+                    Text("\(stat)" )
                         .font(Font.system(size: 28, weight: .bold))
                         .foregroundColor(CustomColor.darkblue)
                         .scaledToFit()

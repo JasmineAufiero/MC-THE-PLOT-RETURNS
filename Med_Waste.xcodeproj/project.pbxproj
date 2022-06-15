@@ -13,6 +13,7 @@
 		275E28BC284F9D2D00856D12 /* CircleStatistic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275E28BB284F9D2D00856D12 /* CircleStatistic.swift */; };
 		275E28BE284F9D3600856D12 /* StatCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275E28BD284F9D3600856D12 /* StatCardView.swift */; };
 		275E28C0284F9D5F00856D12 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275E28BF284F9D5F00856D12 /* SearchView.swift */; };
+		27658044285937B4009A7094 /* RecognizeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27658043285937B4009A7094 /* RecognizeData.swift */; };
 		470DE6D5284F958400FFB711 /* CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470DE6D3284F958400FFB711 /* CustomColors.swift */; };
 		470DE6D6284F958400FFB711 /* RecognizeText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470DE6D4284F958400FFB711 /* RecognizeText.swift */; };
 		473D8010284F99FD00D2FD6A /* BoxViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473D800D284F99FD00D2FD6A /* BoxViewModel.swift */; };
@@ -56,6 +57,7 @@
 		275E28BB284F9D2D00856D12 /* CircleStatistic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleStatistic.swift; sourceTree = "<group>"; };
 		275E28BD284F9D3600856D12 /* StatCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatCardView.swift; sourceTree = "<group>"; };
 		275E28BF284F9D5F00856D12 /* SearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		27658043285937B4009A7094 /* RecognizeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecognizeData.swift; sourceTree = "<group>"; };
 		470DE6D3284F958400FFB711 /* CustomColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomColors.swift; sourceTree = "<group>"; };
 		470DE6D4284F958400FFB711 /* RecognizeText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecognizeText.swift; sourceTree = "<group>"; };
 		473D800D284F99FD00D2FD6A /* BoxViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoxViewModel.swift; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 			children = (
 				470DE6D3284F958400FFB711 /* CustomColors.swift */,
 				470DE6D4284F958400FFB711 /* RecognizeText.swift */,
+				27658043285937B4009A7094 /* RecognizeData.swift */,
 				473D803B284FAF7600D2FD6A /* DataFormat.swift */,
 			);
 			path = Constants;
@@ -313,6 +316,7 @@
 				473D8010284F99FD00D2FD6A /* BoxViewModel.swift in Sources */,
 				473D8039284F9A6500D2FD6A /* ContentView.swift in Sources */,
 				473D803C284FAF7600D2FD6A /* DataFormat.swift in Sources */,
+				27658044285937B4009A7094 /* RecognizeData.swift in Sources */,
 				473D802C284F9A4100D2FD6A /* SingleMedView.swift in Sources */,
 				275E28C0284F9D5F00856D12 /* SearchView.swift in Sources */,
 				473D8037284F9A6500D2FD6A /* StatisticsView.swift in Sources */,
@@ -481,6 +485,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Maka;
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app uses the camera to scan the details on medicine boxes.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -512,6 +517,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Maka;
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app uses the camera to scan the details on medicine boxes.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

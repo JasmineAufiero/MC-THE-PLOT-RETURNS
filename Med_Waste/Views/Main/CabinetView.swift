@@ -13,16 +13,16 @@ struct CabinetView: View {
     @State var searchQuery = ""
     @State private var showScanner = false
     @State private var showMap = false
-    @State public var showData = false
+    @State private var showData = false
     @State private var isRecognizing = false
     @State var pinnedMedicineNumber :Int
     @State var searchForCategory : Bool = false
-   
+    @State private var recognizedText = ""
     
     var medicineViewModel :MedicineViewModel
     var boxViewModel :BoxViewModel
     var statsViewModel :StatsViewModel
-    @ObservedObject var recognizedContent = RecognizedContent()
+//    @ObservedObject var recognizedContent = RecognizedContent()
     
 
     let columns = [
@@ -53,8 +53,10 @@ struct CabinetView: View {
                     .frame(maxWidth: .infinity, alignment: .leading).padding(.leading, 20)
                 // modified: add a dynamic card
                 
-               
-                
+                if showData{
+                Text(recognizedText)
+                    .font(.system(size: 5))
+                }
                 
                 
                 LazyVGrid(columns: columns, spacing: 20) {
@@ -203,6 +205,12 @@ struct CabinetView: View {
 //                }
                 }
             }
+            .onAppear{
+                statsViewModel.statValue(currentvalue: statsViewModel.stats[0].value)
+            }
+            
+            
+            
             
             .navigationTitle("Armadietto")
             .navigationBarItems(trailing:
@@ -214,13 +222,26 @@ struct CabinetView: View {
                 
 //                new button that redirects to the view for adding a new item
                 Button(action: {
-                    showData.toggle()
+                    showScanner.toggle()
                 }) {
                     
                         Image(systemName: "plus.circle.fill").foregroundColor(CustomColor.darkblue).scaleEffect(1.5)
                     
                 }
             })
+            .sheet(isPresented: $showScanner) {
+                ScanDocumentView(recognizedText: self.$recognizedText, showingNewItemView: $showData)
+
+            }
+            .sheet(isPresented: $showData) {
+                NewItemView(text: self.recognizedText ,showData : $showData ,medicineViewModel: medicineViewModel, boxViewModel: boxViewModel, statsViewModel: statsViewModel, reconizeddata: RecognizedData())
+            }
+            
+            
+//
+//            .sheet(isPresented: $showScanner) {
+//                ScanDocumentView(recognizedText: self.$recognizedText, showingNewItemView: $showData)}
+//                    .sheet(isPresented: $showData, content: {NewItemView(text: self.recognizedText ,showData : $showData ,medicineViewModel: medicineViewModel, boxViewModel: boxViewModel, statsViewModel: statsViewModel)})
         }
         
 //        .sheet(isPresented: $showScanner) { // modified: add new medicine sheet
@@ -246,7 +267,8 @@ struct CabinetView: View {
 //                } didCancelScanning: {showScanner = false}
 //
 //            })
-        .sheet(isPresented: $showData, content: {NewItemView( showData : $showData ,medicineViewModel: medicineViewModel, boxViewModel: boxViewModel, statsViewModel: statsViewModel)})
+        
+        
 
     }
 }

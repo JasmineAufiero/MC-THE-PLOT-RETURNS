@@ -10,7 +10,7 @@ import SwiftUI
 
 struct NewItemView: View {
     @FocusState private var amountIsFocused: Bool
-    
+    var text : String
     @State var nome: String = ""
     @State var dosaggio: String = ""
     @State var tipologia = "Pillole"
@@ -30,10 +30,25 @@ struct NewItemView: View {
     var medicineViewModel :MedicineViewModel
     var boxViewModel :BoxViewModel
     var statsViewModel : StatsViewModel
+    var reconizeddata : RecognizedData
     
     var MedCategoriesPicker = ["Antibiotici", "Antidolorifici", "Anti-Infiammatori", "Antivirali", "Antistaminici", "Dermatologici", "Gastrointestinali", "Integratori", "Altro"]
     var categoria_picker = ["Antibiotici", "Antidolorifici", "Anti-Infiammatori", "Antivirali", "Antistaminici", "Dermatologici", "Gastrointestinali", "Integratori", "Altro"]
     @State var numberofMedCategories = 0  //necessary for the picker choice
+    
+        func getdata() {
+            nome = reconizeddata.getName(text: text)
+            dosaggio = reconizeddata.getDosage(text: text)
+            tipologia = reconizeddata.getTypeName(type: reconizeddata.getType(text: text))
+            prezzo = reconizeddata.getPrice(text: text)
+            unità = reconizeddata.getUnits(text: text)
+            expirationDate[0] = [reconizeddata.getDate(text: text)!].isEmpty ? Date.now : reconizeddata.getDate(text: text)!
+        }
+   
+
+    
+    
+    
     
     var body: some View {
             
@@ -46,6 +61,7 @@ struct NewItemView: View {
                         .fontWeight(.semibold)
                         .multilineTextAlignment(.leading)
                         .padding(.horizontal,20)
+                  
                     
                     Form {
                         
@@ -245,6 +261,7 @@ struct NewItemView: View {
                             showData = false
                             
                         }.frame(width: 200, height: 30, alignment: .center)
+                                .opacity(prezzo.isEmpty ? 0.2 : 1.0)
                         .disabled(nome.isEmpty || tipologia.isEmpty || prezzo.isEmpty )
                         .foregroundColor(.white)
                         .padding()
@@ -260,6 +277,7 @@ struct NewItemView: View {
                     .onAppear(perform: {
                         UITableView.appearance().backgroundColor = UIColor.clear
                         UITableViewCell.appearance().backgroundColor = UIColor.clear
+                        getdata()
                     })
                     
                 }
