@@ -11,7 +11,7 @@ import SwiftUI
 
 struct StatCardView: View {
     @State var Status: String
-    @State var stat : Double
+    @State var stat : String
 //    the string can have values donated, expired or total and indicated the respective category of money
     
 //    switch case per cambiare i dettagli a lato e cambiare il colore in base alle informazioni lette
@@ -26,17 +26,21 @@ struct StatCardView: View {
             .shadow(color: .gray, radius: 2, x: 0, y: 2)
             
             
-            HStack (spacing: 10){
+            HStack (spacing: 20){
                 
             if (Status == "donated"){
                     Text("\(stat)" + "€")
                     .foregroundColor(CustomColor.donnatedgreen)
                         .font(Font.system(size: 28, weight: .bold))
+                        .scaledToFit()
+                            .minimumScaleFactor(0.01)
+                            .lineLimit(1)
                 
                 Text(LocalizedStringKey(String("Somma di denaro donato in medicinali fino ad ora.")))
                     .foregroundColor(CustomColor.graytext)
                     .multilineTextAlignment(.leading)
-                    .padding()
+//                    .padding()
+                    .frame(maxWidth: 200, maxHeight: 200, alignment: .trailing)
                
             }
                     
@@ -46,11 +50,16 @@ struct StatCardView: View {
                     Text("\(stat)" + "€")
                         .font(Font.system(size: 28, weight: .bold))
                         .foregroundColor(CustomColor.expiredred)
+                        .scaledToFit()
+                            .minimumScaleFactor(0.01)
+                            .lineLimit(1)
+                       
                 
                 Text(LocalizedStringKey(String("Somma dedotta in base ai medicinali scaduti presenti nell'app.")))
                     .foregroundColor(CustomColor.graytext)
                     .multilineTextAlignment(.leading)
-                    .padding()
+//                    .padding()
+                    .frame(maxWidth: 200, maxHeight: 200, alignment: .trailing)
                
              }
                     
@@ -60,11 +69,15 @@ struct StatCardView: View {
                     Text("\(stat)" + "€")
                         .font(Font.system(size: 28, weight: .bold))
                         .foregroundColor(CustomColor.darkblue)
+                        .scaledToFit()
+                            .minimumScaleFactor(0.01)
+                            .lineLimit(1)
                     
                     Text(LocalizedStringKey(String("Totale spesa medicinali. La media italiana per cittadino è 438 €.")))
                         .foregroundColor(CustomColor.graytext)
                         .multilineTextAlignment(.leading)
-                        .padding()
+//                        .padding()
+                        .frame(maxWidth: 200, maxHeight: 200, alignment: .center)
                    
                 }
                 
@@ -73,6 +86,7 @@ struct StatCardView: View {
             }
         }
         .padding()
+        .padding(.horizontal , 5)
         .frame(width: UIScreen.screenWidth, height: 150, alignment: .center)
  
     }

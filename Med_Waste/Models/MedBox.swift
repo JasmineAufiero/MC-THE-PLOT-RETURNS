@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct MedBox :Identifiable, Codable {
+struct MedBox :Identifiable, Codable, Hashable {
     
     let id: UUID = UUID()
     var medicine :String

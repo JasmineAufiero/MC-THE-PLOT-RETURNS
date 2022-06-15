@@ -16,6 +16,7 @@ class MedicineViewModel :ObservableObject {
         
     ]
     
+    // this function create a json file to manage persistence if is not created yet
     init() {
         if let data = UserDefaults.standard.data(forKey: "SavedData") {
             if let decoded = try? JSONDecoder().decode([MedData].self, from: data) {
@@ -26,7 +27,8 @@ class MedicineViewModel :ObservableObject {
         
         medicines = []
     }
-    
+   
+    // this function saves a medicine inside a json file
     func save() {
         if let encoded = try? JSONEncoder().encode(medicines) {
             UserDefaults.standard.set(encoded, forKey: "SavedData")
@@ -34,11 +36,12 @@ class MedicineViewModel :ObservableObject {
     }
     
     
-    
+    // this function returns all the pinned medicines
     func pinnedMedicine() -> [MedData] {
         return medicines.filter{$0.isPinned}
     }
-    
+   
+    // this function pin the medicine
     func pinMedicine(nome: String) {
         let index = medicines.firstIndex{ $0.name == nome }
         medicines[index!].isPinned.toggle()
@@ -46,7 +49,7 @@ class MedicineViewModel :ObservableObject {
         save()
     }
     
-    
+    // find the medicine by using name
     func searchMedicineByName(medicine :String) -> MedData? {
         
         for i in 0..<medicines.count{
@@ -57,7 +60,7 @@ class MedicineViewModel :ObservableObject {
         return nil
     }
     
-    
+    // find all the medicine by category
     func searchMedicineByCategory(category :String) -> MedData? {
         
         for i in 0..<medicines.count{
@@ -68,15 +71,24 @@ class MedicineViewModel :ObservableObject {
         return nil
     }
     
+    // this function search the medicines by passing the collected boxes
+    func filterMedicinesFromBoxes(boxes: [MedBox]) -> [MedData] {
+        var medicines :Set<MedData> = []
+        for box in boxes {
+            medicines.insert(searchMedicineByName(medicine: box.medicine)!) // by using the set, one medicine should be saved only one time
+        }
+        return Array(medicines)
+    }
     
     
     
-    
+    // this function add a new medicine inside the cabinet
     func addNewMedicine(name :String, dosage: String, type :String, price :String, units :Int, category :String, isPinned: Bool) {
         
         medicines.append(MedData(name: name, dosage: dosage, type: type, price: price, units: units, category: category, isPinned: isPinned))
         save()
     }
+    
     
     func categoryColor (medicine: MedData) -> String {
         
