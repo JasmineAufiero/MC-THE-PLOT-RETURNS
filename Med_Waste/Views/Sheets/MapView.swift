@@ -19,6 +19,10 @@ struct MapView: View {
                  if(locationManagerK.duckCount == 5){
                     DuckView()
                  }
+                 VStack(spacing:0){
+                     Spacer()
+                     pharmacyPreview
+                 }
              }
              .overlay(closeMapButtpm, alignment: .topTrailing)
     }
@@ -35,7 +39,7 @@ extension MapView {
                 .font(.headline)
 //                .padding(16)
                 .frame(width: 50, height: 50)
-                .foregroundColor(.purple)
+                .foregroundColor(Color("AccentColor"))
                 .background(.thickMaterial)
                 .cornerRadius(20)
                 .shadow(radius: 4)
@@ -51,28 +55,54 @@ extension MapView {
             MapAnnotation(coordinate: pharma.coordinates){
                 if(pharma.donation == true && pharma.dispose == true){
                     PinView(imgName: "throwDonate")
+                        .scaleEffect(locationManagerK.mapLocation == pharma ? 1 : 0.7)
+                        .onTapGesture {
+                            locationManagerK.showNextPharma(location: pharma)
+                        }
                 }
                 
                 if(pharma.donation == true && pharma.dispose == false){
                     PinView(imgName: "donate")
+                        .scaleEffect(locationManagerK.mapLocation == pharma ? 1 : 0.7)
+                        .onTapGesture {
+                            locationManagerK.showNextPharma(location: pharma)
+                        }
+
                 }
                 
                 if(pharma.donation == false && pharma.dispose == true){
                     PinView(imgName: "dispose")
+                        .scaleEffect(locationManagerK.mapLocation == pharma ? 1 : 0.7)
+                        .onTapGesture {
+                            locationManagerK.showNextPharma(location: pharma)
+                        }
+
                 }
             }
         })
             .ignoresSafeArea()
-            .accentColor(.purple)
-            .onAppear{
+            .accentColor(Color("AccentColor"))
+            .onAppear(perform: {
                 locationManagerK.checkIfLocationServiceIsEnabled()
+            })
+    }
+    
+    private var pharmacyPreview: some View {
+        ZStack{
+            ForEach(locationManagerK.locations) { pharma in
+                if(locationManagerK.mapLocation == pharma) {
+                    PharmacyPreview(location: pharma)
+                        .shadow(color: Color.black.opacity(0.3), radius: 20)
+                }
             }
+        }
     }
 }
 
 struct MapView_Previews: PreviewProvider {
     static var previews: some View {
         MapView()
+            .environmentObject(MedicineViewModel())
     }
 }
 

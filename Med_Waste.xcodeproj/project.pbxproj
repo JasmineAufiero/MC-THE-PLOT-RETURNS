@@ -12,6 +12,7 @@
 		275E28C0284F9D5F00856D12 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275E28BF284F9D5F00856D12 /* SearchView.swift */; };
 		3C32006628573D0100743A05 /* PinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C32006528573D0100743A05 /* PinView.swift */; };
 		3C3200682857489600743A05 /* DuckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3200672857489600743A05 /* DuckView.swift */; };
+		3C32006A2857E10500743A05 /* quack.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3C3200692857E10500743A05 /* quack.mp3 */; };
 		3C7A301A2850A39900652B2F /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7A30192850A39900652B2F /* LocationManager.swift */; };
 		3C97316B28564A8C00A32921 /* PharmaciesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C97316A28564A8C00A32921 /* PharmaciesData.swift */; };
 		3C97316D2856625D00A32921 /* PharmacyPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C97316C2856625D00A32921 /* PharmacyPreview.swift */; };
@@ -55,6 +56,7 @@
 		275E28BF284F9D5F00856D12 /* SearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		3C32006528573D0100743A05 /* PinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinView.swift; sourceTree = "<group>"; };
 		3C3200672857489600743A05 /* DuckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuckView.swift; sourceTree = "<group>"; };
+		3C3200692857E10500743A05 /* quack.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = quack.mp3; path = ../../../../../Downloads/quack.mp3; sourceTree = "<group>"; };
 		3C7A30192850A39900652B2F /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		3C97316A28564A8C00A32921 /* PharmaciesData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PharmaciesData.swift; sourceTree = "<group>"; };
 		3C97316C2856625D00A32921 /* PharmacyPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PharmacyPreview.swift; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 		470DE6C6284F954C00FFB711 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				3C3200692857E10500743A05 /* quack.mp3 */,
 				3CB4BE0728534B430049F7F4 /* Pharmacy.swift */,
 				473D8016284F9A0800D2FD6A /* MedBox.swift */,
 				473D8013284F9A0800D2FD6A /* MedData.swift */,
@@ -305,6 +308,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C32006A2857E10500743A05 /* quack.mp3 in Resources */,
 				3CB4BE0628534AA10049F7F4 /* PharmaciesData.json in Resources */,
 				477C82EF284F91A600108CF2 /* Preview Assets.xcassets in Resources */,
 				477C82EC284F91A600108CF2 /* Assets.xcassets in Resources */,

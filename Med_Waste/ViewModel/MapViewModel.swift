@@ -7,6 +7,7 @@
 
 import Foundation
 import MapKit
+import SwiftUI
 
 class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
     
@@ -14,11 +15,21 @@ class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
     
     @Published var duckCount :Int = 0
     
+    @Published var mapSpan = MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5)
+
     @Published var locations : [Pharmacy]
+    
+    @Published var mapLocation: Pharmacy {
+        didSet{
+            updateMapRegion(location: mapLocation)
+        }
+    }
     
     override init(){
         let locations = PharmaciesDataServices.locations
         self.locations = locations
+        self.mapLocation = locations.first!
+//        self.updateMapRegion(location: locations.first!)
     }
     
     var locationManager: CLLocationManager?
@@ -29,12 +40,26 @@ class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
             latitudeDelta: 0.1,
             longitudeDelta: 0.1))
     
+    private func updateMapRegion(location: Pharmacy) {
+        withAnimation(.easeInOut){
+            region = MKCoordinateRegion(
+                center: location.coordinates,
+                span: mapSpan)
+        }
+    }
+    
     func checkIfLocationServiceIsEnabled() {
         if CLLocationManager.locationServicesEnabled() {
             locationManager = CLLocationManager()
             locationManager!.delegate = self
         } else {
             print("Alert")
+        }
+    }
+    
+    func showNextPharma(location : Pharmacy){
+        withAnimation(.easeInOut) {
+            mapLocation = location
         }
     }
     
@@ -50,7 +75,7 @@ class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
         case .denied:
             print("Denied")
         case .authorizedAlways, .authorizedWhenInUse:
-            region = MKCoordinateRegion(center: locationManager.location!.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+            region = MKCoordinateRegion(center: locationManager.location!.coordinate, span: mapSpan)
         @unknown default:
             break
         }

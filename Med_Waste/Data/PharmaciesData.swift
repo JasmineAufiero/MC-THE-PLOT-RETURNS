@@ -14,9 +14,9 @@ class PharmaciesDataServices {
                  cityName: "Nola",
                  provincia: "NA",
                  street: "Corso Tommaso Vitale 76",
-                 cap: 80035,
+                 cap: "80035",
                  coordinates: CLLocationCoordinate2D(latitude: 40.9259222668902, longitude: 14.527577755513166),
-                 phone: 0818231788,
+                 phone: "0818231788",
                  donation: true,
                  dispose: false),
         
@@ -24,9 +24,9 @@ class PharmaciesDataServices {
                  cityName: "Cicciano",
                  provincia: "NA",
                  street: "Via Roma 2",
-                 cap: 80033,
+                 cap: "80033",
                  coordinates: CLLocationCoordinate2D(latitude: 40.962486807623776, longitude: 14.538146569007942),
-                 phone: 3467575153,
+                 phone: "3467575153",
                  donation: false,
                  dispose: true),
         
@@ -34,9 +34,9 @@ class PharmaciesDataServices {
                  cityName: "Napoli  ",
                  provincia: "NA",
                  street: "Via Francesco Cilea 22",
-                 cap: 80127,
+                 cap: "80127",
                  coordinates: CLLocationCoordinate2D(latitude: 40.84440135668942, longitude: 14.22061275665357),
-                 phone: 0817283024,
+                 phone: "0817283024",
                  donation: true,
                  dispose: true)
         

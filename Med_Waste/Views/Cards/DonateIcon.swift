@@ -9,12 +9,10 @@ import SwiftUI
 
 struct DonateIcon: View {
     var body: some View {
-        Group{
         ZStack{
             Image(systemName: "hand.wave.fill")
             Image(systemName: "pills.fill").scaleEffect(0.4).offset(x:3, y: -9)
             
-        }
         }
         
     }

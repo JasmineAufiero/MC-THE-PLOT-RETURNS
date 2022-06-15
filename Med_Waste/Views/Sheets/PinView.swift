@@ -13,7 +13,7 @@ struct PinView: View {
         Image(imgName)
             .resizable()
             .scaledToFit()
-            .frame(width: 50, height: 50)
+            .frame(width: 60, height: 60)
             .padding(6)
             .clipShape(Circle())
             .offset(y: -3)
