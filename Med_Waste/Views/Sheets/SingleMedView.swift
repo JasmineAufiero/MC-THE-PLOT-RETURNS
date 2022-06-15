@@ -26,8 +26,8 @@ struct SingleMedView: View {
             VStack {
                 
                 Image(medicineViewModel.chooseImage(type: medicine.type , medicine: medicine)).resizable().scaledToFit()
-                    .frame(width: 200, height: 200, alignment: .center).padding()
-                    .rotation3DEffect(.degrees(80), axis: (x: 0, y: 0, z: 1))
+                    .frame(width: 200, height: 200, alignment: .center).padding().scaleEffect(1.25)
+                    .rotation3DEffect(.degrees(25), axis: (x: 0, y: 0, z: 1))
                 
                 Spacer()
                 
@@ -77,7 +77,7 @@ struct SingleMedView: View {
                 ForEach(0..<(newBoxAdded == 0 ? boxViewModel.filterBoxesForMedicine(medicine: medicine.name).count : newBoxAdded), id: \.self) { index in
 
                     DatePickerView(selection: boxViewModel.filterBoxesForMedicine(medicine: medicine.name)[index].expirationDate, index: index)
-                        .listRowBackground(Color.init(red: 247/255, green: 213/255, blue: 223/255))
+                        .listRowBackground(CustomColor.redform)
                         .swipeActions {
 
                             Button{alertexpire.toggle()} label: {
@@ -96,10 +96,12 @@ struct SingleMedView: View {
                             .tint(CustomColor.donnatedgreen)
 
                         }
+                        .foregroundColor(boxViewModel.boxes[index].state == .expired ? Color("rosso") : CustomColor.graytext)
 //                        .onTapGesture {
 //                            boxViewModel.newExpirationDate(box: &boxViewModel.filterBoxesForMedicine(medicine: medicine.name)[index], expirationDate: boxViewModel.filterBoxesForMedicine(medicine: medicine.name)[index].expirationDate)
 //                       }
                 
+                    
                 }.padding(20)
                     
             }
@@ -109,12 +111,12 @@ struct SingleMedView: View {
             .padding(20)
             
         }
-        .padding(15)
+//        .padding(15)
         .onAppear(perform: {
             UITableView.appearance().backgroundColor = UIColor.clear
             UITableViewCell.appearance().backgroundColor = UIColor.clear
         })
-        .sheet(isPresented: $alertdonate, content: {AlertView(statethrow: false, alertdonate: $alertdonate ,alertexpire: $alertexpire, prezzo: medicine.price)})
+        .sheet(isPresented: $alertdonate, content: {AlertView(statethrow: false, alertdonate: $alertdonate ,alertexpire: $alertexpire, prezzo: medicine.price )})
         .sheet(isPresented: $alertexpire, content: {AlertView(statethrow: true, alertdonate: $alertdonate ,alertexpire: $alertexpire, prezzo: medicine.price)})
         
         //        .sheet(isPresented: $alertdonate, content: {AlertView(statethrow: false)})
