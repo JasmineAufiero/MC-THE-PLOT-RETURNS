@@ -17,7 +17,7 @@ struct SingleMedView: View {
     @State  var alertdonate = false
     @State  var alertexpire = false
     @State var newBoxAdded :Int = 0 // it is a state variable that refreshes the view when a new box is added
-    var expirationDate :[Date] = [Date.now]
+//    @State var expirationDate :[Date] = [Date.now]
     
     var body: some View {
         
