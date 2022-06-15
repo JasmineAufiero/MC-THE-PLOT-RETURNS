@@ -18,22 +18,19 @@ struct FactsCardView: View {
     var body: some View {
         
         let randomtip = tips.randomElement()!
-//        let randomColor = colors.
-        ZStack{
-            RoundedRectangle(cornerRadius: 20, style: .continuous)
-                .foregroundColor(colors.randomElement())
-                .opacity(0.6)
-//            .fixedSize(horizontal: false, vertical: false)
-           
-            .shadow(color: .gray, radius: 2, x: 0, y: 2)
-            .overlay( Text(LocalizedStringKey(String(randomtip))).font(.subheadline).fontWeight(.bold)
-                .multilineTextAlignment(.center) .padding(35)
-//                .foregroundColor(CustomColor.graytext)
-                .foregroundColor(.white) )
-//            randomize the tip in the summary section
-           
 
-        }
+           
+            
+            Text(LocalizedStringKey(String(randomtip))).font(.subheadline).fontWeight(.bold)
+                           .foregroundColor(.white)
+                           .multilineTextAlignment(.center)
+                           .padding(35)
+                           .background(colors.randomElement())
+                           .cornerRadius(33)
+                           .shadow(color: .gray, radius: 2, x: 0, y: 2)
+                           
+
+//        }
 
     }
 }

@@ -88,7 +88,8 @@ struct SummaryView: View {
                                                     Text(LocalizedStringKey(String("Curiosità"))).fontWeight(.bold).font(.title3)
                                                         .frame(maxWidth: .infinity, alignment: .leading).padding(.leading, 20)
                                                     
-                                                    FactsCardView().frame(width: UIScreen.screenWidth - 30, height: 140, alignment: .center).padding()
+                                                    FactsCardView()
+                                                        .padding()
                                                     Spacer()
                                                     
                                                 }.navigationTitle(LocalizedStringKey(String("Riepilogo")))
