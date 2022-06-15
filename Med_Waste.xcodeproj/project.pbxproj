@@ -15,6 +15,7 @@
 		275E28C0284F9D5F00856D12 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275E28BF284F9D5F00856D12 /* SearchView.swift */; };
 		3C32006628573D0100743A05 /* PinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C32006528573D0100743A05 /* PinView.swift */; };
 		3C3200682857489600743A05 /* DuckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3200672857489600743A05 /* DuckView.swift */; };
+		3C38168C2859D424006A5C18 /* quack.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3C38168B2859D424006A5C18 /* quack.mp3 */; };
 		3C7A301A2850A39900652B2F /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7A30192850A39900652B2F /* LocationManager.swift */; };
 		3C97316B28564A8C00A32921 /* PharmaciesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C97316A28564A8C00A32921 /* PharmaciesData.swift */; };
 		3C97316D2856625D00A32921 /* PharmacyPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C97316C2856625D00A32921 /* PharmacyPreview.swift */; };
@@ -66,6 +67,7 @@
 		275E28BF284F9D5F00856D12 /* SearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		3C32006528573D0100743A05 /* PinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinView.swift; sourceTree = "<group>"; };
 		3C3200672857489600743A05 /* DuckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuckView.swift; sourceTree = "<group>"; };
+		3C38168B2859D424006A5C18 /* quack.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = quack.mp3; sourceTree = "<group>"; };
 		3C7A30192850A39900652B2F /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		3C97316A28564A8C00A32921 /* PharmaciesData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PharmaciesData.swift; sourceTree = "<group>"; };
 		3C97316C2856625D00A32921 /* PharmacyPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PharmacyPreview.swift; sourceTree = "<group>"; };
@@ -259,6 +261,7 @@
 				477C82E7284F91A600108CF2 /* Med_WasteApp.swift */,
 				3CB4BE0528534AA00049F7F4 /* PharmaciesData.json */,
 				477C82EB284F91A600108CF2 /* Assets.xcassets */,
+				3C38168B2859D424006A5C18 /* quack.mp3 */,
 				477C82ED284F91A600108CF2 /* Preview Content */,
 			);
 			path = Med_Waste;
@@ -332,6 +335,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3CB4BE0628534AA10049F7F4 /* PharmaciesData.json in Resources */,
+				3C38168C2859D424006A5C18 /* quack.mp3 in Resources */,
 				477C82EF284F91A600108CF2 /* Preview Assets.xcassets in Resources */,
 				5A959926285873F5003CBC13 /* Localizable.strings in Resources */,
 				477C82EC284F91A600108CF2 /* Assets.xcassets in Resources */,
@@ -532,7 +536,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Med_Waste/Preview Content\"";
-				DEVELOPMENT_TEAM = 232QK9T2BM;
+				DEVELOPMENT_TEAM = YR37B9HTTD;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Maka;
@@ -563,7 +567,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Med_Waste/Preview Content\"";
-				DEVELOPMENT_TEAM = 232QK9T2BM;
+				DEVELOPMENT_TEAM = YR37B9HTTD;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Maka;
