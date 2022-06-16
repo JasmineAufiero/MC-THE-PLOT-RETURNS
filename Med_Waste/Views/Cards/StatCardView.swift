@@ -36,7 +36,7 @@ struct StatCardView: View {
                             .minimumScaleFactor(0.01)
                             .lineLimit(1)
                 
-                Text(LocalizedStringKey(String("Somma di denaro donato in medicinali fino ad ora.")))
+                Text(LocalizedStringKey(String("Sum of money donated in medicines so far.")))
                     .foregroundColor(CustomColor.graytext)
                     .multilineTextAlignment(.leading)
 //                    .padding()
@@ -55,7 +55,7 @@ struct StatCardView: View {
                             .lineLimit(1)
                        
                 
-                Text(LocalizedStringKey(String("Somma dedotta in base ai medicinali scaduti presenti nell'app.")))
+                Text(LocalizedStringKey(String("Amount deducted based on the expired medicines present in the app.")))
                     .foregroundColor(CustomColor.graytext)
                     .multilineTextAlignment(.leading)
 //                    .padding()
@@ -73,7 +73,7 @@ struct StatCardView: View {
                             .minimumScaleFactor(0.01)
                             .lineLimit(1)
                     
-                    Text(LocalizedStringKey(String("Totale spesa medicinali. La media italiana per cittadino è 438 €.")))
+                    Text(LocalizedStringKey(String("Total cost of medicines. The Italian average per citizen is € 438.")))
                         .foregroundColor(CustomColor.graytext)
                         .multilineTextAlignment(.leading)
 //                        .padding()

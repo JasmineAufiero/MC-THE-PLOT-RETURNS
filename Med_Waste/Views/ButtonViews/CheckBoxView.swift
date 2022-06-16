@@ -10,7 +10,7 @@ import SwiftUI
 struct CheckBoxView: View {
     
     @Binding var isTheSameDate :Bool
-    var TextString = "Tutte le scatole hanno la stessa data di scadenza"
+    var TextString = "All the boxes have the same expiration date"
     var body: some View {
         
         HStack {

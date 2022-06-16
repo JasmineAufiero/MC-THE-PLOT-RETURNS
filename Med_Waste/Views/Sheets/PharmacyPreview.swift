@@ -72,7 +72,7 @@ extension PharmacyPreview {
             }
         }
             label: {
-            Text("Mappa")
+            Text(LocalizedStringKey(String("Map")))
                 .font(.headline)
                 .frame(width: 80, height: 20)
                 .padding(7)

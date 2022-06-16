@@ -32,7 +32,7 @@ struct SummaryView: View {
         NavigationView{
             ScrollView{
             VStack (alignment: .leading){
-                Text(LocalizedStringKey(String("In evidenza"))).fontWeight(.bold).font(.title3)
+                Text(LocalizedStringKey(String("Favourites"))).fontWeight(.bold).font(.title3)
                     .frame(maxWidth: .infinity, alignment: .leading).padding(.leading, 20)
                     .padding(.top, 30)
                 
@@ -58,7 +58,7 @@ struct SummaryView: View {
                 } //close else
                 
                 
-                Text(LocalizedStringKey(String("In scadenza"))).fontWeight(.bold).font(.title3)
+                Text(LocalizedStringKey(String("About to Expire"))).fontWeight(.bold).font(.title3)
                     .frame(maxWidth: .infinity, alignment: .leading).padding(.leading, 20)
                 InEvidenzaPlaceholderAboutToExpire()
                     .padding(.leading, 20)
@@ -85,14 +85,14 @@ struct SummaryView: View {
 //                                                }
 //                       }.fixedSize(horizontal: false, vertical: false)
                                                     
-                                                    Text(LocalizedStringKey(String("Curiosità"))).fontWeight(.bold).font(.title3)
+                                                    Text(LocalizedStringKey(String("Facts"))).fontWeight(.bold).font(.title3)
                                                         .frame(maxWidth: .infinity, alignment: .leading).padding(.leading, 20)
                                                     
                                                     FactsCardView()
                                                         .padding()
                                                     Spacer()
                                                     
-                                                }.navigationTitle(LocalizedStringKey(String("Riepilogo")))
+                                                }.navigationTitle(LocalizedStringKey(String("Summary")))
             }
 //            .onAppear(perform: {
 //                pinnedMedicine = medicineViewModel.medicines.filter{$0.isPinned}

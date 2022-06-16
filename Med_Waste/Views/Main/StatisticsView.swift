@@ -54,7 +54,7 @@ struct StatisticsView: View {
                    
                 }
             }
-                .navigationTitle(LocalizedStringKey(String("Statistiche")))
+                .navigationTitle(LocalizedStringKey(String("Statistics")))
                 }
  
     }

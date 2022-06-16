@@ -13,7 +13,7 @@ struct NewItemView: View {
     
     @State var nome: String = ""
     @State var dosaggio: String = ""
-    @State var tipologia = "Pillole"
+    @State var tipologia = "Pills"
     @State var prezzo: String = ""
     @State var unità: String = ""
     @State private var numerobox = 1
@@ -26,13 +26,21 @@ struct NewItemView: View {
     
     @State var expand = false // for the tipology picker
     @Binding var showData: Bool
-    var tipologia_picker = ["Pillole", "Bustine", "Sciroppo", "Pomata", "Fiala"]
+    var tipologia_picker = ["Pills", "Sachets", "Syrup", "Ointment", "Vial"]
     var medicineViewModel :MedicineViewModel
     @ObservedObject var boxViewModel :BoxViewModel
     var statsViewModel : StatsViewModel
     
     var MedCategoriesPicker = ["Antibiotici", "Antidolorifici", "Anti-Infiammatori", "Antivirali", "Antistaminici", "Dermatologici", "Gastrointestinali", "Integratori", "Altro"]
-    var categoria_picker = ["Antibiotici", "Antidolorifici", "Anti-Infiammatori", "Antivirali", "Antistaminici", "Dermatologici", "Gastrointestinali", "Integratori", "Altro"]
+    var categoria_picker = ["Antibiotics",
+                            "Painkillers",
+                            "Anti-inflammatory",
+                            "Antivirals",
+                            "Antihistamines",
+                            "Dermatological",
+                            "Gastrointestinal",
+                            "Supplements",
+                            "Other"]
     @State var numberofMedCategories = 0  //necessary for the picker choice
     
     var body: some View {
@@ -41,7 +49,7 @@ struct NewItemView: View {
                 
                 VStack(alignment: .leading, spacing: 0) {
                     
-                    Text(LocalizedStringKey(String("Conferma Informazioni")))
+                    Text(LocalizedStringKey(String("Confirm Information")))
                         .font(.title2)
                         .fontWeight(.semibold)
                         .multilineTextAlignment(.leading)
@@ -51,24 +59,24 @@ struct NewItemView: View {
                         
                         Section {
                             HStack {
-                                Text(LocalizedStringKey(String("Nome")))
+                                Text(LocalizedStringKey(String("Name")))
                                     .fontWeight(.semibold)
                                 Spacer()
-                                TextField(LocalizedStringKey(String("Nome")), text: $nome)
+                                TextField(LocalizedStringKey(String("Name")), text: $nome)
                                     .multilineTextAlignment(.trailing)
 //                                    .focused($amountIsFocused)
                                 
                             }
                             HStack {
-                                Text(LocalizedStringKey(String("Dosaggio")))
+                                Text(LocalizedStringKey(String("Dosage")))
                                     .fontWeight(.semibold)
                                 Spacer()
-                                TextField(LocalizedStringKey(String("Dosaggio")), text: $dosaggio)
+                                TextField(LocalizedStringKey(String("Dosage")), text: $dosaggio)
                                     .multilineTextAlignment(.trailing)
 //                                    .focused($amountIsFocused)
                             }
                             HStack {
-                                Text(LocalizedStringKey(String("Tipologia")))
+                                Text(LocalizedStringKey(String("Type")))
                                     .fontWeight(.semibold)
                                 Spacer()
                                 
@@ -77,7 +85,7 @@ struct NewItemView: View {
                                 }, label: {
                                         
                                         if expand {
-                                            Picker(LocalizedStringKey(String("Tipologia")), selection: $tipologia) {
+                                            Picker(LocalizedStringKey(String("Type")), selection: $tipologia) {
                                                 ForEach(tipologia_picker, id: \.self) {
                                                     Text(LocalizedStringKey(String("\($0)")))
                                                 }
@@ -96,19 +104,19 @@ struct NewItemView: View {
                                 expand.toggle()
                             }
                             HStack {
-                                Text(LocalizedStringKey(String("Prezzo")))
+                                Text(LocalizedStringKey(String("Price")))
                                     .fontWeight(.semibold)
                                 Spacer()
-                                TextField(LocalizedStringKey(String("Prezzo")), text: $prezzo)
+                                TextField(LocalizedStringKey(String("Price")), text: $prezzo)
                                     .multilineTextAlignment(.trailing)
                                     .keyboardType(.decimalPad)
 //                                    .focused($amountIsFocused)
                             }
                             HStack {
-                                Text(LocalizedStringKey(String("Unità")))
+                                Text(LocalizedStringKey(String("Units")))
                                     .fontWeight(.semibold)
                                 Spacer()
-                                TextField(LocalizedStringKey(String("Unità")), text: $unità)
+                                TextField(LocalizedStringKey(String("Units")), text: $unità)
                                     .multilineTextAlignment(.trailing)
                                     .keyboardType(.numberPad)
 //                                    .focused($amountIsFocused)
@@ -125,7 +133,7 @@ struct NewItemView: View {
                             Section {
                                 HStack {
                                     Group{
-                                    Text(LocalizedStringKey(String("Numero di scatole: ")))
+                                    Text(LocalizedStringKey(String("Number of boxes: ")))
                                             .fontWeight(.semibold)
                                         + Text("\(numerobox)")
                                             .fontWeight(.semibold)
@@ -156,7 +164,7 @@ struct NewItemView: View {
                         }
                         
                         
-                        Text(LocalizedStringKey(String("Date di Scadenza")))
+                        Text(LocalizedStringKey(String("Expiration dates")))
                             .font(.title2)
                             .fontWeight(.semibold)
                             .multilineTextAlignment(.leading)
@@ -194,7 +202,7 @@ struct NewItemView: View {
                         // : section for stepper
                         
                         
-                        Text(LocalizedStringKey(String("Categoria")))
+                        Text(LocalizedStringKey(String("Category")))
                             .font(.title2)
                             .fontWeight(.semibold)
                             .multilineTextAlignment(.leading)
@@ -218,7 +226,7 @@ struct NewItemView: View {
                             
                             
                             Section {
-                                Picker(LocalizedStringKey(String("Scegli")), selection: $chosenCategory) {
+                                Picker(LocalizedStringKey(String("Choose")), selection: $chosenCategory) {
                                     ForEach(categoria_picker, id: \.self) {
                                         Text(LocalizedStringKey(String("\($0)")))
 //                                                        .onTapGesture{
@@ -238,7 +246,7 @@ struct NewItemView: View {
                         HStack {
                         
                             Spacer()
-                        Button(LocalizedStringKey(String("Conferma"))) {
+                        Button(LocalizedStringKey(String("Done"))) {
                             
                             medicineViewModel.addNewMedicine(name: nome, dosage: dosaggio, type: tipologia, price: prezzo, units: Int(unità) ?? 0, category: chosenCategory, isPinned: false)
                             statsViewModel.changeValue(price: prezzo, type: 0 ,noOfBoxes: Double(numerobox))
@@ -271,7 +279,7 @@ struct NewItemView: View {
                     
                 }
                 
-                .navigationTitle(LocalizedStringKey(String("Nuovo medicinale")))
+                .navigationTitle(LocalizedStringKey(String("New med")))
                 
             }
         }
