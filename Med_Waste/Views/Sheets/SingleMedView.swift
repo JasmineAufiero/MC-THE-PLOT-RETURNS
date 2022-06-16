@@ -34,10 +34,10 @@ struct SingleMedView: View {
             VStack {
                 
                 Image(medicineViewModel.chooseImage(type: medicine.type , medicine: medicine)).resizable().scaledToFit()
-                    .frame(width: 200, height: 200, alignment: .center).padding().scaleEffect(1.25)
+                    .frame(width: 200, height: 200, alignment: .center).padding().scaleEffect(1.2)
                     .rotation3DEffect(.degrees(25), axis: (x: 0, y: 0, z: 1))
                 
-                Spacer()
+                Spacer().frame(height: 50)
                 
                 VStack(alignment: .leading, spacing: 5){
                     HStack{
@@ -63,7 +63,7 @@ struct SingleMedView: View {
                     + Text(LocalizedStringKey(String(medicine.category)))
                         + Text(". \n")
                     + Text(LocalizedStringKey(String(testo2)))
-                    + Text("\(medicine.price)" + "€.")
+                    + Text("\(medicine.price)" + "€")
                         + Text(". \n")
                     + Text(LocalizedStringKey(String(testo3)))
                     + Text("\(medicine.units)")
