@@ -12,8 +12,8 @@ import SwiftUI
 struct SummaryView: View {
     @ObservedObject var medicineViewModel :MedicineViewModel
     var boxViewModel :BoxViewModel
-//    var statsViewModel :StatsViewModel
-//    @State var pinnedMedicine :[MedData] = []
+    //    var statsViewModel :StatsViewModel
+    //    @State var pinnedMedicine :[MedData] = []
     
     
     let data = (1...10).map { "Item \($0)" }
@@ -25,7 +25,7 @@ struct SummaryView: View {
     
     var expiredMedicines :[MedBox] {
         return boxViewModel.boxes.filter{$0.state == .expired}
-       
+        
     }
     
     var body: some View {
@@ -46,10 +46,14 @@ struct SummaryView: View {
                     ScrollView(.horizontal){
                         HStack(spacing: 5 ){
                             
-                            ForEach(pinnedMedicines.reversed()) { item in
+                         
                                 
-                                NavigationLink(destination:{SingleMedView(medicine: item, medicineViewModel: medicineViewModel, boxViewModel: boxViewModel, statsViewModel: StatsViewModel())}, label: {MiniMedCardView(medicine: item , name: item.name).padding(.vertical, 5)    
-                                    .padding(.leading, 20)})
+                                ForEach(pinnedMedicines.reversed()) { item in
+                                    
+                                    NavigationLink(destination:{SingleMedView(medicine: item, medicineViewModel: medicineViewModel, boxViewModel: boxViewModel, statsViewModel: StatsViewModel())}, label: {MiniMedCardView(medicine: item , name: item.name).padding(.vertical, 5)
+                                        .padding(.leading, 20)})
+                                    
+                                }
                                 
                             }
                             
@@ -94,9 +98,9 @@ struct SummaryView: View {
                                                     
                                                 }.navigationTitle(LocalizedStringKey(String("Summary")))
             }
-//            .onAppear(perform: {
-//                pinnedMedicine = medicineViewModel.medicines.filter{$0.isPinned}
-//            })
+            //            .onAppear(perform: {
+            //                pinnedMedicine = medicineViewModel.medicines.filter{$0.isPinned}
+            //            })
         }
         //            .onAppear(perform: {
         //                pinnedMedicine = medicineViewModel.medicines.filter{$0.isPinned}

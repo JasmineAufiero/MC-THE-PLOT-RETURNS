@@ -48,6 +48,13 @@ class BoxViewModel :ObservableObject {
         }
     }
     
+//    func getMedData() -> MedData {
+////        var expiredBoxes :[MedBox] = []
+//        var SpecificMedData : MedData =
+//        
+//    }
+    
+    
 //    function that allows to understand when a box is expired yet
     func filterExpiredBoxes() -> [MedBox] {
 //        var expiredBoxes :[MedBox] = []
@@ -108,5 +115,24 @@ class BoxViewModel :ObservableObject {
         save()
     }
 
+    func del() {
+
+            if let encoded = try? JSONEncoder().encode(boxes) {
+
+                UserDefaults.standard.removeObject(forKey: "SavedBoxes")
+
+            }
+
+        }
+
+        
+
+        func deleteBox(indexx:Int){
+
+            boxes.remove(at: indexx)
+
+            del()
+
+        }
     
 }
