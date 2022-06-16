@@ -53,10 +53,7 @@ struct CabinetView: View {
                     .frame(maxWidth: .infinity, alignment: .leading).padding(.leading, 20)
                 // modified: add a dynamic card
                 
-                if showData{
-                Text(recognizedText)
-                    .font(.system(size: 5))
-                }
+                
                 
                 
                 LazyVGrid(columns: columns, spacing: 20) {
@@ -69,7 +66,7 @@ struct CabinetView: View {
                     ForEach(filteredMeds.reversed()) { item in
                         
                         NavigationLink(destination:
-                                        SingleMedView(medicine: item, medicineViewModel: medicineViewModel, boxViewModel: boxViewModel)
+                                        SingleMedView(medicine: item, medicineViewModel: medicineViewModel, boxViewModel: boxViewModel,statsViewModel: statsViewModel )
 //                                            nome: item.name, dosaggio: item.dosage, tipologia: item.type, prezzo: item.price, unità: item.units, categoria: item.category, isPinned: item.isPinned, medicineViewModel: medicineViewModel, boxViewModel: boxViewModel)
                         ) {
                             
@@ -131,6 +128,74 @@ struct CabinetView: View {
                             }
                              //most used categories
                             if searchForCategory{
+                                HStack{
+                                    Button{
+                                        } label: {
+                                        
+                                        Text("Antibiotici")
+                                            .padding()
+                                            .background(Color("arancione"))
+                                            .cornerRadius(40)
+                                            .foregroundColor(.white)
+                                    }
+                                        .onTapGesture{
+                                            searchQuery = "Antibiotici"
+                                        }
+                                    
+                                    Button{
+                                    }label: {
+                                        
+                                        Text("Dermatologici")
+                                            .padding()
+                                            .background(Color("viola"))
+                                            .cornerRadius(40)
+                                            .foregroundColor(.white)
+                                    }
+                                    .onTapGesture{
+                                        searchQuery = "Dermatologici"
+                                    }
+                                    
+                                    Button {
+                                    } label: {
+                                        Text("Integratori")
+                                            .padding()
+                                            .background(Color("giallo"))
+                                            .cornerRadius(40)
+                                            .foregroundColor(.white)
+                                    }
+                                    .onTapGesture{
+                                        searchQuery = "Integratori"
+                                    }
+                                }
+                                HStack{
+                                    Button{
+                                        } label: {
+                                        
+                                        Text("Anti-Infiammatori")
+                                            .padding()
+                                            .background(Color("nero"))
+                                            .cornerRadius(40)
+                                            .foregroundColor(.white)
+                                    }
+                                        .onTapGesture{
+                                            searchQuery = "Anti-Infiammatori"
+                                        }
+                                    
+                                    Button {
+                                    }label: {
+                                        
+                                        Text("Gastrointestinali")
+                                            .padding()
+                                            .background(Color("verde"))
+                                            .cornerRadius(40)
+                                            .foregroundColor(.white)
+                                    }
+                                    .onTapGesture{
+                                        searchQuery = "Gastrointestinali"
+                                    }
+                                    
+                                    
+                                }
                             HStack{
                                 Button{
                                     } label: {
@@ -144,36 +209,10 @@ struct CabinetView: View {
                                     .onTapGesture{
                                         searchQuery = "Antistaminici"
                                     }
+                               
                                 Button{
                                 }label: {
                                     
-                                    Text("Integratori")
-                                        .padding()
-                                        .background(Color("giallo"))
-                                        .cornerRadius(40)
-                                        .foregroundColor(.white)
-                                }
-                                .onTapGesture{
-                                    searchQuery = "Integratori"
-                                }
-                            }
-                            HStack{
-                                Button {
-                                }label: {
-                                    
-                                    Text("Gastrointestinali")
-                                        .padding()
-                                        .background(Color("verde"))
-                                        .cornerRadius(40)
-                                        .foregroundColor(.white)
-                                }
-                                .onTapGesture{
-                                    searchQuery = "Gastrointestinali"
-                                }
-                               
-                           
-                                Button {    
-                                } label: {
                                     Text("Antidolorifici")
                                         .padding()
                                         .background(Color("rosso"))
@@ -185,7 +224,27 @@ struct CabinetView: View {
                                 }
                                 
                                 
+                                
+                                Button{
+                                }label: {
+                                    
+                                    Text("Antivirali")
+                                        .padding()
+                                        .background(Color("verde"))
+                                        .cornerRadius(40)
+                                        .foregroundColor(.white)
+                                }
+                                .onTapGesture{
+                                    searchQuery = "Antivirali"
+                                }
+                          
+                               
+                           
+                               
+                                
+                                
                             }
+                                Spacer()
 
                         }
                         }
@@ -199,6 +258,11 @@ struct CabinetView: View {
                     
 
                 }
+                }
+                
+                if showData{
+                Text(recognizedText)
+                    .font(.system(size: 5))
                 }
 //                .onAppear{
 //                    searchForCategory = false

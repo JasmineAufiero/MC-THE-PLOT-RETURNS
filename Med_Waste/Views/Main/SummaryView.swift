@@ -12,7 +12,7 @@ import SwiftUI
 struct SummaryView: View {
     @ObservedObject var medicineViewModel :MedicineViewModel
     var boxViewModel :BoxViewModel
-    
+//    var statsViewModel :StatsViewModel
 //    @State var pinnedMedicine :[MedData] = []
     
     
@@ -48,7 +48,7 @@ struct SummaryView: View {
                         
                         ForEach(pinnedMedicines.reversed()) { item in
 
-                            NavigationLink(destination:{SingleMedView(medicine: item, medicineViewModel: medicineViewModel, boxViewModel: boxViewModel)}, label: {MiniMedCardView(medicine: item , name: item.name).padding(.vertical, 5)    .padding(.leading, 20)})
+                            NavigationLink(destination:{SingleMedView(medicine: item, medicineViewModel: medicineViewModel, boxViewModel: boxViewModel, statsViewModel: StatsViewModel())}, label: {MiniMedCardView(medicine: item , name: item.name).padding(.vertical, 5)    .padding(.leading, 20)})
                                 
                             
                         }

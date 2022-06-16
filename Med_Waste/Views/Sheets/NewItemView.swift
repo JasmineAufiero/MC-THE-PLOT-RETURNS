@@ -69,6 +69,8 @@ struct NewItemView: View {
                             HStack {
                                 Text("Nome")
                                     .fontWeight(.semibold)
+                                Text("*")
+                                    .fontWeight(.semibold).foregroundColor(.red)
                                 Spacer()
                                 TextField("Nome", text: $nome)
                                     .multilineTextAlignment(.trailing)
@@ -86,7 +88,10 @@ struct NewItemView: View {
                             HStack {
                                 Text("Tipogia")
                                     .fontWeight(.semibold)
+                                Text("*")
+                                    .fontWeight(.semibold).foregroundColor(.red)
                                 Spacer()
+                               
                                 
                                 Button(action: {
                                     self.expand.toggle()
@@ -114,6 +119,8 @@ struct NewItemView: View {
                             HStack {
                                 Text("Prezzo (€)")
                                     .fontWeight(.semibold)
+                                Text("*")
+                                    .fontWeight(.semibold).foregroundColor(.red)
                                 Spacer()
                                 TextField("€", text: $prezzo)
                                     .multilineTextAlignment(.trailing)
@@ -203,12 +210,14 @@ struct NewItemView: View {
                         .listRowBackground(CustomColor.redform).padding()
                         // : section for stepper
                         
-                        
+                        HStack{
                         Text("Categoria")
                             .font(.title2)
                             .fontWeight(.semibold)
                             .multilineTextAlignment(.leading)
-
+                        Text("*")
+                            .fontWeight(.semibold).foregroundColor(.red)
+                        }
 
                         VStack(spacing: 20) {
 //                            Picker(selection: $categoria, label: Text("Categoria Medicinale \($categoria)")) {
@@ -250,7 +259,7 @@ struct NewItemView: View {
                             Spacer()
                         Button("Conferma") {
                             
-                            medicineViewModel.addNewMedicine(name: nome, dosage: dosaggio, type: tipologia, price: prezzo, units: Int(unità) ?? 0, category: chosenCategory, isPinned: false)
+                            medicineViewModel.addNewMedicine(name: nome, dosage: dosaggio, type: tipologia, price: prezzo, units: unità, category: chosenCategory, isPinned: false)
                             statsViewModel.changeValue(price: prezzo, type: 0 ,noOfBoxes: Double(numerobox))
                             
                             
@@ -261,11 +270,11 @@ struct NewItemView: View {
                             showData = false
                             
                         }.frame(width: 200, height: 30, alignment: .center)
-                                .opacity(prezzo.isEmpty ? 0.2 : 1.0)
+                                
                         .disabled(nome.isEmpty || tipologia.isEmpty || prezzo.isEmpty )
                         .foregroundColor(.white)
                         .padding()
-                        .background(Color.accentColor)
+                        .background(nome.isEmpty || tipologia.isEmpty || prezzo.isEmpty  ? Color.gray : Color.accentColor)
                         .cornerRadius(8)
                         
                             Spacer()

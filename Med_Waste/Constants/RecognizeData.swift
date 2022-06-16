@@ -9,16 +9,6 @@ import Foundation
 
 class RecognizedData {
     
-    
-    
-//    func getdata(text :String ,`var` nome : String ,`var` dosaggio : String ,`var` tipologia: String,`var` prezzo : String ,`var` unità : String, var expirationDate : [Date]) {
-//            nome = getName(text: text).isEmpty ? "" : getName(text: text)[0]
-//            dosaggio = getDosage(text: text).isEmpty ? "" : getDosage(text: text)[0]
-//            tipologia = getType(text: text).isEmpty ? "" : getTypeName(type: getType(text: text)[0])
-//            prezzo = getPrice(text: text).isEmpty ? "" : getPrice(text: text)[0]
-//            unità = getUnits(text: text).isEmpty ? "" : getUnits(text: text)[0]
-//            expirationDate[0] = [getDate(text: text)!].isEmpty ? Date.now : getDate(text: text)!
-//        }
 
     func getName(text : String) -> String {
         let regex = try! NSRegularExpression(pattern: #"^[^0-9]+ "# )
@@ -67,10 +57,14 @@ class RecognizedData {
 
     func getUnits(text : String) -> String {
 //        let regex = try! NSRegularExpression(pattern: #" ([0-9]){2} "# )
-        let regex = try! NSRegularExpression(pattern: #" ([0-9])+ (?i:compresse|bustine|%) "# )
+        
+        
+        let regex = try! NSRegularExpression(pattern: #"([0-9]+ (compresse|bustine))"# )
+//        let regex = try! NSRegularExpression(pattern: #" (\d+) (?i:compresse|bustine|%) "# )
         let match = regex.matches(in: text, options: [], range: NSRange(location: 0, length: text.count))
         let array = match.map({(text as NSString).substring(with: $0.range(at: 0))})
         if !array.isEmpty{
+            print(array[0])
             return array[0]
         }else{
             return ""

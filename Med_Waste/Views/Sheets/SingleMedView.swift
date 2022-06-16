@@ -13,13 +13,16 @@ struct SingleMedView: View {
     
     var medicineViewModel: MedicineViewModel
     var boxViewModel: BoxViewModel
-    
+    var statsViewModel: StatsViewModel
     @State  var alertdonate = false
     @State  var alertexpire = false
     //    @State var isPinned : Bool = false
     @State var newBoxAdded :Int = 0 // it is a state variable that refreshes the view when a new box is added
     
-    
+//    private func deleteRow(at indexSet: IndexSet) {
+//            self.newBoxAdded.remove(atOffsets: indexSet)
+//        }
+//
     var body: some View {
         
         ScrollView {
@@ -46,7 +49,7 @@ struct SingleMedView: View {
                     }
                     Group{
                     Text(medicine.dosage)
-//                    Text(medicine.category)
+                    Text(medicine.units)
                     }
                         .font(.title3)
                         .foregroundColor(.secondary)
@@ -87,33 +90,43 @@ struct SingleMedView: View {
                     //                                .foregroundColor(.secondary)
                     //                                .multilineTextAlignment(.leading)
                     //                        }
-                    DatePickerView(selection: boxViewModel.boxes[index].expirationDate, index: index)
-//                        .accentColor(Color("AccentColor"))
-//                        .foregroundColor(Color("rosso"))
-                       
-                        .listRowBackground(CustomColor.redform)
-//                        .background(Color("rosso"))
-                        .swipeActions {
-                            
-                            Button{alertexpire.toggle()} label: {
-                                Image(systemName: "trash.fill")
-                            }
-                            .tint(CustomColor.expiredred)
-                            
-                            
-                            Button{alertdonate.toggle()} label: {
-                                
-                                //                            DonateIcon()
-                                Image(systemName: "hand.raised.fill")
-                                
-                                
-                            }
-                            .tint(CustomColor.donnatedgreen)
-                            
-                        }
+//                    DatePickerView(selection: boxViewModel.boxes[index].expirationDate, index: index)
+////                        .accentColor(Color("AccentColor"))
+////                        .foregroundColor(Color("rosso"))
 //
-                        .foregroundColor(boxViewModel.boxes[index].state == .expired ? Color("rosso") : CustomColor.graytext)
-                }.padding(20)
+//                        .listRowBackground(CustomColor.redform)
+////                        .background(Color("rosso"))
+//                        .swipeActions (allowsFullSwipe: false){
+//
+//                            Button{alertexpire.toggle()} label: {
+//                                Image(systemName: "trash.fill")
+//                            }
+//                            .tint(CustomColor.expiredred)
+//
+//
+//                            Button(role: .destructive, action: { alertdonate.toggle() } ) {
+//                              Label("Delete", systemImage: "trash")
+//                            }   .tint(CustomColor.donnatedgreen)
+//
+////                            Button{alertdonate.toggle()} label: {
+////
+////                                //                            DonateIcon()
+////                                Image(systemName: "hand.raised.fill")
+////
+////
+////                            }
+////                            .tint(CustomColor.donnatedgreen)
+//
+//                        }
+                    
+                    
+//
+//                        .foregroundColor(boxViewModel.boxes[index].state == .expired ? Color("rosso") : CustomColor.graytext)
+                }.onDelete{ indexSet in
+                    boxViewModel.boxes.remove(atOffsets: indexSet)
+                          }
+                .padding(20)
+                    
                 
                    
             }
@@ -128,8 +141,8 @@ struct SingleMedView: View {
             UITableView.appearance().backgroundColor = UIColor.clear
             UITableViewCell.appearance().backgroundColor = UIColor.clear
         })
-        .sheet(isPresented: $alertdonate, content: {AlertView(statethrow: false, alertdonate: $alertdonate ,alertexpire: $alertexpire, prezzo: medicine.price )})
-        .sheet(isPresented: $alertexpire, content: {AlertView(statethrow: true, alertdonate: $alertdonate ,alertexpire: $alertexpire, prezzo: medicine.price)})
+        .sheet(isPresented: $alertdonate, content: {AlertView(statsViewModel: statsViewModel, statethrow: false, alertdonate: $alertdonate ,alertexpire: $alertexpire, prezzo: medicine.price )})
+        .sheet(isPresented: $alertexpire, content: {AlertView(statsViewModel: statsViewModel, statethrow: true, alertdonate: $alertdonate ,alertexpire: $alertexpire, prezzo: medicine.price)})
         
         //        .sheet(isPresented: $alertdonate, content: {AlertView(statethrow: false)})
         //            .sheet(isPresented: $alertexpire, content: {AlertView(statethrow: true)})

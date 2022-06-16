@@ -65,16 +65,17 @@ class StatsViewModel : ObservableObject {
     func statValue(currentvalue : Double) -> String  {
         Formatter.currency.locale = Locale(identifier: "it-IT")
         var statValue : Double = 0.0
-        if currentvalue.digitCount >= 5 {
-            statValue = currentvalue / 1000
-            statValue.round(.towardZero)
-            return String(statValue) + "K"
-        }else {
+//        if currentvalue.digitCount >= 6 {
+//            statValue = currentvalue / 1000
+//            statValue.round(.towardZero)
+//            print(String(statValue) + "K".doubleValue.currency)
+//            return String(statValue) + "K".doubleValue.currency
+//        }else {
             statValue = currentvalue
             statValue.round()
             print(String(statValue).doubleValue.currency)
             return String(statValue).doubleValue.currency
-        }
+//        }
       
    }
  

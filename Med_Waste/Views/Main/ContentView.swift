@@ -19,7 +19,7 @@ struct ContentView: View {
     
     @StateObject var medicineViewModel = MedicineViewModel()
     @StateObject var boxViewModel = BoxViewModel()
-    @StateObject var statViewModel = StatsViewModel()
+    @StateObject var statsViewModel = StatsViewModel()
     @State var DefaultTab = 2  //necessary to make the cabinet view the default one
     init(){
         Theme.navigationBarColors( titleColor: UIColor(CustomColor.darkblue))
@@ -28,16 +28,16 @@ struct ContentView: View {
     var body: some View {
             TabView(selection: $DefaultTab){
                 
-                SummaryView(medicineViewModel: medicineViewModel, boxViewModel: boxViewModel)
+                SummaryView( medicineViewModel: medicineViewModel, boxViewModel: boxViewModel)
                     .tabItem {Label("Riepilogo", systemImage: "square.grid.2x2.fill")}
                     .tag(1)
   
 
-                CabinetView(pinnedMedicineNumber: 10, medicineViewModel: medicineViewModel, boxViewModel: boxViewModel, statsViewModel: statViewModel)
+                CabinetView(pinnedMedicineNumber: 10, medicineViewModel: medicineViewModel, boxViewModel: boxViewModel, statsViewModel: statsViewModel)
                     .tabItem {Label("Armadietto", systemImage: "heart.text.square.fill")}
                     .tag(2)
 
-                StatisticsView()
+                StatisticsView(statsviewmodel: statsViewModel)
                     .tabItem {Label("Statistiche", systemImage: "chart.pie.fill")}
                     .tag(3)
 

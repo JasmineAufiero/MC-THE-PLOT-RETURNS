@@ -26,7 +26,7 @@ struct StatCardView: View {
             .shadow(color: .gray, radius: 2, x: 0, y: 2)
             
             
-            HStack (spacing: 20){
+            HStack (spacing: 10){
                 
             if (Status == "donated"){
                     Text("\(stat)" )
@@ -37,10 +37,10 @@ struct StatCardView: View {
                             .lineLimit(1)
                 
                 Text("Somma di denaro donato in medicinali fino ad ora.")
-                    .foregroundColor(CustomColor.graytext)
+                    .foregroundColor(CustomColor.graytext).font(.subheadline)
                     .multilineTextAlignment(.leading)
-//                    .padding()
-                    .frame(maxWidth: 200, maxHeight: 200, alignment: .trailing)
+//                        .padding()
+                    .frame(maxWidth: 200, maxHeight: 400, alignment: .center)
                
             }
                     
@@ -56,10 +56,10 @@ struct StatCardView: View {
                        
                 
                 Text("Somma dedotta in base ai medicinali scaduti presenti nell'app.")
-                    .foregroundColor(CustomColor.graytext)
+                    .foregroundColor(CustomColor.graytext).font(.subheadline)
                     .multilineTextAlignment(.leading)
-//                    .padding()
-                    .frame(maxWidth: 200, maxHeight: 200, alignment: .trailing)
+//                        .padding()
+                    .frame(maxWidth: 200, maxHeight: 400, alignment: .center)
                
              }
                     
@@ -69,21 +69,30 @@ struct StatCardView: View {
                     Text("\(stat)" )
                         .font(Font.system(size: 28, weight: .bold))
                         .foregroundColor(CustomColor.darkblue)
-                        .scaledToFit()
-                            .minimumScaleFactor(0.01)
-                            .lineLimit(1)
+                       
                     
                     Text("Totale spesa medicinali. La media italiana per cittadino è 438 €.")
-                        .foregroundColor(CustomColor.graytext)
+                        .foregroundColor(CustomColor.graytext).font(.subheadline)
                         .multilineTextAlignment(.leading)
 //                        .padding()
-                        .frame(maxWidth: 200, maxHeight: 200, alignment: .center)
+                        .frame(maxWidth: 200, maxHeight: 400, alignment: .center)
                    
+//                    Text("Totale spesa medicinali. La media italiana per cittadino è 438 €.")
+//                   .font(.subheadline).fontWeight(.bold)
+//                        .foregroundColor(CustomColor.graytext)
+//                        .multilineTextAlignment(.center)
+//                        .padding(35)
+////                        .background(colors.randomElement())
+//                        .cornerRadius(33)
+//                        .frame(maxWidth: 200, maxHeight: 400, alignment: .center)
+                    
+                    
+                    
                 }
                 
                                
                 
-            }
+            }.padding()
         }
         .padding()
         .padding(.horizontal , 5)
