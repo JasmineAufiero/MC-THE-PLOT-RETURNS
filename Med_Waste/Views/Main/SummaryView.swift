@@ -57,16 +57,40 @@ struct SummaryView: View {
                                 
                             }
                             
-                        }
+                        
                     }.fixedSize(horizontal: false, vertical: false)
                 } //close else
                 
                 
                 Text(LocalizedStringKey(String("About to Expire"))).fontWeight(.bold).font(.title3)
                     .frame(maxWidth: .infinity, alignment: .leading).padding(.leading, 20)
-                InEvidenzaPlaceholderAboutToExpire()
-                    .padding(.leading, 20)
-                
+//                InEvidenzaPlaceholderAboutToExpire()
+//                    .padding(.leading, 20)
+//
+                if (pinnedMedicines.isEmpty) { // when there aren't any pinned medicine, add the placeholder
+                    
+                    InEvidenzaPlaceholderAboutToExpire()
+                                       .padding(.leading, 20)
+                    
+                }
+                else { // add the pin med when someone of them is pinned
+                    ScrollView(.horizontal){
+                        HStack(spacing: 5 ){
+                            
+                         
+                                
+                                ForEach(pinnedMedicines.reversed()) { item in
+                                    
+                                    NavigationLink(destination:{SingleMedView(medicine: item, medicineViewModel: medicineViewModel, boxViewModel: boxViewModel, statsViewModel: StatsViewModel())}, label: {MiniMedCardView(medicine: item , name: item.name).padding(.vertical, 5)
+                                        .padding(.leading, 20)})
+                                    
+                                }
+                                
+                            }
+                            
+                        
+                    }.fixedSize(horizontal: false, vertical: false)
+                } //close else
 //                ScrollView(.horizontal){
 //                    HStack(spacing: 5 ){
 ////                        ForEach(medicineViewModel.pinnedMedicine() , id: \.self) { item in

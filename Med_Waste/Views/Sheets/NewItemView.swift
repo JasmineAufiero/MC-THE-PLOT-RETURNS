@@ -32,7 +32,6 @@ struct NewItemView: View {
     var statsViewModel : StatsViewModel
     var reconizeddata : RecognizedData
     
-    var MedCategoriesPicker = ["Antibiotici", "Antidolorifici", "Anti-Infiammatori", "Antivirali", "Antistaminici", "Dermatologici", "Gastrointestinali", "Integratori", "Altro"]
     var categoria_picker = ["Antibiotics",
                             "Painkillers",
                             "Anti-inflammatory",

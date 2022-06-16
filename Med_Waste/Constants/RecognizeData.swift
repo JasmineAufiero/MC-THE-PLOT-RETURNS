@@ -91,21 +91,21 @@ class RecognizedData {
 
         switch type {
         case "compresse" :
-            return "Pillole"
+            return "Pills"
         case "bustine" :
-            return "Bustine"
+            return "Sachets"
         case "sciroppo" :
-            return "Sciroppo"
+            return "Syrup"
         case "crema" :
-            return "Pomate"
+            return "Ointment"
         case "fiala" :
-            return "Fiala"
+            return "Vial"
         case "fiale" :
-            return "Fiala"
+            return "Vial"
         case "falconcino" :
-            return "Fiala"
+            return "Vial"
         default:
-            return "Pillole"
+            return "Pills"
         }
     }
 
