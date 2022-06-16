@@ -79,6 +79,11 @@ struct PlaceholderMedicine: View {
                 
             }.padding(10).foregroundColor(CustomColor.graytext)
                 .frame(width: 180, height: 300, alignment: .center)
+                .opacity(0.4)
+            
+            Image(systemName: "plus.circle.fill").resizable().scaledToFit().frame(width: 100, height: 100, alignment: .center).padding().foregroundColor(CustomColor.graytext).opacity(0.2)
+            
+            
             
         }
 

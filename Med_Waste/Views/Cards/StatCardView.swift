@@ -26,28 +26,28 @@ struct StatCardView: View {
             .shadow(color: .gray, radius: 2, x: 0, y: 2)
             
             
-            HStack (spacing: 20){
+            HStack (spacing: 10){
                 
             if (Status == "donated"){
-                    Text("\(stat)" + "€")
+                    Text("\(stat)" )
                     .foregroundColor(CustomColor.donnatedgreen)
                         .font(Font.system(size: 28, weight: .bold))
                         .scaledToFit()
                             .minimumScaleFactor(0.01)
                             .lineLimit(1)
                 
-                Text(LocalizedStringKey(String("Somma di denaro donato in medicinali fino ad ora.")))
+                Text(LocalizedStringKey(String("Somma di denaro donato in medicinali fino ad ora."))).font(.subheadline)
                     .foregroundColor(CustomColor.graytext)
                     .multilineTextAlignment(.leading)
-//                    .padding()
-                    .frame(maxWidth: 200, maxHeight: 200, alignment: .trailing)
+//                        .padding()
+                    .frame(maxWidth: 200, maxHeight: 400, alignment: .center)
                
             }
                     
                     
                     
             if (Status == "expired"){
-                    Text("\(stat)" + "€")
+                    Text("\(stat)" )
                         .font(Font.system(size: 28, weight: .bold))
                         .foregroundColor(CustomColor.expiredred)
                         .scaledToFit()
@@ -56,34 +56,43 @@ struct StatCardView: View {
                        
                 
                 Text(LocalizedStringKey(String("Somma dedotta in base ai medicinali scaduti presenti nell'app.")))
-                    .foregroundColor(CustomColor.graytext)
+                    .foregroundColor(CustomColor.graytext).font(.subheadline)
                     .multilineTextAlignment(.leading)
-//                    .padding()
-                    .frame(maxWidth: 200, maxHeight: 200, alignment: .trailing)
+//                        .padding()
+                    .frame(maxWidth: 200, maxHeight: 400, alignment: .center)
                
              }
                     
                     
                 if (Status == "total"){
                     
-                    Text("\(stat)" + "€")
+                    Text("\(stat)" )
                         .font(Font.system(size: 28, weight: .bold))
                         .foregroundColor(CustomColor.darkblue)
-                        .scaledToFit()
-                            .minimumScaleFactor(0.01)
-                            .lineLimit(1)
+                       
                     
-                    Text(LocalizedStringKey(String("Totale spesa medicinali. La media italiana per cittadino è 438 €.")))
+                    Text(LocalizedStringKey(String("Totale spesa medicinali. La media italiana per cittadino è 438 €."))).font(.subheadline)
                         .foregroundColor(CustomColor.graytext)
                         .multilineTextAlignment(.leading)
 //                        .padding()
-                        .frame(maxWidth: 200, maxHeight: 200, alignment: .center)
+                        .frame(maxWidth: 200, maxHeight: 400, alignment: .center)
                    
+//                    Text("Totale spesa medicinali. La media italiana per cittadino è 438 €.")
+//                   .font(.subheadline).fontWeight(.bold)
+//                        .foregroundColor(CustomColor.graytext)
+//                        .multilineTextAlignment(.center)
+//                        .padding(35)
+////                        .background(colors.randomElement())
+//                        .cornerRadius(33)
+//                        .frame(maxWidth: 200, maxHeight: 400, alignment: .center)
+                    
+                    
+                    
                 }
                 
                                
                 
-            }
+            }.padding()
         }
         .padding()
         .padding(.horizontal , 5)

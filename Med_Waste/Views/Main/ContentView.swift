@@ -19,7 +19,7 @@ struct ContentView: View {
     
     @StateObject var medicineViewModel = MedicineViewModel()
     @StateObject var boxViewModel = BoxViewModel()
-    @StateObject var statViewModel = StatsViewModel()
+    @StateObject var statsViewModel = StatsViewModel()
    
     @State var DefaultTab = 2  //necessary to make the cabinet view the default one
     init(){
@@ -34,11 +34,11 @@ struct ContentView: View {
                     .tag(1)
   
 
-                CabinetView(pinnedMedicineNumber: 10, medicineViewModel: medicineViewModel, boxViewModel: boxViewModel, statsViewModel: statViewModel)
+                CabinetView(pinnedMedicineNumber: 10, medicineViewModel: medicineViewModel, boxViewModel: boxViewModel, statsViewModel: statsViewModel)
                     .tabItem {Label(LocalizedStringKey(String("Armadietto")), systemImage: "heart.text.square.fill")}
                     .tag(2)
 
-                StatisticsView()
+                StatisticsView(statsviewmodel: statsViewModel)
                     .tabItem {Label(LocalizedStringKey(String("Statistiche")), systemImage: "chart.pie.fill")}
                     .tag(3)
 

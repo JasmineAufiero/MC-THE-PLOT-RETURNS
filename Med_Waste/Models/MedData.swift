@@ -17,11 +17,11 @@ struct MedData: Identifiable, Hashable, Codable {
     var dosage :String
     var type :String
     var price :String
-    var units :Int
+    var units : String
     var category :String
      var isPinned :Bool = false
     
-    init(id :UUID = UUID(), name :String, dosage :String, type :String, price :String, units :Int, category :String, isPinned :Bool) {
+    init(id :UUID = UUID(), name :String, dosage :String, type :String, price :String, units : String , category :String, isPinned :Bool) {
         self.id = id
         self.name = name
         self.dosage = dosage
@@ -75,14 +75,14 @@ struct MedData: Identifiable, Hashable, Codable {
 //
 //}
 
-extension MedData {
-    
-    static let sampleData: [MedData] =
-    [
-        MedData(name: "Tachipirina", dosage: "100 mg", type: "compresse", price: "9,00 €",  units: 30, category: "antivirale", isPinned: false),
-        MedData(name: "Ayrinal", dosage: "100 mg", type: "compresse", price: "10,90 €",  units: 30, category: "antivirale", isPinned: false)
-
-    ]
-}
-
+//extension MedData {
+//    
+//    static let sampleData: [MedData] =
+//    [
+//        MedData(name: "Tachipirina", dosage: "100 mg", type: "compresse", price: "9,00 €",  units: 30, category: "antivirale", isPinned: false),
+//        MedData(name: "Ayrinal", dosage: "100 mg", type: "compresse", price: "10,90 €",  units: 30, category: "antivirale", isPinned: false)
+//
+//    ]
+//}
+//
 

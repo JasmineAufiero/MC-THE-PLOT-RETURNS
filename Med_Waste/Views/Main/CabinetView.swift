@@ -13,17 +13,17 @@ struct CabinetView: View {
     @State var searchQuery = ""
     @State private var showScanner = false
     @State private var showMap = false
-    @State public var showData = false
+    @State private var showData = false
     @State private var isRecognizing = false
     @State var pinnedMedicineNumber :Int
     @State var searchForCategory : Bool = false
-   
+    @State private var recognizedText = ""
     
     @EnvironmentObject var locationManagerK : MapViewModel
     var medicineViewModel :MedicineViewModel
     var boxViewModel :BoxViewModel
     var statsViewModel :StatsViewModel
-    @ObservedObject var recognizedContent = RecognizedContent()
+//    @ObservedObject var recognizedContent = RecognizedContent()
     
 
     let columns = [
@@ -56,7 +56,6 @@ struct CabinetView: View {
                     .frame(maxWidth: .infinity, alignment: .leading).padding(.leading, 20)
                 // modified: add a dynamic card
                 
-               
                 
                 
                 
@@ -70,7 +69,7 @@ struct CabinetView: View {
                     ForEach(filteredMeds.reversed()) { item in
                         
                         NavigationLink(destination:
-                                        SingleMedView(medicine: item, medicineViewModel: medicineViewModel, boxViewModel: boxViewModel)
+                                        SingleMedView(medicine: item, medicineViewModel: medicineViewModel, boxViewModel: boxViewModel,statsViewModel: statsViewModel )
 //                                            nome: item.name, dosaggio: item.dosage, tipologia: item.type, prezzo: item.price, unità: item.units, categoria: item.category, isPinned: item.isPinned, medicineViewModel: medicineViewModel, boxViewModel: boxViewModel)
                         ) {
                             
@@ -132,6 +131,74 @@ struct CabinetView: View {
                             }
                              //most used categories
                             if searchForCategory{
+                                HStack{
+                                    Button{
+                                        } label: {
+                                        
+                                        Text("Antibiotici")
+                                            .padding()
+                                            .background(Color("arancione"))
+                                            .cornerRadius(40)
+                                            .foregroundColor(.white)
+                                    }
+                                        .onTapGesture{
+                                            searchQuery = "Antibiotici"
+                                        }
+                                    
+                                    Button{
+                                    }label: {
+                                        
+                                        Text("Dermatologici")
+                                            .padding()
+                                            .background(Color("viola"))
+                                            .cornerRadius(40)
+                                            .foregroundColor(.white)
+                                    }
+                                    .onTapGesture{
+                                        searchQuery = "Dermatologici"
+                                    }
+                                    
+                                    Button {
+                                    } label: {
+                                        Text("Integratori")
+                                            .padding()
+                                            .background(Color("giallo"))
+                                            .cornerRadius(40)
+                                            .foregroundColor(.white)
+                                    }
+                                    .onTapGesture{
+                                        searchQuery = "Integratori"
+                                    }
+                                }
+                                HStack{
+                                    Button{
+                                        } label: {
+                                        
+                                        Text("Anti-Infiammatori")
+                                            .padding()
+                                            .background(Color("nero"))
+                                            .cornerRadius(40)
+                                            .foregroundColor(.white)
+                                    }
+                                        .onTapGesture{
+                                            searchQuery = "Anti-Infiammatori"
+                                        }
+                                    
+                                    Button {
+                                    }label: {
+                                        
+                                        Text("Gastrointestinali")
+                                            .padding()
+                                            .background(Color("verde"))
+                                            .cornerRadius(40)
+                                            .foregroundColor(.white)
+                                    }
+                                    .onTapGesture{
+                                        searchQuery = "Gastrointestinali"
+                                    }
+                                    
+                                    
+                                }
                             HStack{
                                 Button{
                                     } label: {
@@ -186,7 +253,27 @@ struct CabinetView: View {
                                 }
                                 
                                 
+                                
+                                Button{
+                                }label: {
+                                    
+                                    Text("Antivirali")
+                                        .padding()
+                                        .background(Color("verde"))
+                                        .cornerRadius(40)
+                                        .foregroundColor(.white)
+                                }
+                                .onTapGesture{
+                                    searchQuery = "Antivirali"
+                                }
+                          
+                               
+                           
+                               
+                                
+                                
                             }
+                                Spacer()
 
                         }
                         }
@@ -201,11 +288,22 @@ struct CabinetView: View {
 
                 }
                 }
+                
+                if showData{
+                Text(recognizedText)
+                    .font(.system(size: 5))
+                }
 //                .onAppear{
 //                    searchForCategory = false
 //                }
                 }
             }
+            .onAppear{
+                statsViewModel.statValue(currentvalue: statsViewModel.stats[0].value)
+            }
+            
+            
+            
             
             .navigationTitle(LocalizedStringKey(String("Armadietto")))
             .navigationBarItems(trailing:
@@ -217,13 +315,26 @@ struct CabinetView: View {
                 
 //                new button that redirects to the view for adding a new item
                 Button(action: {
-                    showData.toggle()
+                    showScanner.toggle()
                 }) {
                     
                         Image(systemName: "plus.circle.fill").foregroundColor(CustomColor.darkblue).scaleEffect(1.5)
                     
                 }
             })
+            .sheet(isPresented: $showScanner) {
+                ScanDocumentView(recognizedText: self.$recognizedText, showingNewItemView: $showData)
+
+            }
+            .sheet(isPresented: $showData) {
+                NewItemView(text: self.recognizedText ,showData : $showData ,medicineViewModel: medicineViewModel, boxViewModel: boxViewModel, statsViewModel: statsViewModel, reconizeddata: RecognizedData())
+            }
+            
+            
+//
+//            .sheet(isPresented: $showScanner) {
+//                ScanDocumentView(recognizedText: self.$recognizedText, showingNewItemView: $showData)}
+//                    .sheet(isPresented: $showData, content: {NewItemView(text: self.recognizedText ,showData : $showData ,medicineViewModel: medicineViewModel, boxViewModel: boxViewModel, statsViewModel: statsViewModel)})
         }
         
 //       .sheet(isPresented: $showScanner) { // modified: add new medicine sheet

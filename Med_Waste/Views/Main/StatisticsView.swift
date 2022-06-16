@@ -11,8 +11,10 @@ import SwiftUI
 
 struct StatisticsView: View {
 //    @Binding var status : String
+    @ObservedObject var statsviewmodel : StatsViewModel
     @State var showloader = false
-    @ObservedObject var statsviewmodel = StatsViewModel()
+   
+//    @ObservedObject var statsviewmodel = StatsViewModel()
     @State var animation : CGFloat = 300
 //    @Published var ok = StatsViewModel().stats[0].value {
 //        willSet{
@@ -31,20 +33,9 @@ struct StatisticsView: View {
                     .frame(width: UIScreen.screenWidth, height: UIScreen.screenHeight/2.5, alignment: .center)
                 }
            
-//                VStack (spacing:0){
-             
-//                }
-//StatsDetailView()
-                
-                StatCardView(Status: "total" , stat : String(statsviewmodel.stats[0].value) )
-                StatCardView(Status: "donated", stat : String(statsviewmodel.stats[1].value) )
-                StatCardView(Status: "expired", stat : String(statsviewmodel.stats[2].value) )
-//                StatCardView(Status: "total" , stat : statsviewmodel.statValue(currentvalue: statsviewmodel.stats[0].value))
-//                StatCardView(Status: "donated", stat : statsviewmodel.statValue(currentvalue: statsviewmodel.stats[1].value) )
-//                StatCardView(Status: "expired", stat : statsviewmodel.statValue(currentvalue: statsviewmodel.stats[2].value) )
-               
+           StatCardsCollection(statsviewmodel: statsviewmodel)
             } //scrool view
-//            .frame(maxWidth: UIScreen.screenWidth, maxHeight: UIScreen.screenHeight/2)
+
                 
             
             }.onAppear{

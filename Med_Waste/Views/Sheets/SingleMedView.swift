@@ -13,6 +13,7 @@ struct SingleMedView: View {
     
     var medicineViewModel: MedicineViewModel
     var boxViewModel: BoxViewModel
+    var statsViewModel: StatsViewModel
     var testo : String = "Questo medicinale appartiene alla categoria: "
     var testo2 : String = "Il prezzo di ogni singolo sctolo di medicinale è: "
     
@@ -21,6 +22,10 @@ struct SingleMedView: View {
     @State var newBoxAdded :Int = 0 // it is a state variable that refreshes the view when a new box is added
 //    @State var expirationDate :[Date] = [Date.now]
     
+//    private func deleteRow(at indexSet: IndexSet) {
+//            self.newBoxAdded.remove(atOffsets: indexSet)
+//        }
+//
     var body: some View {
         
         ScrollView {
@@ -45,7 +50,7 @@ struct SingleMedView: View {
                     }
                     Group{
                     Text(medicine.dosage)
-//                    Text(medicine.category)
+                    Text(medicine.units)
                     }
                         .font(.title3)
                         .foregroundColor(.secondary)
@@ -84,7 +89,6 @@ struct SingleMedView: View {
                 
                 
                 // if no boxes are added
-                ForEach(0..<(newBoxAdded == 0 ? boxViewModel.filterBoxesForMedicine(medicine: medicine.name).count : newBoxAdded), id: \.self) { index in
 
                     DatePickerView(selection: boxViewModel.filterBoxesForMedicine(medicine: medicine.name)[index].expirationDate, index: index)
                         .listRowBackground(CustomColor.redform)
@@ -110,9 +114,10 @@ struct SingleMedView: View {
 //                        .onTapGesture {
 //                            boxViewModel.newExpirationDate(box: &boxViewModel.filterBoxesForMedicine(medicine: medicine.name)[index], expirationDate: boxViewModel.filterBoxesForMedicine(medicine: medicine.name)[index].expirationDate)
 //                       }
-                
+//                       }
                     
                 }.padding(20)
+                    
                     
             }
             .listStyle(.inset)
@@ -126,8 +131,8 @@ struct SingleMedView: View {
             UITableView.appearance().backgroundColor = UIColor.clear
             UITableViewCell.appearance().backgroundColor = UIColor.clear
         })
-        .sheet(isPresented: $alertdonate, content: {AlertView(statethrow: false, alertdonate: $alertdonate ,alertexpire: $alertexpire, prezzo: medicine.price )})
-        .sheet(isPresented: $alertexpire, content: {AlertView(statethrow: true, alertdonate: $alertdonate ,alertexpire: $alertexpire, prezzo: medicine.price)})
+        .sheet(isPresented: $alertdonate, content: {AlertView(statsViewModel: statsViewModel, statethrow: false, alertdonate: $alertdonate ,alertexpire: $alertexpire, prezzo: medicine.price )})
+        .sheet(isPresented: $alertexpire, content: {AlertView(statsViewModel: statsViewModel, statethrow: true, alertdonate: $alertdonate ,alertexpire: $alertexpire, prezzo: medicine.price)})
         
         //        .sheet(isPresented: $alertdonate, content: {AlertView(statethrow: false)})
         //            .sheet(isPresented: $alertexpire, content: {AlertView(statethrow: true)})

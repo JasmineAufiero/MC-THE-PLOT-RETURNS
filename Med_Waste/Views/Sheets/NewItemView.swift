@@ -10,7 +10,7 @@ import SwiftUI
 
 struct NewItemView: View {
     @FocusState private var amountIsFocused: Bool
-    
+    var text : String
     @State var nome: String = ""
     @State var dosaggio: String = ""
     @State var tipologia = "Pillole"
@@ -30,10 +30,25 @@ struct NewItemView: View {
     var medicineViewModel :MedicineViewModel
     @ObservedObject var boxViewModel :BoxViewModel
     var statsViewModel : StatsViewModel
+    var reconizeddata : RecognizedData
     
     var MedCategoriesPicker = ["Antibiotici", "Antidolorifici", "Anti-Infiammatori", "Antivirali", "Antistaminici", "Dermatologici", "Gastrointestinali", "Integratori", "Altro"]
     var categoria_picker = ["Antibiotici", "Antidolorifici", "Anti-Infiammatori", "Antivirali", "Antistaminici", "Dermatologici", "Gastrointestinali", "Integratori", "Altro"]
     @State var numberofMedCategories = 0  //necessary for the picker choice
+    
+        func getdata() {
+            nome = reconizeddata.getName(text: text)
+            dosaggio = reconizeddata.getDosage(text: text)
+            tipologia = reconizeddata.getTypeName(type: reconizeddata.getType(text: text))
+            prezzo = reconizeddata.getPrice(text: text)
+            unità = reconizeddata.getUnits(text: text)
+            expirationDate[0] = [reconizeddata.getDate(text: text)!].isEmpty ? Date.now : reconizeddata.getDate(text: text)!
+        }
+   
+
+    
+    
+    
     
     var body: some View {
             
@@ -46,6 +61,7 @@ struct NewItemView: View {
                         .fontWeight(.semibold)
                         .multilineTextAlignment(.leading)
                         .padding(.horizontal,20)
+                  
                     
                     Form {
                         
@@ -53,6 +69,8 @@ struct NewItemView: View {
                             HStack {
                                 Text(LocalizedStringKey(String("Nome")))
                                     .fontWeight(.semibold)
+                                Text("*")
+                                    .fontWeight(.semibold).foregroundColor(.red)
                                 Spacer()
                                 TextField(LocalizedStringKey(String("Nome")), text: $nome)
                                     .multilineTextAlignment(.trailing)
@@ -70,7 +88,10 @@ struct NewItemView: View {
                             HStack {
                                 Text(LocalizedStringKey(String("Tipologia")))
                                     .fontWeight(.semibold)
+                                Text("*")
+                                    .fontWeight(.semibold).foregroundColor(.red)
                                 Spacer()
+                               
                                 
                                 Button(action: {
                                     self.expand.toggle()
@@ -98,6 +119,8 @@ struct NewItemView: View {
                             HStack {
                                 Text(LocalizedStringKey(String("Prezzo")))
                                     .fontWeight(.semibold)
+                                Text("*")
+                                    .fontWeight(.semibold).foregroundColor(.red)
                                 Spacer()
                                 TextField(LocalizedStringKey(String("Prezzo")), text: $prezzo)
                                     .multilineTextAlignment(.trailing)
@@ -192,13 +215,15 @@ struct NewItemView: View {
                         }
                         .listRowBackground(CustomColor.redform).padding()
                         // : section for stepper
-                        
+                        HStack{
                         
                         Text(LocalizedStringKey(String("Categoria")))
                             .font(.title2)
                             .fontWeight(.semibold)
                             .multilineTextAlignment(.leading)
-
+                        Text("*")
+                            .fontWeight(.semibold).foregroundColor(.red)
+                        }
 
                         VStack(spacing: 20) {
 //                            Picker(selection: $categoria, label: Text("Categoria Medicinale \($categoria)")) {
@@ -240,7 +265,7 @@ struct NewItemView: View {
                             Spacer()
                         Button(LocalizedStringKey(String("Conferma"))) {
                             
-                            medicineViewModel.addNewMedicine(name: nome, dosage: dosaggio, type: tipologia, price: prezzo, units: Int(unità) ?? 0, category: chosenCategory, isPinned: false)
+                            medicineViewModel.addNewMedicine(name: nome, dosage: dosaggio, type: tipologia, price: prezzo, units: unità, category: chosenCategory, isPinned: false)
                             statsViewModel.changeValue(price: prezzo, type: 0 ,noOfBoxes: Double(numerobox))
                             
                            
@@ -252,10 +277,11 @@ struct NewItemView: View {
                             showData = false
                             
                         }.frame(width: 200, height: 30, alignment: .center)
+                                
                         .disabled(nome.isEmpty || tipologia.isEmpty || prezzo.isEmpty )
                         .foregroundColor(.white)
                         .padding()
-                        .background(Color.accentColor)
+                        .background(nome.isEmpty || tipologia.isEmpty || prezzo.isEmpty  ? Color.gray : Color.accentColor)
                         .cornerRadius(8)
                         
                             Spacer()
@@ -267,6 +293,7 @@ struct NewItemView: View {
                     .onAppear(perform: {
                         UITableView.appearance().backgroundColor = UIColor.clear
                         UITableViewCell.appearance().backgroundColor = UIColor.clear
+                        getdata()
                     })
                     
                 }

@@ -14,6 +14,7 @@ struct AlertView: View {
     @State private var isEmpty = false
     @State var donateQ = "Quanto del tuo scatolo sei riuscito a donare?"
     @State var expireQ = "Quanto del tuo scatolo sei riuscito ad utilizzare?"
+    var statsViewModel : StatsViewModel
     var statethrow : Bool
    
     @Binding var alertdonate: Bool
@@ -75,7 +76,7 @@ struct AlertView: View {
             .padding()
             Spacer()
             Button(action: {
-                alertdonate ? StatsViewModel().changeValue(price: prezzo, type: 1,noOfBoxes: amount) : StatsViewModel().changeValue(price: prezzo, type: 2,noOfBoxes: amount)
+                alertdonate ? statsViewModel.changeValue(price: prezzo, type: 1,noOfBoxes: amount) : statsViewModel.changeValue(price: prezzo, type: 2,noOfBoxes: amount)
 //                BoxViewModel().changeState()
 //                medicineViewModel.pinMedicine(nome: medicine.name)
                 
