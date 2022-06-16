@@ -6,97 +6,184 @@
   
 */
 
-"Questo medicinale appartiene alla categoria: " = "This med belongs to the category: ";
-"Il prezzo di ogni singolo sctolo di medicinale è: " = "The price of a single box of meds is: ";
-"Contiene: " = "Contains: ";
-"Numero di scatole: " = "Number of boxes: ";
+"%@" = "%@";
+//"Questo medicinale appartiene alla categoria: " = "This med belongs to the category: ";
+//"Il prezzo di ogni singolo sctolo di medicinale è: " = "The price of a single box of meds is: ";
+//"Numero di scatole: " = "Number of boxes: ";
+
+"This med belongs to the category: ";
+"The price of a single box of meds is: ";
+"Number of boxes: ";
+"Contains: ";
+
+//"Armadietto" = "Cabinet";
+//"Tutti i farmaci" = "All meds";
+//"Riepilogo" = "Summary";
+//"In evidenza" = "Favourites";
+//"In scadenza" = "About to Expire";
+//"Curiosità" = "Facts";
+//"Statistiche" = "Statistics";
+//"Donabili" = "Donable";
+//"Scaduti" = "Expired";
+//"Somma dedotta in base ai medicinali scaduti presenti nell'app." = "Amount deducted based on the expired medicines present in the app.";
+//"Totale spesa medicinali. La media italiana per cittadino è 438 €." = "Total cost of medicines. The Italian average per citizen is € 438.";
+//"Somma di denaro donato in medicinali fino ad ora." = "Sum of money donated in medicines so far.";
+//"In Scadenza   " = "About to expire";
+//"Scaduti " = "Expired";
+//"Scatole" = "All the Boxes";
+//"Cerca i medicinali" = "Search for meds";
+//"Conferma Informazioni" = "Confirm Information";
+//"Mappa" = "Map";
 
 
-"Armadietto" = "Cabinet";
-"Tutti i farmaci" = "All meds";
-"Riepilogo" = "Summary";
-"In evidenza" = "Favourites";
-"In scadenza" = "About to Expire";
-"Curiosità" = "Facts";
-"Statistiche" = "Statistics";
-"Donabili" = "Donable";
-"Scaduti" = "Expired";
-"Somma dedotta in base ai medicinali scaduti presenti nell'app." = "Amount deducted based on the expired medicines present in the app.";
-"Totale spesa medicinali. La media italiana per cittadino è 438 €." = "Total cost of medicines. The Italian average per citizen is € 438.";
-"Somma di denaro donato in medicinali fino ad ora." = "Sum of money donated in medicines so far.";
-"In Scadenza   " = "About to expire";
-"Scaduti " = "Expired";
-"Scatole" = "All the Boxes";
-"Cerca i medicinali" = "Search";
-"Conferma Informazioni" = "Confirm Information";
+
+ "Cabinet";
+"Map";
+"All meds";
+ "Summary";
+ "Favourites";
+ "About to Expire";
+ "Facts";
+ "Statistics";
+ "Donable";
+ "Expired";
+ "Amount deducted based on the expired medicines present in the app.";
+ "Total cost of medicines. The Italian average per citizen is € 438.";
+"Sum of money donated in medicines so far.";
+ "About to expire";
+ "Expired";
+ "All the Boxes";
+ "Search for meds";
+ "Confirm Information";
+"Status";
 
 //alerts
-"Fatto" = "Done";
-"Quanto del tuo scatolo sei riuscito a donare?" = "How much of your box were you able to donate?";
-"Quanto del tuo scatolo sei riuscito ad utilizzare?" = "How much of your box did you manage to use?";
-"Meno della metà" = "Less than half";
-"Circa la metà" = "Almost half";
-"Quasi tutto lo scatolo" = "Almost all the box";
+//"Fatto" = "Done";
+//"Quanto del tuo scatolo sei riuscito a donare?" = "How much of your box were you able to donate?";
+//"Quanto del tuo scatolo sei riuscito ad utilizzare?" = "How much of your box did you manage to use?";
+//"Meno della metà" = "Less than half";
+//"Circa la metà" = "Almost half";
+//"Quasi tutto lo scatolo" = "Almost all the box";
+
+
+"Done";
+"How much of your box were you able to donate?";
+"How much of your box did you manage to use?";
+"Less than half";
+"Almost half";
+"Almost all the box";
 
 
 
+
+
+////placeholder and newitem view text
+//"Nome" = "Name";
+//"Dosaggio" = "Dosage";
+//"Categoria" = "Category";
+//"Tipologia" = "Type";
+//"Prezzo" = "Price";
+//"Unità" = "Units";
+//"Conferma" = "Done";
+//"Nuovo medicinale" = "New med";
+//"Scegli" = "Choose";
+//"Date di Scadenza" = "Expiration dates";
 
 
 //placeholder and newitem view text
-"Nome" = "Name";
-"Dosaggio" = "Dosage";
-"Categoria" = "Category";
-"Tipologia" = "Type";
-"Prezzo" = "Price";
-"Unità" = "Units";
-"Conferma" = "Done";
-"Nuovo medicinale" = "New med";
-"Scegli" = "Choose";
-"Date di Scadenza" = "Expiration dates";
+"Name";
+"Dosage";
+"Category";
+"Type";
+"Price";
+"Units";
+"Done";
+"New med";
+"Choose";
+"Expiration dates";
 
 
 
 
 
+//
+//"Antibiotici" = "Antibiotics";
+//"Antidolorifici" = "Painkillers";
+//"Anti-Infiammatori" = "Anti-inflammatory";
+//"Antivirali" = "Antivirals";
+//"Antistaminici" = "Antihistamines";
+//"Dermatologici" = "Dermatological";
+//"Gastrointestinali" = "Gastrointestinal";
+//"Integratori" = "Supplements";
+//"Altro" = "Other";
 
-"Antibiotici" = "Antibiotics";
-"Antidolorifici" = "Painkillers";
-"Anti-Infiammatori" = "Anti-inflammatory";
-"Antivirali" = "Antivirals";
-"Antistaminici" = "Antistamines";
-"Dermatologici" = "Dermatological";
-"Gastrointestinali" = "Gastrointestinal";
-"Integratori" = "Supplements";
-"Altro" = "Other";
+//when the language is english
+
+"Antibiotics" = "Antibiotici" ;
+"Painkillers";
+"Anti-inflammatory";
+"Antivirals";
+"Antihistamines";
+"Dermatological";
+"Gastrointestinal";
+"Supplements";
+"Other";
+
 
 
 
 
 //picker
-"Pillole" = "Pills";
-"Bustine" = "Sachets";
-"Sciroppo" = "Syrup";
-"Pomata" = "Ointment";
-"Fiala" = "Vial";
+//"Pillole" = "Pills";
+//"Bustine" = "Sachets";
+//"Sciroppo" = "Syrup";
+//"Pomata" = "Ointment";
+//"Fiala" = "Vial";
+
+"Pills";
+ "Sachets";
+"Syrup";
+ "Ointment";
+"Vial";
 
 
-"Tutte le scatole hanno la stessa data di scadenza" = "All the boxes have the same expiration date";
+
+//"Tutte le scatole hanno la stessa data di scadenza" = "All the boxes have the same expiration date";
+
+"All the boxes have the same expiration date";
+
+////tips translations
+//"Circa un miliardo di compresse vengono sprecate ogni anno perché le famiglie acquistano in quantità superiori al necessario" = "One billion tablets are wasted each year because families buy a bigger quantity then needed";
+//"In 20 anni la Giornata di Raccolta del Farmaco ha raccolto oltre 5.600.000 farmaci (valore 34 milioni di euro)." = "In 20 years, Medicines Collection National Day has collected over 5,600,000 medicines (worth 34 million euros).";
+//"Dal 2000, ogni anno, il secondo sabato di febbraio, i volontari di Banco Farmaceutico nelle farmacie aderenti, invitano i cittadini a donare farmaci per enti caritativi." = "Since 2000, every year, on the second Saturday of February, Banco Farmaceutico volunteers, in participating pharmacies, invite citizens to donate mediiness to charitable organizations.";
+//"Le sostanze derivanti dal cattivo smaltimento di farmaci, disperse nell’ambiente, permangono per circa 21 anni, affliggendo mare, cibo e noi stessi." = "The substances resulting from the bad disposal of medicines, dispersed in the environment, remain for about 21 years, afflicting the sea, food and ourselves.";
+//"In alcuni Paesi europei la legge permette di usare le ceneri derivate dalla combustione dei farmaci come substrato per l’asfalto di autostrade. " = "In some European countries, the law allows the ashes derived from the combustion of drugs to be used as a substrate for the asphalt of motorways.";
+//"I fiumi del mondo sono contaminati: sono stati riscontrati livelli potenzialmente tossici di circa 61 medicinali in oltre 65 fiumi del mondo." = "The rivers of the world are contaminated: potentially toxic levels of approximately 61 medicines have been found in over 65 rivers around the world.";
+//"Creme solari eco friendly: secondo la UNWTO, solo nei mari tropicali, vengono rilasciate dalle 6.000 alle 14.000 tonnellate di creme l’anno raggiungendo le barriere coralline." = "Eco-friendly sun screens: according to UNWTO, only in tropical seas, 6,000 to 14,000 tons of creams are released, per year, reaching coral reefs.";
+//"I farmaci scaduti vengono bruciati a temperature altissime: la combustione controllata scompone i principi attivi in componenti di base che non inquinano l’ecosistema" = "Expired drugs are burned at very high temperatures: controlled combustion breaks down the active ingredients into basic components that do not pollute the ecosystem.";
+//"Il 18 novembre è la giornata europea per un uso consapevole di antibiotici, nell'ambito della Settimana mondiale della consapevolezza anticicrobica promossa dall’OMS, 18-24 novembre." = "November 18 is the European day for the conscious use of antibiotics, as part of the World Week of Anti-microbial Awareness promoted by the WHO, November 18-24.";
+//"Prima del periodo covid il farmaco più venduto in assoluto in Italia, per vari anni, è stata la Tachipirina." = "Before the covid period, the best-selling med in Italy for several years was Tachipirina.";
+//"La spesa media di farmaci per un cittadino italiano è di circa 482 euro mentre quella farmaceutica complessiva è circa 21 milioni di euro." = "The average cost of medicines for an Italian citizen is around 482 euros while the total pharmaceutical one is around 21 million euros.";
+//"Ogni anno, rimane inutilizzato circa il 30% di 24 miliardi di dosi di farmaco (otto miliardi di compresse) che ospedali e cittadini acquistano. " = "Each year, about 30% of the 24 billion doses of the drug (eight billion tablets) that hospitals and citizens buy remain unused.";
+//"Nel 2019, l'Italia si è classificata prima in Europa per numero di morti legato all'antibiotico-resistenza (un antibiotico perde la sua efficacia nell’uccidere un batterio)." = "In 2019, Italy ranked first in Europe for the number of deaths linked to antibiotic resistance (an antibiotic loses its effectiveness in killing a bacterium).";
+
+
+
 
 //tips translations
-"Circa un miliardo di compresse vengono sprecate ogni anno perché le famiglie acquistano in quantità superiori al necessario" = "One billion tablets are wasted each year because families buy a bigger quantity then needed";
-"In 20 anni la Giornata di Raccolta del Farmaco ha raccolto oltre 5.600.000 farmaci (valore 34 milioni di euro)." = "In 20 years, Medicines Collection National Day has collected over 5,600,000 medicines (worth 34 million euros).";
-"Dal 2000, ogni anno, il secondo sabato di febbraio, i volontari di Banco Farmaceutico nelle farmacie aderenti, invitano i cittadini a donare farmaci per enti caritativi." = "Since 2000, every year, on the second Saturday of February, Banco Farmaceutico volunteers, in participating pharmacies, invite citizens to donate mediiness to charitable organizations.";
-"Le sostanze derivanti dal cattivo smaltimento di farmaci, disperse nell’ambiente, permangono per circa 21 anni, affliggendo mare, cibo e noi stessi." = "The substances resulting from the bad disposal of medicines, dispersed in the environment, remain for about 21 years, afflicting the sea, food and ourselves.";
-"In alcuni Paesi europei la legge permette di usare le ceneri derivate dalla combustione dei farmaci come substrato per l’asfalto di autostrade. " = "In some European countries, the law allows the ashes derived from the combustion of drugs to be used as a substrate for the asphalt of motorways.";
-"I fiumi del mondo sono contaminati: sono stati riscontrati livelli potenzialmente tossici di circa 61 medicinali in oltre 65 fiumi del mondo." = "The rivers of the world are contaminated: potentially toxic levels of approximately 61 medicines have been found in over 65 rivers around the world.";
-"Creme solari eco friendly: secondo la UNWTO, solo nei mari tropicali, vengono rilasciate dalle 6.000 alle 14.000 tonnellate di creme l’anno raggiungendo le barriere coralline." = "Eco-friendly sun screens: according to UNWTO, only in tropical seas, 6,000 to 14,000 tons of creams are released, per year, reaching coral reefs.";
-"I farmaci scaduti vengono bruciati a temperature altissime: la combustione controllata scompone i principi attivi in componenti di base che non inquinano l’ecosistema" = "Expired drugs are burned at very high temperatures: controlled combustion breaks down the active ingredients into basic components that do not pollute the ecosystem.";
-"Il 18 novembre è la giornata europea per un uso consapevole di antibiotici, nell'ambito della Settimana mondiale della consapevolezza anticicrobica promossa dall’OMS, 18-24 novembre." = "November 18 is the European day for the conscious use of antibiotics, as part of the World Week of Anti-microbial Awareness promoted by the WHO, November 18-24.";
-"Prima del periodo covid il farmaco più venduto in assoluto in Italia, per vari anni, è stata la Tachipirina." = "Before the covid period, the best-selling med in Italy for several years was Tachipirina.";
-"La spesa media di farmaci per un cittadino italiano è di circa 482 euro mentre quella farmaceutica complessiva è circa 21 milioni di euro." = "The average cost of medicines for an Italian citizen is around 482 euros while the total pharmaceutical one is around 21 million euros.";
-"Ogni anno, rimane inutilizzato circa il 30% di 24 miliardi di dosi di farmaco (otto miliardi di compresse) che ospedali e cittadini acquistano. " = "Each year, about 30% of the 24 billion doses of the drug (eight billion tablets) that hospitals and citizens buy remain unused.";
-"Nel 2019, l'Italia si è classificata prima in Europa per numero di morti legato all'antibiotico-resistenza (un antibiotico perde la sua efficacia nell’uccidere un batterio)." = "In 2019, Italy ranked first in Europe for the number of deaths linked to antibiotic resistance (an antibiotic loses its effectiveness in killing a bacterium).";
-
+"One billion tablets are wasted each year because families buy a bigger quantity then needed";
+"In 20 years, Medicines Collection National Day has collected over 5,600,000 medicines (worth 34 million euros).";
+"Since 2000, every year, on the second Saturday of February, Banco Farmaceutico volunteers, in participating pharmacies, invite citizens to donate mediiness to charitable organizations.";
+"The substances resulting from the bad disposal of medicines, dispersed in the environment, remain for about 21 years, afflicting the sea, food and ourselves.";
+ "In some European countries, the law allows the ashes derived from the combustion of drugs to be used as a substrate for the asphalt of motorways.";
+"The rivers of the world are contaminated: potentially toxic levels of approximately 61 medicines have been found in over 65 rivers around the world.";
+"Eco-friendly sun screens: according to UNWTO, only in tropical seas, 6,000 to 14,000 tons of creams are released, per year, reaching coral reefs.";
+"Expired drugs are burned at very high temperatures: controlled combustion breaks down the active ingredients into basic components that do not pollute the ecosystem.";
+"November 18 is the European day for the conscious use of antibiotics, as part of the World Week of Anti-microbial Awareness promoted by the WHO, November 18-24.";
+ "Before the covid period, the best-selling med in Italy for several years was Tachipirina.";
+ "The average cost of medicines for an Italian citizen is around 482 euros while the total pharmaceutical one is around 21 million euros.";
+ "Each year, about 30% of the 24 billion doses of the drug (eight billion tablets) that hospitals and citizens buy remain unused.";
+ "In 2019, Italy ranked first in Europe for the number of deaths linked to antibiotic resistance (an antibiotic loses its effectiveness in killing a bacterium).";
 
 
 

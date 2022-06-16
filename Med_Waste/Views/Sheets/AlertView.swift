@@ -12,8 +12,8 @@ struct AlertView: View {
     @State private var isHalf = false
     @State private var isFull = false
     @State private var isEmpty = false
-    @State var donateQ = "Quanto del tuo scatolo sei riuscito a donare?"
-    @State var expireQ = "Quanto del tuo scatolo sei riuscito ad utilizzare?"
+    @State var donateQ = "How much of your box were you able to donate?"
+    @State var expireQ = "How much of your box did you manage to use?"
     var statsViewModel : StatsViewModel
     var statethrow : Bool
    
@@ -47,7 +47,7 @@ struct AlertView: View {
                     .fontWeight(.semibold)
                 }
                 
-                CircleCheckBox(isSelected: isEmpty, state: "Meno della metà").onTapGesture {
+                CircleCheckBox(isSelected: isEmpty, state: "Less than half").onTapGesture {
                     isEmpty.toggle()
                     if isEmpty{
                         isHalf = false
@@ -56,7 +56,7 @@ struct AlertView: View {
                     }
                     
                 }
-                CircleCheckBox(isSelected: isHalf, state: "Circa la metà").onTapGesture {
+                CircleCheckBox(isSelected: isHalf, state: "Almost half").onTapGesture {
                     isHalf.toggle()
                     if isHalf{
                         isEmpty = false
@@ -64,7 +64,7 @@ struct AlertView: View {
                         amount = 0.5
                     }
                 }
-                CircleCheckBox(isSelected: isFull, state: "Quasi tutto lo scatolo").onTapGesture {
+                CircleCheckBox(isSelected: isFull, state: "Almost all the box").onTapGesture {
                     isFull.toggle()
                     if isFull{
                         isHalf = false
@@ -86,7 +86,7 @@ struct AlertView: View {
                 RoundedRectangle(cornerRadius: 10)
                     .frame(width: 300, height: 50, alignment: .center)
                 
-                    .overlay(Text(LocalizedStringKey(String("Fatto"))).foregroundColor(.white))
+                    .overlay(Text(LocalizedStringKey(String("Done"))).foregroundColor(.white))
             }).disabled(!(isFull || isHalf || isEmpty))
             
             

@@ -30,16 +30,16 @@ struct ContentView: View {
             TabView(selection: $DefaultTab){
                 
                 SummaryView(medicineViewModel: medicineViewModel, boxViewModel: boxViewModel)
-                    .tabItem {Label(LocalizedStringKey(String("Riepilogo")), systemImage: "square.grid.2x2.fill")}
+                    .tabItem {Label(LocalizedStringKey(String("Summary")), systemImage: "square.grid.2x2.fill")}
                     .tag(1)
   
 
                 CabinetView(pinnedMedicineNumber: 10, medicineViewModel: medicineViewModel, boxViewModel: boxViewModel, statsViewModel: statsViewModel)
-                    .tabItem {Label(LocalizedStringKey(String("Armadietto")), systemImage: "heart.text.square.fill")}
+                    .tabItem {Label(LocalizedStringKey(String("Cabinet")), systemImage: "heart.text.square.fill")}
                     .tag(2)
 
                 StatisticsView(statsviewmodel: statsViewModel)
-                    .tabItem {Label(LocalizedStringKey(String("Statistiche")), systemImage: "chart.pie.fill")}
+                    .tabItem {Label(LocalizedStringKey(String("Statistics")), systemImage: "chart.pie.fill")}
                     .tag(3)
 
             }

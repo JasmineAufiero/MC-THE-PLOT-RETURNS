@@ -19,7 +19,7 @@ struct MedData: Identifiable, Hashable, Codable {
     var price :String
     var units : String
     var category :String
-     var isPinned :Bool = false
+    var isPinned :Bool = false
     
     init(id :UUID = UUID(), name :String, dosage :String, type :String, price :String, units : String , category :String, isPinned :Bool) {
         self.id = id

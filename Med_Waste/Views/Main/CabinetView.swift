@@ -43,8 +43,6 @@ struct CabinetView: View {
         }
     }
     
-//    localized string keys
-    
 
     var body: some View {
         
@@ -52,7 +50,7 @@ struct CabinetView: View {
             ScrollView {
                 
             VStack{
-                Text(LocalizedStringKey(String("Tutti i farmaci"))).fontWeight(.bold)
+                Text(LocalizedStringKey(String("All meds"))).fontWeight(.bold)
                     .frame(maxWidth: .infinity, alignment: .leading).padding(.leading, 20)
                 // modified: add a dynamic card
                 
@@ -80,7 +78,7 @@ struct CabinetView: View {
                             }
                         }
                     }
-                    }.searchable(text: $searchQuery, prompt: LocalizedStringKey(String("Cerca i medicinali")))
+                }.searchable(text: $searchQuery, prompt: LocalizedStringKey(String("Search for meds")))
                     
                 {
                     if searchQuery.isEmpty {
@@ -91,7 +89,7 @@ struct CabinetView: View {
                         
                         
                         VStack(alignment: .leading, spacing: 10){
-                            Text("Stato")
+                            Text(LocalizedStringKey(String("Status")))
                                 .font(.title).fontWeight(.semibold)
                             HStack{
                                 
@@ -103,7 +101,7 @@ struct CabinetView: View {
                                 }label: {
                                     HStack{
                                         Image(systemName: "trash.fill")
-                                        Text(LocalizedStringKey(String("Scaduti")))
+                                        Text(LocalizedStringKey(String("Expired")))
                                         
                                     }.padding()
                                         .background(CustomColor.expiredred)
@@ -117,7 +115,7 @@ struct CabinetView: View {
                                     HStack{
                                         
                                         DonateIcon()
-                                        Text(LocalizedStringKey(String("Donabili")))
+                                        Text(LocalizedStringKey(String("Donable")))
                                         
                                     }.padding()
                                         .background(CustomColor.donnatedgreen)
@@ -127,7 +125,7 @@ struct CabinetView: View {
                                 
                             }
                             Toggle(isOn: $searchForCategory) {
-                                Text(LocalizedStringKey(String("Categoria"))).font(.title).fontWeight(.semibold)
+                                Text(LocalizedStringKey(String("Category"))).font(.title).fontWeight(.semibold)
                             }
                              //most used categories
                             if searchForCategory{
@@ -203,53 +201,53 @@ struct CabinetView: View {
                                 Button{
                                     } label: {
                                     
-                                    Text(LocalizedStringKey(String("Antistaminici")))
+                                    Text(LocalizedStringKey(String("Antihistamines")))
                                         .padding()
                                         .background(Color("blu"))
                                         .cornerRadius(40)
                                         .foregroundColor(.white)
                                 }
                                     .onTapGesture{
-                                        searchQuery = "Antistaminici"
+                                        searchQuery = "Antihistamines"
                                     }
                                 Button{
                                 }label: {
                                     
-                                    Text(LocalizedStringKey(String("Integratori")))
+                                    Text(LocalizedStringKey(String("Supplements")))
                                         .padding()
                                         .background(Color("giallo"))
                                         .cornerRadius(40)
                                         .foregroundColor(.white)
                                 }
                                 .onTapGesture{
-                                    searchQuery = "Integratori"
+                                    searchQuery = "Supplements"
                                 }
                             }
                             HStack{
                                 Button {
                                 }label: {
                                     
-                                    Text(LocalizedStringKey(String("Gastrointestinali")))
+                                    Text(LocalizedStringKey(String("Gastrointestinal")))
                                         .padding()
                                         .background(Color("verde"))
                                         .cornerRadius(40)
                                         .foregroundColor(.white)
                                 }
                                 .onTapGesture{
-                                    searchQuery = "Gastrointestinali"
+                                    searchQuery = "Gastrointestinal"
                                 }
                                
                            
                                 Button {    
                                 } label: {
-                                    Text(LocalizedStringKey(String("Antidolorifici")))
+                                    Text(LocalizedStringKey(String("Painkillers")))
                                         .padding()
                                         .background(Color("rosso"))
                                         .cornerRadius(40)
                                         .foregroundColor(.white)
                                 }
                                 .onTapGesture{
-                                    searchQuery = "Antidolorifici"
+                                    searchQuery = "Painkillers"
                                 }
                                 
                                 
@@ -305,7 +303,7 @@ struct CabinetView: View {
             
             
             
-            .navigationTitle(LocalizedStringKey(String("Armadietto")))
+            .navigationTitle(LocalizedStringKey(String("Cabinet")))
             .navigationBarItems(trailing:
                                     HStack(spacing: 20){
                 Button(action: { locationManagerK.showMap = true }, label: { Image(systemName: "map.circle.fill").scaleEffect(1.5)})

@@ -65,15 +65,15 @@ struct PlaceholderMedicine: View {
                 // add a method in the ViewModel that define the image based on the type
                 RoundedRectangle(cornerRadius: 20).fixedSize(horizontal: false, vertical: false).frame( height: 5 , alignment: .center).foregroundColor(CustomColor.graytext)
                 HStack{
-                    Text(LocalizedStringKey(String("Nome"))).font(.title3).fontWeight(.bold).textCase(.uppercase)
+                    Text(LocalizedStringKey(String("Name"))).font(.title3).fontWeight(.bold).textCase(.uppercase)
                         .scaledToFit()
                             .minimumScaleFactor(0.01)
                             .lineLimit(1)
                     Spacer()
-                    Text (LocalizedStringKey(String("Dosaggio"))).font(.subheadline)
+                    Text (LocalizedStringKey(String("Dosage"))).font(.subheadline)
                 }
                 HStack{
-                    Text(LocalizedStringKey(String("Categoria")))
+                    Text(LocalizedStringKey(String("Category")))
                     Spacer()
                 }
                 

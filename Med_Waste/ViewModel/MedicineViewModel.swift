@@ -93,25 +93,24 @@ class MedicineViewModel :ObservableObject {
     func categoryColor (medicine: MedData) -> String {
         
         switch medicine.category {
-        case "Antibiotici":
+        case "Antibiotics":
             return "arancione"
-        case "Antidolorifici":
+        case "Painkillers":
 //            return "arancione"
             return "rosso"
-        case "Anti-Infiammatori":
+        case "Anti-inflammatory":
 //            return "arancione"
             return "nero"
-        case "Antivirali":
+        case "Antivirals":
             return "grigio"
-//            return "verde"
-        case "Antistaminici":
+        case "Antihistamines":
             return "blu"
-        case "Dermatologici":
+        case "Dermatological":
 //            return "verde"
             return "viola"
-        case "Gastrointestinali":
+        case "Gastrointestinal":
             return "verde"
-        case "Integratori":
+        case "Supplements":
             return "giallo"
         default:
             return "grigio"
@@ -123,23 +122,27 @@ class MedicineViewModel :ObservableObject {
     func chooseImage(type: String, medicine : MedData) -> String {
         
         switch type {
-        case "Pillole":
+        case "Pills":
             return "pillola\(categoryColor(medicine: medicine))"
             
-        case "Bustine":
+        case "Sachets":
             return "bustina\(categoryColor(medicine: medicine))"
             
-        case "Pomata":
+        case "Ointment":
             return "pomata\(categoryColor(medicine: medicine))"
             
-        case "Sciroppo":
+        case "Syrup":
             return "sciroppo\(categoryColor(medicine: medicine))"
-        case "Fiala":
+            
+            
+        case "Vial":
             return "fiala\(categoryColor(medicine: medicine))"
             
         default:
             return "pillolagrigio"
-    
+
+            
+       
         }
     }
     
