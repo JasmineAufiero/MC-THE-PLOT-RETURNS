@@ -14,7 +14,7 @@
 		275E28BC284F9D2D00856D12 /* CircleStatistic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275E28BB284F9D2D00856D12 /* CircleStatistic.swift */; };
 		275E28BE284F9D3600856D12 /* StatCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275E28BD284F9D3600856D12 /* StatCardView.swift */; };
 		275E28C0284F9D5F00856D12 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275E28BF284F9D5F00856D12 /* SearchView.swift */; };
-          27658044285937B4009A7094 /* RecognizeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27658043285937B4009A7094 /* RecognizeData.swift */; };
+		27658044285937B4009A7094 /* RecognizeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27658043285937B4009A7094 /* RecognizeData.swift */; };
 		3C32006628573D0100743A05 /* PinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C32006528573D0100743A05 /* PinView.swift */; };
 		3C3200682857489600743A05 /* DuckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3200672857489600743A05 /* DuckView.swift */; };
 		3C38168C2859D424006A5C18 /* quack.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3C38168B2859D424006A5C18 /* quack.mp3 */; };
@@ -22,7 +22,6 @@
 		3C97316B28564A8C00A32921 /* PharmaciesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C97316A28564A8C00A32921 /* PharmaciesData.swift */; };
 		3C97316D2856625D00A32921 /* PharmacyPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C97316C2856625D00A32921 /* PharmacyPreview.swift */; };
 		3CB4BE0628534AA10049F7F4 /* PharmaciesData.json in Resources */ = {isa = PBXBuildFile; fileRef = 3CB4BE0528534AA00049F7F4 /* PharmaciesData.json */; };
-		3CB4BE0828534B430049F7F4 /* Pharmacy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB4BE0728534B430049F7F4 /* Pharmacy.swift */; };
 		3CB4BE0828534B430049F7F4 /* Pharmacy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB4BE0728534B430049F7F4 /* Pharmacy.swift */; };
 		470DE6D5284F958400FFB711 /* CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470DE6D3284F958400FFB711 /* CustomColors.swift */; };
 		473D8010284F99FD00D2FD6A /* BoxViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473D800D284F99FD00D2FD6A /* BoxViewModel.swift */; };
@@ -66,9 +65,9 @@
 		27498C2128572DC900BE0DFE /* StatsData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatsData.swift; sourceTree = "<group>"; };
 		27498C2328572ECA00BE0DFE /* CircleAnimationCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleAnimationCard.swift; sourceTree = "<group>"; };
 		275E28BB284F9D2D00856D12 /* CircleStatistic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleStatistic.swift; sourceTree = "<group>"; };
-          27658043285937B4009A7094 /* RecognizeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecognizeData.swift; sourceTree = "<group>"; };
 		275E28BD284F9D3600856D12 /* StatCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatCardView.swift; sourceTree = "<group>"; };
 		275E28BF284F9D5F00856D12 /* SearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		27658043285937B4009A7094 /* RecognizeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecognizeData.swift; sourceTree = "<group>"; };
 		3C32006528573D0100743A05 /* PinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinView.swift; sourceTree = "<group>"; };
 		3C3200672857489600743A05 /* DuckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuckView.swift; sourceTree = "<group>"; };
 		3C38168B2859D424006A5C18 /* quack.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = quack.mp3; sourceTree = "<group>"; };
@@ -541,11 +540,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Med_Waste/Preview Content\"";
-				DEVELOPMENT_TEAM = YR37B9HTTD;
+				DEVELOPMENT_TEAM = Z33CSW7W9J;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Maka;
-                    INFOPLIST_KEY_NSCameraUsageDescription = "This app uses the camera to scan the details on medicine boxes.";
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app uses the camera to scan the details on medicine boxes.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Posizione a piacere capo";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

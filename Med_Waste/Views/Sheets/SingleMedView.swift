@@ -16,6 +16,7 @@ struct SingleMedView: View {
     var statsViewModel: StatsViewModel
     var testo : String = "Questo medicinale appartiene alla categoria: "
     var testo2 : String = "Il prezzo di ogni singolo sctolo di medicinale è: "
+    var testo3 : String = "Contiene: "
     
     @State  var alertdonate = false
     @State  var alertexpire = false
@@ -48,14 +49,13 @@ struct SingleMedView: View {
                             }
                         
                     }
-                    Group{
+                  
                     Text(medicine.dosage)
-                    Text(medicine.units)
-                    }
-                        .font(.title3)
+                   .font(.title3)
                         .foregroundColor(.secondary)
                         .multilineTextAlignment(.leading)
                         .padding(.vertical, 5)
+                    
                     
                     Group{
                     Text(LocalizedStringKey(String(testo)))
@@ -64,6 +64,9 @@ struct SingleMedView: View {
                         + Text(". \n")
                     + Text(LocalizedStringKey(String(testo2)))
                     + Text("\(medicine.price)" + "€.")
+                        + Text(". \n")
+                    + Text(LocalizedStringKey(String(testo3)))
+                    + Text("\(medicine.units)")
                     //                Divider()
                     }
                     .multilineTextAlignment(.leading)
@@ -87,7 +90,7 @@ struct SingleMedView: View {
             
             List {
                 
-                
+                ForEach(0..<(newBoxAdded == 0 ? boxViewModel.filterBoxesForMedicine(medicine: medicine.name).count : newBoxAdded) , id: \.self){ index in
                 // if no boxes are added
 
                     DatePickerView(selection: boxViewModel.filterBoxesForMedicine(medicine: medicine.name)[index].expirationDate, index: index)

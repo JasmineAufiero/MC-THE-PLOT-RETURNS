@@ -329,6 +329,7 @@ struct CabinetView: View {
             .sheet(isPresented: $showData) {
                 NewItemView(text: self.recognizedText ,showData : $showData ,medicineViewModel: medicineViewModel, boxViewModel: boxViewModel, statsViewModel: statsViewModel, reconizeddata: RecognizedData())
             }
+            .sheet(isPresented: $locationManagerK.showMap, content: {MapView()})
             
             
 //
@@ -361,8 +362,8 @@ struct CabinetView: View {
 //
 //            })
         
-        .sheet(isPresented: $locationManagerK.showMap, content: {MapView()})
-        .sheet(isPresented: $showData, content: {NewItemView( showData : $showData ,medicineViewModel: medicineViewModel, boxViewModel: boxViewModel, statsViewModel: statsViewModel)})
+     
+       
 
     }
 }

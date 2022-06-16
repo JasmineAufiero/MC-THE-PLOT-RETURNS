@@ -8,6 +8,7 @@
 
 "Questo medicinale appartiene alla categoria: " = "This med belongs to the category: ";
 "Il prezzo di ogni singolo sctolo di medicinale è: " = "The price of a single box of meds is: ";
+"Contiene: " = "Contains: ";
 "Numero di scatole: " = "Number of boxes: ";
 
 
@@ -62,7 +63,7 @@
 "Antidolorifici" = "Painkillers";
 "Anti-Infiammatori" = "Anti-inflammatory";
 "Antivirali" = "Antivirals";
-"Antistaminici" = "Antihistamines";
+"Antistaminici" = "Antistamines";
 "Dermatologici" = "Dermatological";
 "Gastrointestinali" = "Gastrointestinal";
 "Integratori" = "Supplements";
