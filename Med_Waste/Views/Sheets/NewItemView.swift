@@ -133,7 +133,7 @@ struct NewItemView: View {
                                 Spacer()
                                 TextField(LocalizedStringKey(String("Unità")), text: $unità)
                                     .multilineTextAlignment(.trailing)
-                                    .keyboardType(.numberPad)
+                                    
 //                                    .focused($amountIsFocused)
                             }
                             
