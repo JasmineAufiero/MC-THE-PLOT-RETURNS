@@ -14,9 +14,13 @@ struct SingleMedView: View {
     var medicineViewModel: MedicineViewModel
     var boxViewModel: BoxViewModel
     var statsViewModel: StatsViewModel
-    var testo : String = "This med belongs to the category: "
+    var testo : String = "Med category: "
     var testo2 : String = "The price of a single box of meds is: "
     var testo3 : String = "Contains: "
+    
+    var descriptionOfCategory = {
+        
+    }
     
     @State  var alertdonate = false
     @State  var alertexpire = false
@@ -66,8 +70,12 @@ struct SingleMedView: View {
                     + Text("\(medicine.price)" + "€")
                         + Text(". \n")
                     + Text(LocalizedStringKey(String(testo3)))
+                      
                     + Text("\(medicine.units)")
+                        + Text(". \n \n")
                     //                Divider()
+                        + Text(DescriptionOfCategory(category: medicine.category))
+                            .font(.system(size: 16))
                     }
                     .multilineTextAlignment(.leading)
                     .padding(.vertical, 5)
@@ -146,6 +154,33 @@ struct SingleMedView: View {
         //        .sheet(isPresented: $alertdonate, content: {AlertView(statethrow: false)})
         //            .sheet(isPresented: $alertexpire, content: {AlertView(statethrow: true)})
         
+    }
+    
+    func DescriptionOfCategory(category: String) -> String{
+        switch category {
+        case "Antihistamines":
+            return "Antihistamines are used to relieve the ailments (symptoms) caused by allergies, such as seasonal allergic rhinitis (“hay fever”), hives, conjunctivitis and reactions to insect bites."
+    
+        case "Antibiotics":
+            return "Antibiotics are medicines used to treat or prevent infections caused by bacteria. They are able to kill the bacteria themselves and / or prevent their multiplication and spread within the body and transmission to other people."
+        case "Painkillers":
+            return "Pain relievers are drugs that relieve pain. Like any other drug, they have potential side effects, but if used correctly, respecting the doses and methods of administration, they can help improve the quality of life."
+        case "Anti-inflammatory":
+            return "Anti-inflammatories are drugs used to counteract pain, inflammation and sometimes even fever. The group of NSAIDs includes numerous active ingredients, widely used in therapy for the treatment of many ailments and diseases."
+        case "Antivirals":
+            return "Antiviral drugs are a category of chemotherapy drugs that are active against infections caused by viruses. In particular, their action manifests itself in various stages of viral replication."
+        case "Dermatological":
+            return "Usually topical medications are administered locally. They exploit the properties of the substance or its vehicle and its excipients, so that the pharmacological action takes place directly on the skin or mucosa where it is applied."
+            
+        case "Gastrointestinal":
+            return "The gastrointestinal tract drugs have the function of healing and treating the organs of the digestive system. Many of these drugs must be taken on prescription, paying close attention to the instructions on the package regarding the dosage and how to take them."
+        case "Supplements":
+           return  "Food supplements are used to supplement the normal diet in cases where there is a deficit of nutrients, for reduced intake, or for increased needs."
+        default:
+            return ""
+            
+            
+        }
     }
 }
 

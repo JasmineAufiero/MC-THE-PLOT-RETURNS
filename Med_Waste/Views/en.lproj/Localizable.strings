@@ -11,7 +11,7 @@
 //"Il prezzo di ogni singolo sctolo di medicinale è: " = "The price of a single box of meds is: ";
 //"Numero di scatole: " = "Number of boxes: ";
 
-"This med belongs to the category: ";
+"Med category: ";
 "The price of a single box of meds is: ";
 "Number of boxes: ";
 "Contains: ";
