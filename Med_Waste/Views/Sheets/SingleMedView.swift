@@ -12,7 +12,7 @@ struct SingleMedView: View {
     var medicine: MedData
     
     var medicineViewModel: MedicineViewModel
-    var boxViewModel: BoxViewModel
+    var boxViewModel : BoxViewModel
     var statsViewModel: StatsViewModel
     var testo : String = "Questo medicinale appartiene alla categoria: "
     var testo2 : String = "Il prezzo di ogni singolo sctolo di medicinale è: "
@@ -97,13 +97,19 @@ struct SingleMedView: View {
                         .listRowBackground(CustomColor.redform)
                         .swipeActions {
 
-                            Button{alertexpire.toggle()} label: {
+                            Button{
+                                boxViewModel.deleteBox(indexx: index)
+                                alertexpire.toggle()
+                                
+                            } label: {
                                 Image(systemName: "trash.fill")
                             }
                             .tint(CustomColor.expiredred)
 
 
-                            Button{alertdonate.toggle()} label: {
+                            Button{
+                                boxViewModel.deleteBox(indexx: index)
+                                alertdonate.toggle()} label: {
 
                                 //                            DonateIcon()
                                 Image(systemName: "hand.raised.fill")

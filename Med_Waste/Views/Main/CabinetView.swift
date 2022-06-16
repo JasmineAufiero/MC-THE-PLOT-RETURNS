@@ -155,20 +155,9 @@ struct CabinetView: View {
                                             .foregroundColor(.white)
                                     }
                                     .onTapGesture{
-                                        searchQuery = "Dermatologici"
+                                        searchQuery = "Dermatological"
                                     }
-                                    
-                                    Button {
-                                    } label: {
-                                        Text("Integratori")
-                                            .padding()
-                                            .background(Color("giallo"))
-                                            .cornerRadius(40)
-                                            .foregroundColor(.white)
-                                    }
-                                    .onTapGesture{
-                                        searchQuery = "Integratori"
-                                    }
+                                   
                                 }
                                 HStack{
                                     Button{
@@ -226,19 +215,7 @@ struct CabinetView: View {
                                 }
                             }
                             HStack{
-                                Button {
-                                }label: {
-                                    
-                                    Text(LocalizedStringKey(String("Gastrointestinali")))
-                                        .padding()
-                                        .background(Color("verde"))
-                                        .cornerRadius(40)
-                                        .foregroundColor(.white)
-                                }
-                                .onTapGesture{
-                                    searchQuery = "Gastrointestinali"
-                                }
-                               
+                                                               
                            
                                 Button {    
                                 } label: {
